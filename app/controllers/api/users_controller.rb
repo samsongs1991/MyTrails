@@ -2,12 +2,11 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-
         if @user.save
-            # sign in the user
-            # render the show view = pass to the client the user data
+            signin(@user)
+            render :show
         else
-            # render to the client errors about email / password 
+            render json: check_params, status: 422
         end
     end
 
@@ -15,6 +14,45 @@ class Api::UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:email, :password)
+    end
+
+    def email
+        params[:user][:email]
+    end
+
+    def password
+        params[:user][:password]
+    end
+
+    def check_params
+        email_error = check_email
+        password_error = check_password
+        { email: email_error, password: password_error }
+    end
+
+    def check_email
+        if email.nil?
+            "Email required"
+        elsif invalid_email?
+            "Email is invalid"
+        elsif email_taken?
+            "Email already exists"
+        end
+    end
+
+    def check_password
+        if password.length < 6
+            "Password must be at least 6 characters long"
+        end
+    end
+
+    def invalid_email?
+        return false unless email.include?("@")
+        return false unless email.include?(".")
+    end
+
+    def email_taken?
+        User.find_by(email: email) ? true : false
     end
     
 end
