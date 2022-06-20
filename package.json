@@ -5,6 +5,7 @@
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@reduxjs/toolkit": "^1.8.2",
     "babel-loader": "^8.2.5",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
@@ -25,7 +26,7 @@
     "test": "test"
   },
   "scripts": {
-    "postinstall": "webpack", 
+    "postinstall": "webpack",
     "start": "webpack --watch --mode=development"
   },
   "repository": {
