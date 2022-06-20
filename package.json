@@ -24,13 +24,16 @@
     "lib": "lib",
     "test": "test"
   },
-  "scripts": {},
+  "scripts": {
+    "postinstall": "webpack", 
+    "start": "webpack --watch --mode=development"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samsongs1991/MyTrails.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Samuel S Song",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/samsongs1991/MyTrails/issues"
