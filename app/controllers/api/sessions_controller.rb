@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
         if @user
             signin(@user)
-            render "/api/users/show"
+            render "/api/users/show", status: 200
         else
             render json: { signin: "Login failed" }, status: 401
         end
