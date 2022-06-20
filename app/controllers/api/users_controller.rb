@@ -47,12 +47,11 @@ class Api::UsersController < ApplicationController
     end
 
     def invalid_email?
-        return false unless email.include?("@")
-        return false unless email.include?(".")
+        !email.include?("@") || !email.include?(".")
     end
 
     def email_taken?
-        User.find_by(email: email) ? true : false
+        !!User.find_by(email: email)
     end
     
 end
