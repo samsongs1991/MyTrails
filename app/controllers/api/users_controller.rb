@@ -1,7 +1,10 @@
 class Api::UsersController < ApplicationController
+    # only for postman testing! - 6/20/22
+    skip_before_action :verify_authenticity_token
 
     def create
         @user = User.new(user_params)
+        
         if @user.save
             signin(@user)
             render :show, status: 200
@@ -31,7 +34,7 @@ class Api::UsersController < ApplicationController
     end
 
     def check_email
-        if email.nil?
+        if email.nil? || email.length == 0
             "Email required"
         elsif invalid_email?
             "Email is invalid"
@@ -41,7 +44,9 @@ class Api::UsersController < ApplicationController
     end
 
     def check_password
-        if password.length < 6
+        if password.nil? || password.length == 0
+            "Password required"
+        elsif password.length < 6
             "Password must be at least 6 characters long"
         end
     end
