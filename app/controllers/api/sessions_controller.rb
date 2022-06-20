@@ -13,6 +13,7 @@ class Api::SessionsController < ApplicationController
     def destroy
         if current_user
             signout
+            render json: {}, status: 200
         else
             render json: { signout: "Already signed out" }, status: 404
         end
