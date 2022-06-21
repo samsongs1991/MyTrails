@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { signOut } from "../../actions/session_actions.js";
+import ProfileModal from "./profile_modal.jsx";
 
-const NavBar = props => {
-    const { users, id, signOut } = props;
-    const currentUser = users[id];
+const NavBar = ({ users, id }) => {
+    const user = users[id];
+    const [modalHidden, setModalHidden] = useState(true);
         
     const profileIcon = () => (
         <div>
-            <div>Welcome {currentUser.fname}</div>
-            <img src="menu_bar.png" alt="Menu bar icon"/>
+            <div>Welcome {user.fname}</div>
+            <img 
+                src="menu_bar.png" alt="Menu bar icon"
+                onMouseOver={() => setModalHidden(false)} 
+                onMouseLeave={() => setModalHidden(true)} 
+            />
         </div>
     );
 
@@ -25,7 +29,8 @@ const NavBar = props => {
         <nav>
             <Link to="/trails">Explore</Link>
             <Link to="/"><img src="logo.png" alt="MyTrails Logo"/></Link>
-            {currentUser ? profileIcon() : sessionLinks}
+            {user ? profileIcon() : sessionLinks}
+            {modalHidden ? null : <ProfileModal setModalHidden={setModalHidden}/>}
         </nav>
     );
 };
@@ -35,8 +40,4 @@ const mSTP = state => ({
     id: state.session.id
 });
 
-const mDTP = dispatch => ({
-    signOut: () => dispatch(signOut())
-});
-
-export default connect(mSTP, mDTP)(NavBar);
+export default connect(mSTP)(NavBar);
