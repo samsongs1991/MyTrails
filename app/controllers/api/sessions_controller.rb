@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
             signin(@user)
             render "/api/users/show", status: 200
         else
-            render json: { signin: "Login failed" }, status: 401
+            render json: ["Login failed" ], status: 401
         end
     end
 
