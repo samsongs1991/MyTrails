@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
             signout
             render json: {}, status: 200
         else
-            render json: { signout: "Already signed out" }, status: 404
+            render json: ["Already signed out"], status: 404
         end
     end
     
