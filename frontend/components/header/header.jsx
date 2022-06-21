@@ -1,8 +1,9 @@
 import React from "react";
+import NavBar from "./navbar.jsx";
 
 const Header = () => (
     <header>
-        HEADER COMPONENT
+        <NavBar/>
     </header>
 );
 
