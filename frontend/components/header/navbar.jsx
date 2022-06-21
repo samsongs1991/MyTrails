@@ -6,6 +6,8 @@ import { signOut } from "../../actions/session_actions.js";
 const NavBar = props => {
     const { users, id, signOut } = props;
 
+    const currentUser = users[id];
+
     const sessionLinks = (
         <div>
             <Link to="/signup">Sign Up</Link>
@@ -15,15 +17,17 @@ const NavBar = props => {
         
     const profileIcon = (
         <div>
-            
+
         </div>
     );
+
+
     
     return (
         <nav>
             <Link to="/trails">Explore</Link>
             <Link to="/"><img src="logo.png" alt="MyTrails Logo"/></Link>
-            {id === null ? sessionLinks : profileIcon}
+            {currentUser ? profileIcon : sessionLinks}
         </nav>
     );
 };
