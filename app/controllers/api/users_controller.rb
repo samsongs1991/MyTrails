@@ -28,9 +28,15 @@ class Api::UsersController < ApplicationController
     end
 
     def check_params
+        errors = [];
+        
         email_error = check_email
+        errors.push(email_error) unless email_error.nil?
+        
         password_error = check_password
-        { email: email_error, password: password_error }
+        errors.push(password_error) unless password_error.nil?
+        
+        errors
     end
 
     def check_email
