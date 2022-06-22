@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SessionForm = props => {
+const SessionForm = ({ errors, formType, navLink, processForm, loginDemoUser }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const formMessage = () => {
+        if(formType === "signup") {
+            return "Create your free acount"
+        } else {
+            return "Log in and let's get going"
+        }
+    }
+    
+    const handleSubmit = e => {
+        e.preventDefault();
+        processForm({ email, password });
+    }
+    
     return (
         <section id="session-form">
-            <h3>Session Form Component</h3>
-            <form>
-                <input type="email" placeholder="Email"/>
-                <label>email - error messages</label>
-
-                <input type="password" placeholder="Password"/>
-                <label>pw - error messages</label>
-
-                <button type="submit">Sign Up / Log In</button>
+            <h3>{formMessage()}</h3>
+            <form onSubmit={handleSubmit}>
+                <input onChange={e => setEmail(e.target.value)} value={email} type="email" placeholder="Email"/>
+                <input onChange={e => setPassword(e.target.value)} value={password} type="password" placeholder="Password"/>
+                <div>{errors.map((err, i) => <li key={i}>{err}</li>)}</div>
+                <button type="submit">{formType === "signup" ? "Sign Up" : "Log In"}</button>
             </form>
-            <button>Demo User Log In</button>
-            {/* nav links to the other session page */}
+            <button onClick={loginDemoUser}>Demo User Log In</button>
+            {navLink}
         </section>
     );
 };
