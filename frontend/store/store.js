@@ -1,10 +1,26 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { logger } from "redux-logger";
-import rootReducer from "../reducers/root_reducer.js";
+import reducer from "../reducers/root_reducer.js";
 
-const store = configureStore({
-    reducer: rootReducer, 
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger)
-});
+let middleware = getDefaultMiddleware => getDefaultMiddleware().concat(logger);
+
+let preloadedState;
+if(window.currentUser) {
+    preloadedState = {
+        entities: {
+            users: {
+                [window.currentUser.id]: window.currentUser
+            }
+        }, 
+        session: {
+            id: window.currentUser.id
+        }
+    };
+}
+
+const store = configureStore({reducer, middleware, preloadedState});
 
 export default store;
+
+// FOR TESTING
+window.store = store;
