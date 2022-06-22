@@ -7,8 +7,8 @@ const NavBar = ({ users, id, signUp, signIn }) => {
     const user = users[id];
     const [modalHidden, setModalHidden] = useState(true);
         
-    const profileIcon = () => (
-        <div>
+    const profileLinks = () => (
+        <div id="profile-links-container">
             <div>Welcome {user.fname}</div>
             <img 
                 src="menu_bar.png" alt="Menu bar icon"
@@ -31,7 +31,7 @@ const NavBar = ({ users, id, signUp, signIn }) => {
         <nav>
             <Link to="/trails">Explore</Link>
             <Link to="/"><img src="logo.png" alt="MyTrails Logo"/></Link>
-            {user ? profileIcon() : sessionLinks}
+            {user ? profileLinks() : sessionLinks}
         </nav>
     );
 };
