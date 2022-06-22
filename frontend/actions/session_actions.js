@@ -3,20 +3,26 @@ import * as Utils from "../util/session_api_util.js";
 // Thunk action creators
 export const signIn = user => dispatch => {
     Utils.signIn(user)
-        .then(user => dispatch(receiveUser(user)))
-        .catch(err => dispatch(receiveSessionErrors(err.responseJSON)));
+        .then(
+            user => dispatch(receiveUser(user)),
+            err => dispatch(receiveSessionErrors(err.responseJSON))
+        );
 };
 
 export const signOut = () => dispatch => {
     Utils.signOut()
-        .then(() => dispatch(signOutUser()))
-        .catch(err => dispatch(receiveSessionErrors(err.responseJSON)));
+        .then(
+            () => dispatch(signOutUser()), 
+            err => dispatch(receiveSessionErrors(err.responseJSON))
+        );
 };
 
 export const signUp = user => dispatch => {
     Utils.signUp(user)
-        .then(user => dispatch(receiveUser(user)))
-        .catch(err => dispatch(receiveSessionErrors(err.responseJSON)));
+        .then(
+            user => dispatch(receiveUser(user)), 
+            err => dispatch(receiveSessionErrors(err.responseJSON))
+        );
 };
 
 // Action creators
