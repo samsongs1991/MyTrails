@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import ProfileModal from "./profile_modal.jsx";
 
-const NavBar = ({ users, id, signUp, signIn }) => {
+const NavBar = ({ users, id }) => {
     const user = users[id];
     const [modalHidden, setModalHidden] = useState(true);
         
@@ -41,11 +41,4 @@ const mSTP = state => ({
     id: state.session.id
 });
 
-// for testing the sign up and sign in buttons
-import { signIn, signUp } from "../../actions/session_actions.js";
-const mDTP = dispatch => ({
-    signIn: user => dispatch(signIn(user)), 
-    signUp: user => dispatch(signUp(user))
-});
-
-export default connect(mSTP, mDTP)(NavBar);
+export default connect(mSTP)(NavBar);
