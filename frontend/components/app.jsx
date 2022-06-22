@@ -1,14 +1,15 @@
 import React from "react";
 import Header from "./header/header.jsx";
 
-// Just finished setup for Provider and HashRouter
-// Next work on filling out the App with splash page components
+import SessionForm from "./session_forms/session_form.jsx";
 
 const App = () => (
     <>
         <Header/>
 
-
+        {/* start conditional render comps based on route */}
+        {/* session form comp - sign up / sign in pages */}
+        <SessionForm/>
     </>
 );
 
