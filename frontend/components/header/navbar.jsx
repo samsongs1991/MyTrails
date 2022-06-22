@@ -22,8 +22,8 @@ const NavBar = ({ users, id, signUp, signIn }) => {
     // for testing the sign up / sign in buttons
     const sessionLinks = (
         <div id="session-links-container">
-            <Link to="/signup" onClick={() => signUp({ email: "demo@gmail.com", password: "123456" })}>Sign Up</Link>
-            <Link to="/signin" onClick={() => signIn({ email: "demo@gmail.com", password: "123456" })}>Log In</Link>
+            <Link to="/signup">Sign Up</Link>
+            <Link to="/signin">Log In</Link>
         </div>
     );
     
