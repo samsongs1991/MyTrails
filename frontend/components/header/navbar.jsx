@@ -15,6 +15,7 @@ const NavBar = ({ users, id, signUp, signIn }) => {
                 onMouseOver={() => setModalHidden(false)} 
                 onMouseLeave={() => setModalHidden(true)} 
             />
+            {modalHidden ? null : <ProfileModal setModalHidden={setModalHidden}/>}
         </div>
     );
 
@@ -31,7 +32,6 @@ const NavBar = ({ users, id, signUp, signIn }) => {
             <Link to="/trails">Explore</Link>
             <Link to="/"><img src="logo.png" alt="MyTrails Logo"/></Link>
             {user ? profileIcon() : sessionLinks}
-            {modalHidden ? null : <ProfileModal setModalHidden={setModalHidden}/>}
         </nav>
     );
 };
