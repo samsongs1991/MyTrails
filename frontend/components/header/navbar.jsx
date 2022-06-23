@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import ProfileModal from "./profile_modal.jsx";
+import { removeSessionErrors } from "../../actions/session_actions.js";
 
-const NavBar = ({ users, id }) => {
+const NavBar = ({ users, id, clearErrors }) => {
     const user = users[id];
     const [modalHidden, setModalHidden] = useState(true);
         
@@ -21,8 +22,8 @@ const NavBar = ({ users, id }) => {
 
     const sessionLinks = (
         <div id="session-links-container">
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/signin">Log In</Link>
+            <Link to="/signup" onClick={clearErrors}>Sign Up</Link>
+            <Link to="/signin" onClick={clearErrors}>Log In</Link>
         </div>
     );
     
@@ -40,4 +41,8 @@ const mSTP = state => ({
     id: state.session.id
 });
 
-export default connect(mSTP)(NavBar);
+const mDTP = dispatch => ({
+    clearErrors: () => dispatch(removeSessionErrors())
+});
+
+export default connect(mSTP, mDTP)(NavBar);
