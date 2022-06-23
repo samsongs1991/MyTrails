@@ -102,8 +102,15 @@ header {
 
                 > a:hover {
                     background-color: rgb(245, 245, 245);;
-                    border-radius: 10px;
                     color: #428a13;
+                }
+
+                > a:first-child:hover {
+                    border-radius: 15px 15px 0px 0px;
+                }
+
+                > a:last-child:hover {
+                    border-radius: 0px 0px 15px 15px;
                 }
                 
             }
