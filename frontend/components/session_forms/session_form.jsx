@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const SessionForm = ({ errors, formType, processForm, loginDemoUser, navLink }) => {
+const SessionForm = ({ errors, formType, processForm, loginDemoUser, clearErrors }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -11,7 +12,15 @@ const SessionForm = ({ errors, formType, processForm, loginDemoUser, navLink }) 
         } else {
             processForm({ email, password });
         }
-    }
+    };
+    
+    const navLink = () => {
+        if(formType === "signup") {
+            return <div>Already have an account? <Link to="/signin" onClick={clearErrors}>Log In</Link></div>
+        } else {
+            return <div>Don't have an account? <Link to="/signup" onClick={clearErrors}>Sign up for free</Link></div>
+        }
+    };
     
     return (
         <section id="session-page">
@@ -24,7 +33,7 @@ const SessionForm = ({ errors, formType, processForm, loginDemoUser, navLink }) 
                     <button onClick={handleSubmit}>{formType === "signup" ? "Sign Up" : "Log In"}</button>
                     <button onClick={handleSubmit} id="demo-login">Demo User Log In</button>
                 </form>
-                {navLink}
+                {navLink()}
             </article>
         </section>
     );

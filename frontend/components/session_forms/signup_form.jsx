@@ -1,18 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import SessionForm from "./session_form.jsx";
-import { signUp, signIn } from "../../actions/session_actions.js";
-import { Link } from "react-router-dom";
+import { signUp, signIn, removeSessionErrors } from "../../actions/session_actions.js";
 
 const mSTP = state => ({
     errors: state.errors.session,
-    formType: "signup", 
-    navLink: <div>Already have an account? <Link to="/signin">Log In</Link></div>
+    formType: "signup"
 });
 
 const mDTP = dispatch => ({
     processForm: user => dispatch(signUp(user)),
-    loginDemoUser: () => dispatch(signIn({ email: "demo@gmail.com", password: "123456" }))
+    loginDemoUser: () => dispatch(signIn({ email: "demo@gmail.com", password: "123456" })), 
+    clearErrors: () => dispatch(removeSessionErrors())
 });
 
 export default connect(mSTP, mDTP)(SessionForm);
