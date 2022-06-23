@@ -1,3 +1,100 @@
-#session-form {
+#session-page {
+
     margin-top: 65px;
+
+    > #session-form {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        padding: 24px;
+        width: 420px;
+        height: 420px;
+        box-shadow: 0 0 15px 0.2px rgb(211, 211, 211);
+        // margin: auto;
+        // margin-top: 10%;
+
+        > h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            color: rgb(73, 73, 73);
+            // margin: 24px;
+        }
+
+        > form {
+
+            > input {
+                width: 350px;
+                height: 3em;;
+                border-radius: 7px;
+                border: 1px solid rgb(211, 211, 211);
+                font-size: 16px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: gray;
+                margin: 8px;
+                padding: 0px 20px 0px 20px;
+            }
+    
+            > input:hover {
+                border: 1.5px solid #428a13;
+            }
+    
+            > input:focus-within {
+                color: gray;
+                outline: none;
+                border: 2px solid #428a13;
+            }
+    
+            > ::placeholder {
+                color: rgb(180, 180, 180);
+            }
+
+            > div {
+                color: red;
+                font-size: 12px;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-left: 15px;
+            }
+
+            > button {
+                width: 395px;
+                height: 3.2em;;
+                border-radius: 7px;
+                border: 1px solid rgb(211, 211, 211);
+                font-size: 16px;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                background: #428a13;
+                margin: 8px;
+                padding: 0px 20px 0px 20px;            
+            }
+
+            > button:hover {
+                opacity: 0.85;
+            }
+            
+        }
+
+        > div:last-child {
+            color: gray;  
+            font-family: Arial, Helvetica, sans-serif; 
+            margin: 15px;
+
+            > a {
+                text-decoration: none;
+                color: #428a13;
+                font-weight: bold;
+            }
+
+            > a:hover {
+                opacity: 0.85;
+            }
+            
+        }
+
+    }
+
 }
