@@ -6,6 +6,11 @@ import { signOut } from "../../actions/session_actions.js";
 const ProfileModal = ({ users, id, signOut, setModalHidden }) => {
     const user = users[id];
 
+    const handleLogout = () => {
+        setModalHidden(true);
+        signOut();
+    };
+
     return (
         <menu 
             onMouseOver={() => setModalHidden(false)}
@@ -13,7 +18,7 @@ const ProfileModal = ({ users, id, signOut, setModalHidden }) => {
         >
             <Link to={`/users/${user.id}`}>Dashboard</Link>
             <Link to={`/users/${user.id}/settings`}>Settings</Link>
-            <Link to="/" onClick={signOut}>Logout</Link>
+            <Link to="/" onClick={handleLogout}>Logout</Link>
         </menu>
     );
 };
