@@ -1,4 +1,4 @@
-import { RECEIVE_SESSION_ERRORS, RECEIVE_USER, REMOVE_USER, CLEAR_ERRORS } from "../../actions/session_actions.js";
+import { RECEIVE_SESSION_ERRORS, RECEIVE_USER, REMOVE_USER } from "../../actions/session_actions.js";
 
 const sessionErrorsReducer = (prevState=[], action) => {
     Object.freeze(prevState);
@@ -8,8 +8,6 @@ const sessionErrorsReducer = (prevState=[], action) => {
         case RECEIVE_USER:
             return [];
         case REMOVE_USER:
-            return [];
-        case CLEAR_ERRORS:
             return [];
         default:
             return prevState;

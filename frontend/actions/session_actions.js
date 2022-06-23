@@ -42,8 +42,3 @@ const receiveSessionErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS, 
     errors
 });
-
-export const CLEAR_ERRORS = "CLEAR_ERRORS";
-const clearErrors = () => ({
-    type: CLEAR_ERRORS
-});

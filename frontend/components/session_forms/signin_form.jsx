@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const mSTP = state => ({
     errors: state.errors.session, 
     formType: "signin", 
-    navLink: <div>Don't have an account? <Link to="/signup" >Sign up for free</Link></div>
+    navLink: <div>Don't have an account? <Link to="/signup">Sign up for free</Link></div>
 });
 
 const mDTP = dispatch => ({

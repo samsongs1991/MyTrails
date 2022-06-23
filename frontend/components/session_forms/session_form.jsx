@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SessionForm = ({ errors, formType, navLink, processForm, loginDemoUser }) => {
+const SessionForm = ({ errors, formType, processForm, loginDemoUser, navLink }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
