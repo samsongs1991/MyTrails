@@ -19,7 +19,6 @@ const NavBar = ({ users, id }) => {
         </div>
     );
 
-    // for testing the sign up / sign in buttons
     const sessionLinks = (
         <div id="session-links-container">
             <Link to="/signup">Sign Up</Link>
