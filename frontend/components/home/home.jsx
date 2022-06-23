@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "redux";
 
 const Home = props => {
     return (
@@ -8,4 +9,12 @@ const Home = props => {
     );
 };
 
-export default Home;
+const mSTP = state => ({
+
+});
+
+const mDTP = dispatch => ({
+
+});
+
+export default connect(mSTP, mDTP)(Home);
