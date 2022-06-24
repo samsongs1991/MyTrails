@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import SearchBar from "./search_bar.jsx";
+import Trails from "./trails.jsx";
 
 const Home = ({ user }) => {
     return (
@@ -14,6 +15,7 @@ const Home = ({ user }) => {
             <SearchBar/>
             {/* trail cards */}
             {/* <Trails/> */}
+            <Trails/>
         </section>
     );
 };
