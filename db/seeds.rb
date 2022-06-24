@@ -9,6 +9,7 @@
 # Demo user
 User.create(email: "demo@gmail.com", password: 123456, fname: "Sam", lname: "Song", about_me: "I am the creator of this AllTrails clone site. I actually do love hiking and being outside with nature. My favorite hike is Bandera Mountain near Seattle, WA.", city: "Dallas", state: "TX")
 
+# 20 trails near Seattle, WA
 trails = [
     # easy difficulty
     { name: "Discovery Park and Lighthouse Loop Trail", lat: 47.6579, lng: -122.4061, location: "Discovery Park", city: "Seattle", state: "WA", country: "USA", difficulty: "easy", length: 4.4, gain: 472, category: "Loop" }, 
@@ -37,7 +38,6 @@ trails = [
     { name: "Mailbox Peak Trail", lat: 47.4674, lng: -121.6749, location: "Middle Fork Snoqualmie National Resources Conservation Area", city: "River Bend", state: "WA", country: "USA", difficulty: "hard", length: 4.8, gain: 3959, category: "Out & Back" }, 
 
 ]
-
 trails.each do |trail|
     Trail.create(trail)
 end
