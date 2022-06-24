@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import SearchBar from "./search_bar.jsx";
 
 const Home = ({ user }) => {
     return (
@@ -10,7 +11,7 @@ const Home = ({ user }) => {
                 {user ? <div>Ready to do this, {user.fname}?</div> : null}
             </section>
             {/* search bar */}
-            {/* <SearchBar/> */}
+            <SearchBar/>
             {/* trail cards */}
             {/* <Trails/> */}
         </section>
