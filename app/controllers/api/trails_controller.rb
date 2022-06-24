@@ -1,6 +1,8 @@
 class Api::TrailsController < ApplicationController
 
     def show
+        @trail = Trail.find(params[:id])
+        render :show, status:200
     end
 
     def index
