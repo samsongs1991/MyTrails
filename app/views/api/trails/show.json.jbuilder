@@ -1,4 +1,1 @@
-json.extract! @trail,
-    :id, :name, :lat, :lng, 
-    :location, :city, :state, :country,
-    :difficulty, :length, :gain, :category  
+json.partial! "/api/trails/trail", trail: @trail   
