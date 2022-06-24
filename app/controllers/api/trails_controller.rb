@@ -4,6 +4,8 @@ class Api::TrailsController < ApplicationController
     end
 
     def index
+        @trails = Trail.all
+        render :index, status: 200
     end
     
 end
