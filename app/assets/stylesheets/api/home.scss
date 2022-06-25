@@ -1,11 +1,67 @@
 #home-page {
 
     #home-image {
-        height: 400px;
+        height: 580px;
         background-image: url("/home_images/1.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        > div {
+            color: white;
+            font-size: 60px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #search-bar {
+
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 24px;
+            height: 72px;
+            width: 644px;
+            border-radius: 40px;
+            
+            > img:first-child {
+                height: 22px;
+                filter: opacity(0.5) drop-shadow(0 0 0 rgb(219, 219, 219)); 
+            }
+
+            > input {
+                font-size: 18px;
+                font-weight: 400;
+                color: #737373;
+                border: none;
+                width: 520px;
+                margin: 0px 15px;
+            }
+
+            > input:focus {
+                outline: none;
+            }
+
+            > img:last-child {
+                height: 40px;
+            }
+
+            >img:last-child:hover {
+                opacity: 0.75;
+                cursor: pointer;
+            }
+            
+        }
+        
+    }
+
+    #trails {
+
     }
     
 }

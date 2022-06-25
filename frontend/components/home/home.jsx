@@ -7,13 +7,10 @@ const Home = ({ user }) => {
     return (
         <section id="home-page">
             HOME COMPONENT
-            {/* img */}
             <section id="home-image">
-                {user ? <div>Ready to do this, {user.fname}?</div> : null}
+                <div>{user ? `Ready to do this, ${user.fname}?` : "Find your next trail"}</div>
+                <SearchBar/>
             </section>
-            {/* search bar */}
-            <SearchBar/>
-            {/* trail cards */}
             <Trails/>
         </section>
     );
