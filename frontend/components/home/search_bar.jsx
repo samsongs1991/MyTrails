@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const SearchBar = ({ trails }) => {    
+const SearchBar = ({ trails }) => {  
+
+    console.log("TRAILS INSIDE SEARCH BAR PROPS:", trails);
+      
     return (
         <form id="search-bar">
             <img src="/home_images/search_icon.png" alt="Search Icon"/>
@@ -15,7 +18,7 @@ const SearchBar = ({ trails }) => {
 };
 
 const mSTP = state => ({
-    // trails: state.entities.trails
+    trails: state.entities.trails
 });
 
 export default connect(mSTP)(SearchBar);

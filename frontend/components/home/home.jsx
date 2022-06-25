@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import SearchBar from "./search_bar.jsx";
 import Trails from "./trails.jsx";
+import { fetchAllTrails } from "../../actions/trail_actions.js";
 
-const Home = ({ user }) => {
+const Home = ({ user, fetchAllTrails }) => {
+    
+    useEffect(() => {
+        fetchAllTrails();
+    }, []);
+    
     return (
         <section id="home-page">
             <section id="home-image">
@@ -19,4 +25,8 @@ const mSTP = state => ({
     user: state.entities.users[state.session.id]
 });
 
-export default connect(mSTP)(Home);
+const mDTP = dispatch => ({
+    fetchAllTrails: () => dispatch(fetchAllTrails())
+});
+
+export default connect(mSTP, mDTP)(Home);
