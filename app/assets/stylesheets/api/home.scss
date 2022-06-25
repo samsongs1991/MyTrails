@@ -2,7 +2,6 @@
 
     #home-image {
         height: 580px;
-        background-image: url("/home_images/1.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -10,6 +9,24 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+       
+        animation: switchImg infinite 60s ease-in-out alternate;
+
+        @keyframes switchImg {
+            0% { background-image: url("/home_images/1.jpg") }
+            10% { background-image: url("/home_images/1.jpg") }
+            15% { background-image: url("/home_images/2.jpg") }
+            25% { background-image: url("/home_images/2.jpg") }
+            30% { background-image: url("/home_images/3.jpg") }
+            40% { background-image: url("/home_images/3.jpg") }
+            45% { background-image: url("/home_images/4.jpg") }
+            55% { background-image: url("/home_images/4.jpg") }
+            60% { background-image: url("/home_images/5.jpg") }
+            70% { background-image: url("/home_images/5.jpg") }
+            75% { background-image: url("/home_images/6.jpg") }
+            85% { background-image: url("/home_images/6.jpg") }
+            90% { background-image: url("/home_images/1.jpg") }
+        }
         
         > div {
             color: white;
@@ -27,7 +44,7 @@
             height: 72px;
             width: 644px;
             border-radius: 40px;
-            
+
             > img:first-child {
                 height: 22px;
                 filter: opacity(0.5) drop-shadow(0 0 0 rgb(219, 219, 219)); 
@@ -50,7 +67,7 @@
                 height: 40px;
             }
 
-            >img:last-child:hover {
+            > img:last-child:hover {
                 opacity: 0.75;
                 cursor: pointer;
             }
