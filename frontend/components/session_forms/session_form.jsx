@@ -23,7 +23,7 @@ const SessionForm = ({ errors, formType, processForm, loginDemoUser, clearErrors
     };
     
     return (
-        <section id="session-page">
+        <section id="session-page" className={formType === "signup" ? "signup-page" : "signin-page"}>
             <article id="session-form">
                 <h3>{formType === "signup" ? "Create your free account" : "Log in and let's get going"}</h3>
                 <form onSubmit={handleSubmit}>
