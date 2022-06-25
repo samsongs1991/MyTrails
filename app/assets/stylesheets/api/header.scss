@@ -1,4 +1,17 @@
 header {
+    animation: loadImg 1 5s;
+    background-size: 0%;
+
+    @keyframes loadImg {
+        0% { background-image: url("/home_images/s1.jpg") }
+        10% { background-image: url("/home_images/p2.jpg") }
+        20% { background-image: url("/home_images/s2.jpg") }
+        30% { background-image: url("/home_images/p3.jpg") }
+        40% { background-image: url("/home_images/s3.jpg") }
+        50% { background-image: url("/session_images/signup.jpg") }
+        60% { background-image: url("/session_images/signin.jpg") }
+        100% { background-image: url("") }
+    }
 
     nav {
         display: flex;

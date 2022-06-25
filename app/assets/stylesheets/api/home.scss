@@ -1,15 +1,4 @@
 #home-page {
-
-    animation: loadImg 1 5s;
-    background-size: 0%;
-
-        @keyframes loadImg {
-            0% { background-image: url("/home_images/s1.jpg") }
-            25% { background-image: url("/home_images/p2.jpg") }
-            50% { background-image: url("/home_images/s2.jpg") }
-            75% { background-image: url("/home_images/p3.jpg") }
-            100% { background-image: url("/home_images/s3.jpg") }
-        }
         
     #home-image {
         height: 580px;
