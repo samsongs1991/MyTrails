@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+import SearchModal from "./search_modal.jsx";
 
-
-// Since datalist options have little flexibility for css, convert the dropdown to be a modal
-// Then style the modal options
-
-
-
-const SearchBar = ({ trails }) => {        
+const SearchBar = ({ trails }) => {  
+    
+    const [modalHidden, setModalHidden] = useState(true);
+    
+    const handleModal = e => {
+        e.stopPropagation();
+        setModalHidden(false);
+    };
+    
     return (
         <form id="search-bar">
             <img src="/home_images/search_icon.png" alt="Search Icon"/>
-            <input list="dropdown" placeholder="Search by city, park, or trail name"/>
 
             {/* ========================================= */}
-            <datalist id="dropdown">
-                {Object.values(trails).map((trail, i) => <option key={i} value={trail.name}/>)}
-            </datalist>
+            {/* <input list="dropdown" placeholder="Search by city, park, or trail name"/> */}
+            {/* <datalist id="dropdown"> */}
+                {/* {Object.values(trails).map((trail, i) => <option key={i} value={trail.name}/>)} */}
+            {/* </datalist> */}
             {/* ========================================= */}
+
+            <input onClick={handleModal} placeholder="Search by city, park, or trail name"/>
+            {modalHidden ? null : <SearchModal trails={trails} setModalHidden={setModalHidden}/>}
             
             <img src="/home_images/arrow.png" alt="Submit"/>
         </form>
