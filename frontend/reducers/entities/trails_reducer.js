@@ -10,4 +10,4 @@ const usersReducer = (prevState={}, action) => {
     }
 };
 
-export default usersReducer;
+export default trailsReducer;
