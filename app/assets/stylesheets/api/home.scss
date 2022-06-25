@@ -48,6 +48,8 @@
         }
 
         #search-bar {
+            position: relative;
+            z-index: 0;
             background-color: white;
             display: flex;
             align-items: center;
@@ -73,6 +75,17 @@
 
             > input:focus {
                 outline: none;
+            }
+
+            > #search-modal {
+                position: absolute;
+                top: 36px;
+                height: 350px;
+                width: 644px;
+                background: white;
+                z-index: -1;
+
+                border: 2px solid black;
             }
 
             > img:last-child {
