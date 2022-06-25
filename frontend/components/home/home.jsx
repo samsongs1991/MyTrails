@@ -14,7 +14,6 @@ const Home = ({ user }) => {
             {/* search bar */}
             <SearchBar/>
             {/* trail cards */}
-            {/* <Trails/> */}
             <Trails/>
         </section>
     );

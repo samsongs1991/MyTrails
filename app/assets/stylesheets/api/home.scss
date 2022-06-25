@@ -1,7 +1,11 @@
 #home-page {
-    height: 100vh;
-    background-image: url("home_page.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+    #home-image {
+        height: 400px;
+        background-image: url("/home_images/1.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
 }
