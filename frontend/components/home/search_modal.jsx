@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import SearchItem from "./search_item.jsx";
 
 const SearchModal = ({ trails, setModalHidden }) => {
 
@@ -15,9 +16,9 @@ const SearchModal = ({ trails, setModalHidden }) => {
     }, []);
     
     return (
-        <article id="search-modal">
-            SearchModalComponent
-        </article>
+        <menu id="search-modal">
+            {Object.values(trails).map((trail, i) => <SearchItem key={i} trail={trail}/>)}
+        </menu>
     );
 };
 
