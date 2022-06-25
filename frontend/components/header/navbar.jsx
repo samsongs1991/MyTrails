@@ -12,7 +12,7 @@ const NavBar = ({ users, id, clearErrors }) => {
         <div id="profile-links-container">
             <div>Welcome {user.fname}</div>
             <img 
-                src="menu_bar.png" alt="Menu bar icon"
+                src="/header_images/menu_bar.png" alt="Menu bar icon"
                 onMouseOver={() => setModalHidden(false)} 
                 onMouseLeave={() => setModalHidden(true)} 
             />
@@ -30,7 +30,7 @@ const NavBar = ({ users, id, clearErrors }) => {
     return (
         <nav>
             <Link to="/trails">Explore</Link>
-            <Link to="/"><img src="logo.png" alt="MyTrails Logo"/></Link>
+            <Link to="/"><img src="/header_images/logo.png" alt="MyTrails Logo"/></Link>
             {user ? profileLinks() : sessionLinks}
         </nav>
     );
