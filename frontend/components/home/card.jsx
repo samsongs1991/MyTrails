@@ -5,7 +5,11 @@ const Card = ({ trail }) => {
     return (
         <section>
             <Link to={`/trails/${trail.id}`}>
-                {trail.name}
+                <img src="" alt={`Image of ${trail.location}`}/>
+                <div>{trail.difficulty} - <img src="" alt="Star"/>5.0</div>
+                <div>{trail.location}</div>
+                <div>{trail.city}, {trail.state}</div>
+                <div>Length: {trail.length} mi - Est. 100min</div>
             </Link>
         </section>
     );
