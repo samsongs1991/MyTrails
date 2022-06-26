@@ -73,8 +73,44 @@
                 width: 644px;
                 background: white;
                 z-index: -1;
+                overflow: auto;
+                padding-top: 30px;
 
-                border: 2px solid black;
+                > li {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    height: 60px;
+
+                    > img {
+                        height: 30px;
+                        margin-left: 15px;
+                    }
+
+                    > article {
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: rgb(70, 70, 70);
+                        margin-left: 15px;
+
+                        > div:first-child {
+                            font-size: 16px;
+                        }
+
+                        > div:last-child {
+                            font-size: 12px;
+                            margin-top: 6px;
+                        }
+                        
+                    }
+                    
+                }
+
+                > li:hover {
+                    background-color: rgb(245, 245, 245);
+                    color: #428a13;
+                    cursor: pointer;
+                }
+                
             }
 
             > img:last-child {

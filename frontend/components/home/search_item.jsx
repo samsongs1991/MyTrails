@@ -5,7 +5,7 @@ const SearchItem = ({ trail }) => {
         <li>
             <img src="/home_images/location_icon.png" alt="Location Icon"/>
             <article>
-                <div>{trail.name} - {trail.difficulty}</div>
+                <div>{trail.name}</div>
                 <div>{trail.location}, {trail.city}, {trail.state}</div>
             </article>
         </li>
