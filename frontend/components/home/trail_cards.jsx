@@ -8,7 +8,8 @@ const TrailCards = ({ trails }) => {
             <section id="trail-cards">
                 <h3>Favorite trails near <span>Seattle</span></h3>
                 <section id="cards">
-                    {Object.values(trails).map((trail, i) => <Card key={i} trail={trail}/>)}
+                    {/* {Object.values(trails).map((trail, i) => <Card key={i} trail={trail}/>)} */}
+                    {Object.values(trails).slice(0,1).map((trail, i) => <Card key={i} trail={trail}/>)}
                 </section>
             </section>
         </section>
