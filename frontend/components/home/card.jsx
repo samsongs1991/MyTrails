@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ trail }) => {
     return (
-        <section>
+        <article>
             <Link to={`/trails/${trail.id}`}>
                 <img src="" alt={`Image of ${trail.location}`}/>
                 <div>{trail.difficulty} - <img src="" alt="Star"/>5.0</div>
@@ -11,7 +11,7 @@ const Card = ({ trail }) => {
                 <div>{trail.city}, {trail.state}</div>
                 <div>Length: {trail.length} mi - Est. 100min</div>
             </Link>
-        </section>
+        </article>
     );
 };
 

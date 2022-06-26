@@ -1,6 +1,6 @@
 #home-page {
         
-    #home-image {
+    > #home-image {
         height: 580px;
         background-position: center;
         background-repeat: no-repeat;
@@ -135,8 +135,52 @@
         
     }
 
-    #trail-cards {
+    > #trail-cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgb(240, 240, 240);
+
+        > #trail-cards {
+            max-width: 1220px;
+            width: 95vw;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(75, 75, 75);
+            padding: 55px 0px;
+    
+            > h3 {
+                font-size: 22px;
+                font-weight: bold;
+                padding-bottom: 30px;
+    
+                > span {
+                    text-decoration: underline;
+                }
+                
+            }
+    
+            > #cards {
+                display: flex;
+                overflow: auto;
+                height: 350px;  
+    
+                > article {
+    
+                    > a {
+    
+                        > img {
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
 
     }
+    
     
 }
