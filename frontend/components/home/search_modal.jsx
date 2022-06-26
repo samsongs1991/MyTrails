@@ -14,14 +14,22 @@ const SearchModal = ({ input, trails, setModalHidden }) => {
             document.removeEventListener("click", showModal);
         }
     }, []);
+
+    const filterTrails = () => {
+        const arr = [];
+        const regex = new RegExp(input.toLowerCase());
+        for(let i = 0; i < trails.length; i++) {
+            let trail = trails[i];
+            if(trail.name.toLowerCase().match(regex)) {
+                arr.push(<SearchItem key={trail.id} trail={trail}/>);
+            }
+        }
+        return arr;
+    };
     
     return (
         <menu id="search-modal">
-            {
-                trails
-                    .filter(({ name }) => name.toLowerCase().match(new RegExp(input)) !== null)
-                    .map((trail, i) => <SearchItem key={i} trail={trail}/>)
-            }
+            {filterTrails()}
         </menu>
     );
 };
