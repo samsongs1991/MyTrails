@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import SearchBar from "./search_bar.jsx";
-import Trails from "./trails.jsx";
+import TrailCards from "./trail_cards.jsx";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 
 const Home = ({ user, fetchAllTrails }) => {
@@ -16,7 +16,7 @@ const Home = ({ user, fetchAllTrails }) => {
                 <div>{user ? `Ready to do this, ${user.fname}?` : "Find your next trail"}</div>
                 <SearchBar/>
             </section>
-            <Trails/>
+            <TrailCards/>
         </section>
     );
 };

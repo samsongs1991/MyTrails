@@ -1,11 +1,11 @@
 import React from "react";
 
-const Trails = props => {
+const TrailCards = props => {
     return (
-        <section id="trails">
+        <section id="trail-cards">
             Trail Cards
         </section>
     );
 };
 
-export default Trails;
+export default TrailCards;
