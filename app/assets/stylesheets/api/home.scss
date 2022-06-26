@@ -9,8 +9,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: relative;
-        z-index: 0;
        
         animation: switchImg infinite 60s ease-in-out;
 
@@ -38,94 +36,100 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        #search-bar {
+        #search-container {
             position: relative;
-            z-index: 2;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 24px;
-            height: 72px;
-            width: 644px;
-            border-radius: 40px;
-            box-shadow: 0px 10px 20px 0px rgba(120, 120, 120, 0.3);
+            z-index: 0;
 
-            > img:first-child {
-                height: 22px;
-                filter: opacity(0.5) drop-shadow(0 0 0 rgb(219, 219, 219)); 
-            }
-
-            > input {
-                font-size: 18px;
-                font-weight: 400;
-                color: #737373;
-                border: none;
-                width: 520px;
-                margin: 0px 15px;
-            }
-
-            > input:focus {
-                outline: none;
-            }
-
-            > img:last-child {
-                height: 40px;
-            }
-
-            > img:last-child:hover {
-                opacity: 0.75;
-                cursor: pointer;
-            }
-            
-        }
-
-        > #search-modal {
-            position: absolute;
-            z-index: 1;
-            bottom: -138px;
-            height: 350px;
-            width: 644px;
-            background: white;
-            overflow: auto;
-            padding-top: 33px;
-            border-radius: 0px 0px 0px 40px;
-
-            > li {
+            #search-bar {
+                position: relative;
+                z-index: 2;
+                background-color: white;
                 display: flex;
                 align-items: center;
-                text-decoration: none;
-                height: 60px;
-
-                > img {
-                    height: 30px;
-                    margin-left: 15px;
+                justify-content: center;
+                margin-top: 24px;
+                height: 72px;
+                width: 644px;
+                border-radius: 40px;
+                box-shadow: 0px 10px 20px 0px rgba(120, 120, 120, 0.3);
+    
+                > img:first-child {
+                    height: 22px;
+                    filter: opacity(0.5) drop-shadow(0 0 0 rgb(219, 219, 219)); 
                 }
-
-                > article {
-                    font-family: Arial, Helvetica, sans-serif;
-                    color: rgb(70, 70, 70);
-                    margin-left: 15px;
-
-                    > div:first-child {
-                        font-size: 16px;
+    
+                > input {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: #737373;
+                    border: none;
+                    width: 520px;
+                    margin: 0px 15px;
+                }
+    
+                > input:focus {
+                    outline: none;
+                }
+    
+                > img:last-child {
+                    height: 40px;
+                }
+    
+                > img:last-child:hover {
+                    opacity: 0.75;
+                    cursor: pointer;
+                }
+                
+            }
+    
+            > #search-modal {
+                position: absolute;
+                z-index: 1;
+                top: 60px;
+                max-height: 350px;
+                width: 644px;
+                background: white;
+                overflow-y: scroll;
+                padding-top: 37px;
+                border-radius: 0px 0px 0px 40px;
+    
+                > li {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    height: 60px;
+    
+                    > img {
+                        height: 30px;
+                        margin-left: 15px;
                     }
-
-                    > div:last-child {
-                        font-size: 12px;
-                        margin-top: 8px;
+    
+                    > article {
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: rgb(70, 70, 70);
+                        margin-left: 15px;
+    
+                        > div:first-child {
+                            font-size: 16px;
+                        }
+    
+                        > div:last-child {
+                            font-size: 12px;
+                            margin-top: 8px;
+                        }
+                        
                     }
                     
+                }
+    
+                > li:hover {
+                    background-color: rgb(232, 232, 232);
+                    color: #428a13;
+                    cursor: pointer;
                 }
                 
             }
 
-            > li:hover {
-                background-color: rgb(232, 232, 232);
-                color: #428a13;
-                cursor: pointer;
-            }
-            
         }
         
     }

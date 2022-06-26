@@ -13,7 +13,7 @@ const SearchBar = ({ trails }) => {
     };
     
     return (
-        <>
+        <section id="search-container">
             <form id="search-bar">
                 <img src="/home_images/search_icon.png" alt="Search Icon"/>
 
@@ -23,7 +23,7 @@ const SearchBar = ({ trails }) => {
             </form>
 
             {modalHidden ? null : <SearchModal input={input} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
-        </>
+        </section>
     );
 };
 
