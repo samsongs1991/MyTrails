@@ -5,6 +5,7 @@ import SearchModal from "./search_modal.jsx";
 const SearchBar = ({ trails }) => {  
     
     const [modalHidden, setModalHidden] = useState(true);
+    const [input, setInput] = useState("");
     
     const handleModal = e => {
         e.stopPropagation();
@@ -16,12 +17,12 @@ const SearchBar = ({ trails }) => {
             <form id="search-bar">
                 <img src="/home_images/search_icon.png" alt="Search Icon"/>
 
-                <input onClick={handleModal} placeholder="Search by city, park, or trail name"/>
+                <input onChange={e => setInput(e.target.value)} onClick={handleModal} placeholder="Search by trail name"/>
                 
                 <img src="/home_images/arrow.png" alt="Submit"/>
             </form>
 
-            {modalHidden ? null : <SearchModal trails={trails} setModalHidden={setModalHidden}/>}
+            {modalHidden ? null : <SearchModal input={input} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
         </>
     );
 };

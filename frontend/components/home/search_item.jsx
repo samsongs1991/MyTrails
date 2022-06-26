@@ -4,7 +4,7 @@ const SearchItem = ({ trail }) => {
 
     const handleItem = e => {
         e.stopPropagation();
-        // link to trail show page
+        // link to item show page
     };
     
     return (
