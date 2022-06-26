@@ -12,21 +12,24 @@ const SearchBar = ({ trails }) => {
     };
     
     return (
-        <form id="search-bar">
-            <img src="/home_images/search_icon.png" alt="Search Icon"/>
+        <>
+            <form id="search-bar">
+                <img src="/home_images/search_icon.png" alt="Search Icon"/>
 
-            {/* ========================================= */}
-            {/* <input list="dropdown" placeholder="Search by city, park, or trail name"/> */}
-            {/* <datalist id="dropdown"> */}
-                {/* {Object.values(trails).map((trail, i) => <option key={i} value={trail.name}/>)} */}
-            {/* </datalist> */}
-            {/* ========================================= */}
+                {/* ========================================= */}
+                {/* <input list="dropdown" placeholder="Search by city, park, or trail name"/> */}
+                {/* <datalist id="dropdown"> */}
+                    {/* {Object.values(trails).map((trail, i) => <option key={i} value={trail.name}/>)} */}
+                {/* </datalist> */}
+                {/* ========================================= */}
 
-            <input onClick={handleModal} placeholder="Search by city, park, or trail name"/>
+                <input onClick={handleModal} placeholder="Search by city, park, or trail name"/>
+                
+                <img src="/home_images/arrow.png" alt="Submit"/>
+            </form>
+
             {modalHidden ? null : <SearchModal trails={trails} setModalHidden={setModalHidden}/>}
-            
-            <img src="/home_images/arrow.png" alt="Submit"/>
-        </form>
+        </>
     );
 };
 

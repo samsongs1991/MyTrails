@@ -24,6 +24,7 @@ header {
         background-color: white;
         box-shadow: 0 0 1px 0px rgb(211, 211, 211);
         position: fixed;
+        z-index: 10;
         top: 0;
 
         > a:first-child {
