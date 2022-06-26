@@ -19,7 +19,7 @@ const SearchModal = ({ input, trails, setModalHidden }) => {
         <menu id="search-modal">
             {
                 trails
-                    .filter(({ name }) => name.toLowerCase().startsWith(input.toLowerCase()))
+                    .filter(({ name }) => name.toLowerCase().match(new RegExp(input)) !== null)
                     .map((trail, i) => <SearchItem key={i} trail={trail}/>)
             }
         </menu>
