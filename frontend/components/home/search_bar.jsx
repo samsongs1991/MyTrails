@@ -22,7 +22,11 @@ const SearchBar = ({ trails }) => {
             const name = trail.name.toLowerCase();
             if(name.startsWith(val)) {
                 setInput(trail.name);
-                
+                // How to redirect to trail show page???
+                // Idea
+                // - after return statement, make conditional render
+                // - if testState if false render search-container
+                // - else if true, render a Redirect
                 return;
             }
         }
