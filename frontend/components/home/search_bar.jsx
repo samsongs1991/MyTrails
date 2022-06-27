@@ -7,6 +7,7 @@ const SearchBar = ({ trails }) => {
     
     const [modalHidden, setModalHidden] = useState(true);
     const [input, setInput] = useState("");
+    const [trailId, setTrailId] = useState(null);
     
     const handleModal = e => {
         e.stopPropagation();
@@ -20,29 +21,26 @@ const SearchBar = ({ trails }) => {
         for(let i = 0; i < list.length; i++) {
             const trail = list[i];
             const name = trail.name.toLowerCase();
-            if(name.startsWith(val)) {
+            if(name === val) {
+                setTrailId(trail.id);
+                return;
+            } else if(name.startsWith(val)) {
                 setInput(trail.name);
-                // How to redirect to trail show page???
-                // Idea
-                // - after return statement, make conditional render
-                // - if testState if false render search-container
-                // - else if true, render a Redirect
                 return;
             }
         }
     };
     
-    return (
+    return trailId === null ? (
         <section id="search-container">
             <form onSubmit={handleSubmit} id="search-bar">
                 <img src="/home_images/search_icon.png" alt="Search Icon"/>
                 <input value={input} onChange={e => setInput(e.target.value)} onClick={handleModal} placeholder="Search by trail name"/>
                 <button type="submit"></button>
             </form>
-
             {modalHidden ? null : <SearchModal input={input} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
         </section>
-    );
+    ) : <Redirect to={`/trails/${trailId}`}/>;
 };
 
 const mSTP = state => ({
