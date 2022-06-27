@@ -6,8 +6,14 @@ const Card = ({ trail }) => {
     const calcTime = () => {
         const mi = trail.length;
         const mph = 3;
-        const time = Math.ceil((mi / mph) * 60);
-        return time;
+        const min = Math.ceil((mi / mph) * 60);
+        if(min >= 60) {
+            const remainder = min % 60;
+            const hr = Math.floor(min / 60);
+            return `${hr} hr ${remainder} min`;
+        } else {
+            return `${min} min`;
+        }
     };
     
     return (
@@ -16,7 +22,7 @@ const Card = ({ trail }) => {
             <div><span className={trail.difficulty}>{trail.difficulty}</span> • <img src="/home_images/star_icon.png" alt="Star"/> 5.0</div>
             <div>{trail.name}</div>
             <div>{trail.city}, {trail.state}</div>
-            <div>Length: {trail.length} mi • Est. {calcTime()}min</div>
+            <div>Length: {trail.length} mi • Est. {calcTime()}</div>
         </Link>
     );
 };
