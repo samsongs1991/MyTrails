@@ -70,12 +70,18 @@
                 > input:focus {
                     outline: none;
                 }
-    
-                > img:last-child {
+
+                > button {
+                    border: none;
+                    background-image: url("/home_images/arrow.png");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
                     height: 40px;
+                    width: 40px;
                 }
-    
-                > img:last-child:hover {
+
+                > button:hover {
                     opacity: 0.75;
                     cursor: pointer;
                 }

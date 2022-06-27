@@ -11,15 +11,22 @@ const SearchBar = ({ trails }) => {
         e.stopPropagation();
         setModalHidden(false);
     };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+    };
     
     return (
         <section id="search-container">
-            <form id="search-bar">
+            <form onSubmit={handleSubmit} id="search-bar">
                 <img src="/home_images/search_icon.png" alt="Search Icon"/>
 
                 <input onChange={e => setInput(e.target.value)} onClick={handleModal} placeholder="Search by trail name"/>
                 
-                <img src="/home_images/arrow.png" alt="Submit"/>
+                <button type="submit">
+                    {/* <img src="/home_images/arrow.png" alt="Submit"/> */}
+                </button>
             </form>
 
             {modalHidden ? null : <SearchModal input={input} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
