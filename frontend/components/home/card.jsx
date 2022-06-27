@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ trail }) => {
 
-    const calcEst = () => {
+    const calcTime = () => {
         const mi = trail.length;
         const mph = 3;
         const time = Math.ceil((mi / mph) * 60);
@@ -16,7 +16,7 @@ const Card = ({ trail }) => {
             <div><span className={trail.difficulty}>{trail.difficulty}</span> • <img src="/home_images/star_icon.png" alt="Star"/> 5.0</div>
             <div>{trail.name}</div>
             <div>{trail.city}, {trail.state}</div>
-            <div>Length: {trail.length} mi • Est. {calcEst()}min</div>
+            <div>Length: {trail.length} mi • Est. {calcTime()}min</div>
         </Link>
     );
 };
