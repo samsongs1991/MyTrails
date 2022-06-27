@@ -162,23 +162,74 @@
             > #cards {
                 display: flex;
                 justify-content: space-around;
-                overflow: auto;
-                height: 350px;  
-    
-                > article {
-                    border: 1px solid black;
-                    height: 300px;
-                    width: 300px;
-                    
-                    > a {
+                height: 350px;
+                        
+                > a {
+                    height: 280px;
+                    width: 280px;
+                    padding: 10px;
+                    border-radius: 15px;
+                    transition: all 0.2s ease-in-out;
+
+                    > img {
+                        width: 100%;
+                        border-radius: 25px;
+                    }
+
+                    > div:nth-child(2) {
+                        margin-top: 8px;
+                        color: rgb(75, 75, 75);
+                        font-size: 16px;
+
+                        > span {
+                            border-radius: 8px;
+                            padding: 2px 8px 4px 8px;
+                            color: white;
+                        }
+                        
+                        > .easy {
+                            background-color: #428a13;
+                        }
+
+                        > .moderate {
+                            background-color: rgb(0, 180, 255);
+                        }
+
+                        > .hard {
+                            background-color: rgb(80, 80, 80);
+                        }
 
                         > img {
-                            height: 100px;
-                            width: 100px;
+                            height: 13px;
+                            width: 13px;
                         }
                         
                     }
+
+                    > div:nth-child(3) {
+                        margin-top: 8px;
+                        color: rgb(75, 75, 75);
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+
+                    > div:nth-child(4) {
+                        margin-top: 8px;
+                        color: rgb(120, 120, 120);
+                        font-size: 14px;
+                    }
+
+                    > div:nth-child(5) {
+                        margin-top: 8px;
+                        color: rgb(120, 120, 120);
+                        font-size: 14px;
+                    }
                     
+                }
+
+                > a:hover {
+                    background: white;
+                    box-shadow: 0px 0px 30px 10px rgb(200, 200, 200);
                 }
                 
             }
