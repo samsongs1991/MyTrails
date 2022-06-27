@@ -21,12 +21,8 @@ const SearchBar = ({ trails }) => {
         <section id="search-container">
             <form onSubmit={handleSubmit} id="search-bar">
                 <img src="/home_images/search_icon.png" alt="Search Icon"/>
-
                 <input onChange={e => setInput(e.target.value)} onClick={handleModal} placeholder="Search by trail name"/>
-                
-                <button type="submit">
-                    {/* <img src="/home_images/arrow.png" alt="Submit"/> */}
-                </button>
+                <button type="submit"></button>
             </form>
 
             {modalHidden ? null : <SearchModal input={input} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
