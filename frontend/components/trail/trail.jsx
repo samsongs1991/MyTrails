@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchTrail } from "";
+import { fetchTrail } from "../../actions/trail_actions.js";
 
 const Trail = ({ trails, fetchTrail, match }) => {
 
