@@ -12,12 +12,36 @@ const Trail = ({ trails, fetchTrail, match }) => {
             fetchTrail(trailId);
         }
     }, []);
+
+    const locationTree = () => {
+        if(trail) {
+            return (
+                <article>
+                    <div>location tree</div>
+                    <div>search bar</div>
+                </article>
+            );
+        }
+    };
+
+    const trailImg = () => {
+        return (
+            <article>
+                <div>
+                    <p>trail name</p>
+                    <p>difficulty + star rating</p>
+                </div>
+                <div>
+                    <img src="" alt="Add to list icon"/>
+                </div>
+            </article>
+        );
+    };
     
     return (
         <section id="trail-page">
-            <article>
-
-            </article>
+            {locationTree()}
+            {trailImg()}
         </section>
     );
 };
