@@ -17,7 +17,7 @@ const Trail = ({ trails, fetchTrail, match }) => {
     
     return (
         <section id="trail-page">
-            <LocationTree/>
+            <LocationTree trail={trail}/>
             <TrailImg/>
         </section>
     );
