@@ -9,7 +9,7 @@ const Trail = ({ trails, fetchTrail, match }) => {
     
     useEffect(() => {
         if(!trail) {
-            // fetchTrail(trailId);
+            fetchTrail(trailId);
         }
     }, []);
     
@@ -27,7 +27,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    // fetchTrail: trailId => dispatch(fetchTrail(trailId))
+    fetchTrail: trailId => dispatch(fetchTrail(trailId))
 });
 
 export default connect(mSTP, mDTP)(Trail);
