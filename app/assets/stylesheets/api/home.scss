@@ -148,7 +148,7 @@
         background: rgb(240, 240, 240);
 
         > #trail-cards {
-            max-width: 1220px;
+            max-width: 1280px;
             width: 95vw;
             font-family: Arial, Helvetica, sans-serif;
             color: rgb(75, 75, 75);
@@ -171,11 +171,11 @@
                 height: 350px;
                         
                 > a {
-                    height: 280px;
-                    width: 280px;
-                    padding: 10px;
+                    height: 300px;
+                    width: 300px;
+                    padding: 8px;
                     border-radius: 15px;
-                    transition: all 0.2s ease-in-out;
+                    transition: all 0.1s ease-in-out;
 
                     > img {
                         width: 100%;
@@ -239,7 +239,7 @@
 
                 > a:hover {
                     background: white;
-                    box-shadow: 0px 0px 30px 10px rgb(200, 200, 200);
+                    box-shadow: 0px 0px 15px 10px rgb(200, 200, 200);
                 }
                 
             }
