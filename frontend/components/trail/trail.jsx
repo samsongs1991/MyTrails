@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchTrail } from "../../actions/trail_actions.js";
+import LocationTree from "./location_tree.jsx";
+import TrailImg from "./trail_img.jsx";
 
 const Trail = ({ trails, fetchTrail, match }) => {
 
@@ -12,36 +14,11 @@ const Trail = ({ trails, fetchTrail, match }) => {
             fetchTrail(trailId);
         }
     }, []);
-
-    const locationTree = () => {
-        if(trail) {
-            return (
-                <article>
-                    <div>location tree</div>
-                    <div>search bar</div>
-                </article>
-            );
-        }
-    };
-
-    const trailImg = () => {
-        return (
-            <article>
-                <div>
-                    <p>trail name</p>
-                    <p>difficulty + star rating</p>
-                </div>
-                <div>
-                    <img src="" alt="Add to list icon"/>
-                </div>
-            </article>
-        );
-    };
     
     return (
         <section id="trail-page">
-            {locationTree()}
-            {trailImg()}
+            <LocationTree/>
+            <TrailImg/>
         </section>
     );
 };
