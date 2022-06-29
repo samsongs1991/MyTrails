@@ -18,7 +18,7 @@ const LocationTree = ({ trail }) => {
     };
     
     return trail ? (
-        <article>
+        <article id="location-tree">
             <div>{locationString()}</div>
             <SearchBar/>
         </article>
