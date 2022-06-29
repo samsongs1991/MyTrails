@@ -99,6 +99,7 @@
                         font-family: Arial, Helvetica, sans-serif;
         
                         > img {
+                            filter: hue-rotate(90deg);
                             height: 20px;
                             margin-left: 10px;
                         }
@@ -124,7 +125,7 @@
                         cursor: pointer;
 
                         > img {
-                            filter: invert(100%);
+                            filter: grayscale(100%) brightness(100%) invert(100%);
                         }
                         
                     }
