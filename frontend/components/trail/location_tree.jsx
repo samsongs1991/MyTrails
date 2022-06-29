@@ -6,14 +6,18 @@ const LocationTree = ({ trail }) => {
     const locationString = () => {
         if(trail) {
             const arr = [
-                trail.country, 
-                trail.state, 
-                trail.city, 
-                trail.location,
-                trail.name
+                <span>{trail.country}</span>,
+                <span>{">"}</span>, 
+                <span>{trail.state}</span>,
+                <span>{">"}</span>, 
+                <span>{trail.city}</span>,
+                <span>{">"}</span>, 
+                <span>{trail.location}</span>,
+                <span>{">"}</span>,
+                <span>{trail.name}</span>
             ];
 
-            return arr.join(" > ");
+            return arr;
         }   
     };
     
