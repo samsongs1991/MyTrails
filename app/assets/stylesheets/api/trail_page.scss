@@ -99,7 +99,7 @@
                         font-family: Arial, Helvetica, sans-serif;
         
                         > img {
-                            filter: hue-rotate(90deg);
+                            filter: hue-rotate(120deg);
                             height: 20px;
                             margin-left: 10px;
                         }
@@ -120,12 +120,12 @@
                     }
         
                     > a:hover {
-                        color: rgb(232, 232, 232);
                         background-color: #52a917;
+                        color: rgb(232, 232, 232);
                         cursor: pointer;
 
                         > img {
-                            filter: grayscale(100%) brightness(100%) invert(100%);
+                            filter: brightness(0%) opacity(0.5);
                         }
                         
                     }
