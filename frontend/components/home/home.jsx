@@ -4,7 +4,7 @@ import SearchBar from "./search_bar.jsx";
 import TrailCards from "./trail_cards.jsx";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 
-const Home = ({ user, fetchAllTrails }) => {
+const Home = ({ user, fetchAllTrails, history }) => {
     
     useEffect(() => {
         fetchAllTrails();
@@ -14,7 +14,7 @@ const Home = ({ user, fetchAllTrails }) => {
         <section id="home-page">
             <section id="home-image">
                 <div>{user ? `Ready to do this, ${user.fname}?` : "Find your next trail"}</div>
-                <SearchBar/>
+                <SearchBar history={history}/>
             </section>
             <TrailCards/>
         </section>

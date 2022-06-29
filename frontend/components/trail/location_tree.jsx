@@ -1,8 +1,8 @@
 import React from "react";
 import SearchBar from "../home/search_bar.jsx";
 
-const LocationTree = ({ trail }) => {
-    
+const LocationTree = ({ trail, history }) => {
+
     const locationArr = () => {
         if(trail) {
             const arr = [
@@ -21,7 +21,7 @@ const LocationTree = ({ trail }) => {
     return trail ? (
         <article id="location-tree">
             <div>{locationArr().map((str, i) => <span key={i}>{str}</span>)}</div>
-            <SearchBar/>
+            <SearchBar history={history}/>
         </article>
     ) : null;
 };

@@ -4,7 +4,7 @@ import { fetchAllTrails } from "../../actions/trail_actions.js";
 import LocationTree from "./location_tree.jsx";
 import TrailImg from "./trail_img.jsx";
 
-const Trail = ({ trails, fetchAllTrails, match }) => {
+const Trail = ({ trails, fetchAllTrails, match, history }) => {
 
     const trailId = match.params.trailId;
     const trail = trails[trailId];
@@ -18,7 +18,7 @@ const Trail = ({ trails, fetchAllTrails, match }) => {
     return (
         <section id="trail-page">
             <div>
-                <LocationTree trail={trail}/>
+                <LocationTree trail={trail} history={history}/>
                 <TrailImg/>
             </div>
         </section>
