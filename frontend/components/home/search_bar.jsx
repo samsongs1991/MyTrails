@@ -36,7 +36,7 @@ const SearchBar = ({ trails, history }) => {
                 <input value={input} onChange={e => setInput(e.target.value)} onClick={handleModal} placeholder="Search by trail name"/>
                 <button type="submit"></button>
             </form>
-            {modalHidden ? null : <SearchModal input={input} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
+            {modalHidden ? null : <SearchModal input={input} setInput={setInput} trails={Object.values(trails)} setModalHidden={setModalHidden}/>}
         </section>
     );
 };

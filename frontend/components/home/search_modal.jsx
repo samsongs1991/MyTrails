@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import SearchItem from "./search_item.jsx";
 
-const SearchModal = ({ input, trails, setModalHidden }) => {
+const SearchModal = ({ trails, input, setInput, setModalHidden }) => {
 
     useEffect(() => {
         const showModal = () => {
@@ -21,7 +21,7 @@ const SearchModal = ({ input, trails, setModalHidden }) => {
         for(let i = 0; i < trails.length; i++) {
             let trail = trails[i];
             if(trail.name.toLowerCase().match(regex)) {
-                arr.push(<SearchItem key={trail.id} trail={trail}/>);
+                arr.push(<SearchItem key={trail.id} trail={trail} setInput={setInput} setModalHidden={setModalHidden}/>);
             }
         }
         return arr;
