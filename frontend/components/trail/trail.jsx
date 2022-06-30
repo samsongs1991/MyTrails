@@ -17,18 +17,18 @@ const Trail = ({ trails, fetchAllTrails, match, history }) => {
         }
     }, []);
     
-    return (
+    return trail ? (
         <section id="trail-page">
             <div>
                 <LocationTree trail={trail} history={history}/>
                 <TrailImg trail={trail}/>
                 <section>
-                    <TrailDetails/>
+                    <TrailDetails trail={trail}/>
                     <NearbyTrails/>
                 </section>
             </div>
         </section>
-    );
+    ) : null;
 };
 
 const mSTP = state => ({

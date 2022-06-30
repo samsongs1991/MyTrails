@@ -1,13 +1,19 @@
 import React from "react";
+import Details from "./details.jsx";
 
-const TrailDetails = props => {
+const TrailDetails = ({ trail }) => {
     return (
         <section id="trail-details">
-            TRAIL DETAILS COMP
-            {/* details */}
-            {/* mini map */}
-            {/* weather widget */}
-            {/* reviews */}
+            <Details trail={trail}/>
+            <section>
+                MINI MAP
+            </section>
+            <section>
+                WEATHER WIDGET
+            </section>
+            <section>
+                REVIEWS
+            </section>
         </section>
     );
 };
