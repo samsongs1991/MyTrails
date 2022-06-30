@@ -1,7 +1,7 @@
 import React from "react";
 
 const Details = ({ trail }) => (
-    <section>
+    <section id="details">
         <div>
             <p>Length</p>
             <p>{trail.length} mi</p>
