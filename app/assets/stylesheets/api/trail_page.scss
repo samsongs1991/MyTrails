@@ -216,14 +216,32 @@
 
         > section {
             display: flex;
-
+            background: white;
+            
             > #trail-details {
                 flex-grow: 1;
+                border: 1px solid rgb(200, 200, 200);
 
                 > #details {
                     display: flex;
+                    align-items: center;
+                    padding: 30px;
+                    border-bottom: 1px solid rgb(200, 200, 200);
 
+                    > div {
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-size: 12px;
 
+                        > p:last-child {
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin: 8px;
+                        }
+                        
+                    }
                     
                 }
                 
