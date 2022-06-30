@@ -2,7 +2,7 @@ import React from "react";
 
 const NearbyTrails = props => {
     return (
-        <section>
+        <section id="nearby-trails">
             NEARBY TRAILS COMP
         </section>
     );

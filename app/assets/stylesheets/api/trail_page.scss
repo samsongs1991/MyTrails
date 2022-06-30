@@ -212,6 +212,19 @@
             
         }
 
+        > section {
+            display: flex;
+
+            #trail-details {
+                flex-grow: 1;
+            }
+
+            #nearby-trails {
+                
+            }
+            
+        }
+
     }
 
     

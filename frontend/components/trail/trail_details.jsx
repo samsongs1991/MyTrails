@@ -2,7 +2,7 @@ import React from "react";
 
 const TrailDetails = props => {
     return (
-        <section>
+        <section id="trail-details">
             TRAIL DETAILS COMP
         </section>
     );
