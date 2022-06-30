@@ -1,5 +1,6 @@
 import React from "react";
 import Details from "./details.jsx";
+import WeatherWidget from "./weather_widget.jsx";
 
 const TrailDetails = ({ trail }) => {
     return (
@@ -9,7 +10,7 @@ const TrailDetails = ({ trail }) => {
                 MINI MAP
             </section>
             <section>
-                WEATHER WIDGET
+                <WeatherWidget trail={trail}/>
             </section>
             <section>
                 REVIEWS
