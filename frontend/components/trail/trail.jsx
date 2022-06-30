@@ -19,7 +19,7 @@ const Trail = ({ trails, fetchAllTrails, match, history }) => {
         <section id="trail-page">
             <div>
                 <LocationTree trail={trail} history={history}/>
-                <TrailImg/>
+                <TrailImg trail={trail}/>
             </div>
         </section>
     );
