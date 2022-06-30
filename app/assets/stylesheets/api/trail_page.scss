@@ -136,5 +136,37 @@
             
         }
         
+        > #trail-img {
+            display: flex;
+            justify-content: space-between;
+            height: 300px;
+            position: relative;
+    
+            > img {
+                height: 300px;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            > div:nth-child(1) {
+                position: absolute;
+                bottom: 0;
+                z-index: 1;
+                background: white;
+            }
+
+            > div:nth-child(2) {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: 1;
+                background: white;
+            }
+            
+        }
+
     }
+
+    
 }
