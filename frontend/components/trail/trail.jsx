@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 import LocationTree from "./location_tree.jsx";
 import TrailImg from "./trail_img.jsx";
+import TrailDetails from "./trail_details.jsx";
+import NearbyTrails from "./nearby_trails.jsx";
 
 const Trail = ({ trails, fetchAllTrails, match, history }) => {
 
@@ -20,6 +22,10 @@ const Trail = ({ trails, fetchAllTrails, match, history }) => {
             <div>
                 <LocationTree trail={trail} history={history}/>
                 <TrailImg trail={trail}/>
+                <section>
+                    <TrailDetails/>
+                    <NearbyTrails/>
+                </section>
             </div>
         </section>
     );
