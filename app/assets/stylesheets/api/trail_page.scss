@@ -199,12 +199,11 @@
                     height: 40px;
                     width: 40px;
                     margin: 0px 35px 50px 0px;
-                    transition: all 0.1s ease-in-out;
                     filter: invert(100%);
                 }
     
                 > #star:hover {
-                    transform: scale(1.1);
+                    transform: scale(1.25);
                     cursor: pointer;
                 }
 
