@@ -41,7 +41,7 @@ const WeatherWidget = ({ trail }) => {
         const minMaxTemps = extractMinMaxTemps();
 
         for(let i = 0; i < list.length; i++) {
-            const { dt_txt, main, weather } = list[i];
+            const { dt_txt, weather } = list[i];
             const date = new Date(dt_txt);
             const time = date.toLocaleTimeString();
             const day = days[date.getDay()];
@@ -51,7 +51,7 @@ const WeatherWidget = ({ trail }) => {
                     high: minMaxTemps[day].temp_max, 
                     low: minMaxTemps[day].temp_min, 
                     weather: weather[0].description, 
-                    icon: `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+                    icon: `/trail_images/${weather[0].icon.slice(0, 2)}.jpg`
                 });
             }
         }
@@ -62,7 +62,11 @@ const WeatherWidget = ({ trail }) => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setForecast(extractForecast(data)));
+            // .then(data => setForecast(extractForecast(data)));
+            .then(data => {
+                console.log("data", data);
+                setForecast(extractForecast(data));
+            });
     }, [])
 
     return (
@@ -71,6 +75,7 @@ const WeatherWidget = ({ trail }) => {
                 <h2>Weather</h2>
             </section>
             <section>
+                {console.log("forecast", forecast)}
                 {forecast ? forecast.map(({ day, high, low, weather, icon }, i) => 
                     <article key={i}>
                         <h6>{day}</h6>
