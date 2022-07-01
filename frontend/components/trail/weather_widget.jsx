@@ -50,7 +50,8 @@ const WeatherWidget = ({ trail }) => {
                     day: day, 
                     high: minMaxTemps[day].temp_max, 
                     low: minMaxTemps[day].temp_min, 
-                    weather: weather[0].description
+                    weather: weather[0].description, 
+                    icon: `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
                 });
             }
         }
