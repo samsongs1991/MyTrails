@@ -1,5 +1,4 @@
 #session-page {
-
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -7,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-family: Arial, Helvetica, sans-serif;
 
     > #session-form {
         background-color: white;
@@ -20,7 +20,6 @@
         box-shadow: 0 0 15px 0.2px rgb(211, 211, 211);
 
         > h3 {
-            font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             font-size: 24px;
             color: rgb(73, 73, 73);
@@ -34,7 +33,6 @@
                 border-radius: 7px;
                 border: 1px solid rgb(211, 211, 211);
                 font-size: 16px;
-                font-family: Arial, Helvetica, sans-serif;
                 color: gray;
                 margin: 8px;
                 padding: 0px 20px 0px 20px;
@@ -57,7 +55,6 @@
             > div {
                 color: red;
                 font-size: 12px;
-                font-family: Arial, Helvetica, sans-serif;
                 margin-left: 15px;
 
                 > li {
@@ -73,7 +70,6 @@
                 border: 1px solid rgb(211, 211, 211);
                 font-size: 16px;
                 font-weight: bold;
-                font-family: Arial, Helvetica, sans-serif;
                 color: white;
                 background: #428a13;
                 margin: 8px;
@@ -89,7 +85,6 @@
 
         > div:last-child {
             color: gray;  
-            font-family: Arial, Helvetica, sans-serif; 
             margin: 15px;
 
             > a {
