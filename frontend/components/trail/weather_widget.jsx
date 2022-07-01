@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { weatherKey } from "../../../secrets.js";
 
 const WeatherWidget = ({ trail }) => {
     
     const [forecast, setForecast] = useState(null);
     
-    const apiKey = "21b768b1ae54c57c33946bc5b71f37f2";
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${trail.lat}&lon=${trail.lng}&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${trail.lat}&lon=${trail.lng}&appid=${weatherKey}`;
     
     const extractForecast = ({ list }) => {
         const result = [];
