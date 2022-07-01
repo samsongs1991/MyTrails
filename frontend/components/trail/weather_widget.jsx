@@ -67,11 +67,17 @@ const WeatherWidget = ({ trail }) => {
 
     return (
         <section id="weather-widget">
-            <h2>Weather</h2>
-            <article>
+            <section>
+                <h2>Weather</h2>
+            </section>
+            <section>
                 {console.log("forecast", forecast)}
-                {/* Work on gathering images for each forecast weather description */}
-            </article>
+                {forecast ? forecast.map(({ day, high, low, weather, icon }, i) => <article key={i}>
+                    <h6>{day}</h6>
+                    <img src={icon} alt={`${weather} icon`}/>
+                    <p>{`${high}° / ${low}° F`}</p>
+                </article>) : null}
+            </section>
         </section>
     );
 };
