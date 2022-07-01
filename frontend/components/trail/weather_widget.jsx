@@ -27,18 +27,11 @@ const WeatherWidget = ({ trail }) => {
                 const day = days[new Date(dt_txt).getDay()];
                 const max = convertTemp(temp_max);
                 const min = convertTemp(temp_min);
-                if(!minMaxTemps[day]) {
-                    minMaxTemps[day] = {
-                        temp_max: max, 
-                        temp_min: min
-                    };
+                if(minMaxTemps[day]) {
+                    if(max > minMaxTemps[day].temp_max) minMaxTemps[day].temp_max = max;
+                    if(min < minMaxTemps[day].temp_min) minMaxTemps[day].temp_min = min;
                 } else {
-                    if(max > minMaxTemps[day].temp_max) {
-                        minMaxTemps[day].temp_max = max;
-                    }
-                    if(min < minMaxTemps[day].temp_min) {
-                        minMaxTemps[day].temp_min = min;
-                    }
+                    minMaxTemps[day] = { temp_max: max, temp_min: min };
                 }
             }
 
@@ -53,13 +46,12 @@ const WeatherWidget = ({ trail }) => {
             const time = date.toLocaleTimeString();
             const day = days[date.getDay()];
             if(time === "12:00:00 PM") {
-                const obj = {
+                result.push({
                     day: day, 
                     high: minMaxTemps[day].temp_max, 
                     low: minMaxTemps[day].temp_min, 
                     weather: weather[0].description
-                }
-                result.push(obj);
+                });
             }
         }
 
