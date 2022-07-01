@@ -6,12 +6,13 @@ const TrailDetails = ({ trail }) => {
     return (
         <section id="trail-details">
             <Details trail={trail}/>
+
             <section>
                 MINI MAP
             </section>
-            <section>
-                <WeatherWidget trail={trail}/>
-            </section>
+            
+            <WeatherWidget trail={trail}/>
+            
             <section>
                 REVIEWS
             </section>
