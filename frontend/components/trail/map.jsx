@@ -11,7 +11,16 @@ const Map = ({ trail }) => {
             zoom: 13
         };
         if(mapNode) {
-            setMap(new google.maps.Map(mapNode, mapOptions));
+            const newMap = new google.maps.Map(mapNode, mapOptions)
+            new google.maps.Marker({
+                position: {
+                    lat: trail.lat, 
+                    lng: trail.lng
+                }, 
+                map: newMap, 
+                title: trail.name, 
+            });
+            setMap(newMap);
         }
     }, [mapNode]);
     
