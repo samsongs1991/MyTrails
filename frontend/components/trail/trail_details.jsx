@@ -7,15 +7,16 @@ const TrailDetails = ({ trail }) => {
         <section id="trail-details">
             <Details trail={trail}/>
 
-            <section>
+            <section id="map">
                 MINI MAP
             </section>
             
             <WeatherWidget trail={trail}/>
-            
+
             <section>
                 REVIEWS
             </section>
+            
         </section>
     );
 };

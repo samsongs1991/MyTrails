@@ -33,3 +33,5 @@ bundle.js.map
 
 # For development code
 secrets.js
+# Ignore application configuration
+/config/application.yml
