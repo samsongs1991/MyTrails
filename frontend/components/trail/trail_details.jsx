@@ -2,6 +2,7 @@ import React from "react";
 import Details from "./details.jsx";
 import Map from "./map.jsx";
 import WeatherWidget from "./weather_widget.jsx";
+import Reviews from "./reviews.jsx";
 
 const TrailDetails = ({ trail }) => {
     return (
@@ -9,11 +10,7 @@ const TrailDetails = ({ trail }) => {
             <Details trail={trail}/>
             <Map trail={trail}/>
             <WeatherWidget trail={trail}/>
-
-            <section>
-                REVIEWS
-            </section>
-            
+            <Reviews trail={trail}/>
         </section>
     );
 };
