@@ -19,10 +19,10 @@ const LocationTree = ({ trail, history }) => {
     };
     
     return (
-        <article id="location-tree">
+        <section id="location-tree">
             <div>{locationArr().map((str, i) => <span key={i}>{str}</span>)}</div>
             <SearchBar history={history}/>
-        </article>
+        </section>
     );
 };
 
