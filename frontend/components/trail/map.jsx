@@ -25,10 +25,17 @@ const Map = ({ trail }) => {
     }, [mapNode]);
     
     return (
-        <section 
-            id="map-container"
-            ref={map => setMapNode(map)}
-        >
+        <section id="map">
+            <section>
+                <h2>Map</h2>
+            </section>
+            <section>
+                <div 
+                    id="map-container"
+                    ref={map => setMapNode(map)}
+                >
+                </div>
+            </section>
         </section>
     );
 };
