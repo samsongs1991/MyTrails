@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import ReviewForm from "./review_form.jsx";
 
 const Reviews = ({ trail }) => {
+
+    const [showModal, setShowModal] = useState(false);
+    
     return (
         <section id="reviews">
             <section>
@@ -9,22 +14,27 @@ const Reviews = ({ trail }) => {
             <section>
                 <article>
                     <div>
-                        <p>5.0</p>
                         <div>
-                            star visual comp
+                            <img src="/trail_images/star_filled.png" alt="star icon"/>
+                            <span>Avg Rating</span>
                         </div>
                         <p># Reviews</p>
                     </div>
                     <div>
-                        <button>Write review</button>
+                        <button onClick={() => setShowModal(true)}>Write review</button>
                     </div>
                 </article>
                 {/* List of all reviews */}
                 {/* Iterate through reviews and
                 render a review comp */}
             </section>
+            {showModal ? <ReviewForm setShowModal={setShowModal} trail={trail}/> : null}
         </section>
     );
 };
 
-export default Reviews;
+const mSTP = state => ({
+    signedIn: Boolean(state.session.id)
+});
+
+export default connect(mSTP)(Reviews);
