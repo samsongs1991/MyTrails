@@ -331,7 +331,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        background: rgba(0, 0, 0, 0.5);
+                        background: rgba(0, 0, 0, 0.75);
                         position: absolute;
                         top: 0px;
                         left: 0px;
@@ -367,6 +367,35 @@
     
                                 > div:nth-child(3) {
                                     margin-top: 24px;
+
+                                    > img {
+                                        filter: grayscale(1);
+                                        transition: transform 0.1s;
+                                    }
+
+                                    > img:hover {
+                                        cursor: pointer;
+                                    }
+
+                                    > img:active {
+                                        opacity: 0.5;
+                                    }
+
+                                    > img.active {
+                                        transform: scale(1.15);
+                                        filter: none;
+                                    }
+
+                                    > img.selected {
+                                        transform: scale(1.15);
+                                        filter: none;
+                                    }
+
+                                    // > img:hover {
+                                    //     transform: scale(1.15);
+                                    //     filter: none;
+                                    // }
+                                    
                                 }
     
                                 > textarea {
