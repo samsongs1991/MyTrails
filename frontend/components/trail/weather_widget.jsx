@@ -62,11 +62,7 @@ const WeatherWidget = ({ trail }) => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            // .then(data => setForecast(extractForecast(data)));
-            .then(data => {
-                console.log("data", data);
-                setForecast(extractForecast(data));
-            });
+            .then(data => setForecast(extractForecast(data)));
     }, [])
 
     return (
@@ -75,7 +71,6 @@ const WeatherWidget = ({ trail }) => {
                 <h2>Weather</h2>
             </section>
             <section>
-                {console.log("forecast", forecast)}
                 {forecast ? forecast.map(({ day, high, low, weather, icon }, i) => 
                     <article key={i}>
                         <h6>{day}</h6>
