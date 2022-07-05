@@ -1,9 +1,9 @@
 class CreateTrails < ActiveRecord::Migration[5.2]
   def change
     create_table :trails do |t|
-      t.string :name
-      t.float :lat
-      t.float :lng
+      t.string :name, null: false
+      t.float :lat, null: false
+      t.float :lng, null: false
       t.string :location
       t.string :city
       t.string :state
