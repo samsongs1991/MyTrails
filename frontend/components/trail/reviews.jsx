@@ -32,7 +32,7 @@ const Reviews = ({ signedIn, fetchAllReviews, reviews, trail }) => {
             count++;
             sum += reviews[id].rating
         };
-        return (sum / count).toFixed(2);
+        return count === 0 ? 5 : (sum / count).toFixed(2);
     };
 
     const getNumReviews = () => {
