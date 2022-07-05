@@ -401,12 +401,13 @@
                                 > p {
                                     position: absolute;
                                     opacity: 0;
-                                    top: 50px;
-                                    transition: all 0.75s ease-in-out;
+                                    top: -50px;
+                                    transition: all 0.7s ease-in-out;
+                                    color: red;
                                 }
 
                                 > p.flash {
-                                    top: 25px;
+                                    top: -30px;
                                     opacity: 1;
                                 }
                                 
