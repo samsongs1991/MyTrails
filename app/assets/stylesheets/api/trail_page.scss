@@ -327,6 +327,19 @@
                 > #reviews {
 
                     > section:first-child {
+                        background: #f0f0f0;
+                        height: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 24px;
+                        border-top: 1px solid #c8c8c8;
+                        
+                        > h2 {
+                            color: #428a13;
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
 
                     }
 
