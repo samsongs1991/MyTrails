@@ -4,8 +4,8 @@ export const createReview = review => $.ajax({
     data: { review }
 });
 
-export const fetchAllReviews = ({ userId, trailId }) => $.ajax({
+export const fetchAllReviews = idObj => $.ajax({
     url: "api/reviews",
     method: "GET", 
-    data: { userId, trailId }
+    data: idObj
 });

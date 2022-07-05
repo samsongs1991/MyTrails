@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import ReviewForm from "./review_form.jsx";
+import { fetchAllReviews } from "../../actions/review_actions.js";
 
-const Reviews = ({ signedIn, createReview, trail }) => {
+const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
 
     const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        fetchAllReviews({ trail_id: trail.id });
+    }, []);
     
     const handleNewReview = e => {
         if(signedIn) {
@@ -50,4 +55,8 @@ const mSTP = state => ({
     signedIn: Boolean(state.session.id)
 });
 
-export default connect(mSTP)(Reviews);
+const mDTP = dispatch => ({
+    fetchAllReviews: idObj => dispatch(fetchAllReviews(idObj))
+});
+
+export default connect(mSTP, mDTP)(Reviews);

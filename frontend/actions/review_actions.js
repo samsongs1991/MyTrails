@@ -6,6 +6,11 @@ export const createReview = review => dispatch => {
         .then(review => dispatch(receiveReview(review)));
 };
 
+export const fetchAllReviews = idObj => dispatch => {
+    Utils.fetchAllReviews(idObj)
+        .then(data => console.log("INSIDE review_actions.js", data));
+};
+
 // Action creators
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 const receiveReview = review => ({

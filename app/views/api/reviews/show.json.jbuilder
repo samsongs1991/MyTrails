@@ -1,4 +1,1 @@
-json.extract! @review,
-    :id, :rating, :text,
-    :user_id, :trail_id,
-    :created_at
+json.partial! "/api/reviews/review", review: @review
