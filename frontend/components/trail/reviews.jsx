@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import ReviewForm from "./review_form.jsx";
+import ReviewsList from "./reviews_list.jsx";
 import { fetchAllReviews } from "../../actions/review_actions.js";
 
-const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
+const Reviews = ({ signedIn, fetchAllReviews, reviews, trail }) => {
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -23,6 +24,24 @@ const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
             }, 2000);
         }
     };
+
+    const calcAvgRating = () => {
+        let count = 0;
+        let sum = 0;
+        for(let id in reviews) {
+            count++;
+            sum += reviews[id].rating
+        };
+        return (sum / count).toFixed(2);
+    };
+
+    const getNumReviews = () => {
+        let count = 0;
+        for(let id in reviews) {
+            count++;
+        }
+        return count;
+    };
     
     return (
         <section id="reviews">
@@ -30,22 +49,20 @@ const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
                 <h2>Reviews</h2>
             </section>
             <section>
-                <article>
+                <section>
                     <div>
                         <div>
                             <img src="/trail_images/star_filled.png" alt="star icon"/>
-                            <span>Avg Rating</span>
+                            <p>{calcAvgRating()}</p>
                         </div>
-                        <p># Reviews</p>
+                        <p>{getNumReviews()} Reviews</p>
                     </div>
                     <div>
                         <button onClick={handleNewReview}>Write review</button>
                         <p>Log in to write a review</p>
                     </div>
-                </article>
-                {/* List of all reviews */}
-                {/* Iterate through reviews and
-                render a review comp */}
+                </section>
+                <ReviewsList reviews={reviews}/>
             </section>
             {showModal ? <ReviewForm setShowModal={setShowModal} trail={trail}/> : null}
         </section>
@@ -53,7 +70,8 @@ const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
 };
 
 const mSTP = state => ({
-    signedIn: Boolean(state.session.id)
+    signedIn: Boolean(state.session.id),
+    reviews: state.entities.reviews
 });
 
 const mDTP = dispatch => ({

@@ -345,7 +345,7 @@
 
                     > section:nth-child(2) {
 
-                        > article {
+                        > section {
                             display: flex;
                             justify-content: space-around;
                             align-items: center;
@@ -357,23 +357,22 @@
 
                                 > div {
                                     display: flex;
-                                    align-items: flex-end;
+                                    align-items: center;
                                     margin-top: 10px;
 
                                     > img {
-                                        height: 50px;
+                                        height: 46px;
                                     }
 
-                                    > span {
-                                        font-weight: bold;
-                                        font-size: 45px;
+                                    > p {
+                                        font-size: 56px;
                                     }
 
                                 }
 
                                 > p {
                                     font-size: 14px;
-                                    margin: 10px;
+                                    margin-bottom: 10px;
                                 }
                                 
                             }
@@ -411,6 +410,10 @@
                                 }
                                 
                             }
+                            
+                        }
+
+                        > ol {
                             
                         }
                         
