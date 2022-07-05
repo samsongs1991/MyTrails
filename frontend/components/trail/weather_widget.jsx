@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { weatherKey } from "../../../secrets.js";
 import { fetchTrail } from "../../actions/trail_actions.js";
 
 const WeatherWidget = ({ trail, fetchTrail }) => {
-    
-    const [forecast, setForecast] = useState(null);
-
-    useEffect(() => {
-        fetchTrail(trail.id);
-    }, [])
-
-    return (
+    return trail.forecast ? (
         <section id="weather-widget">
             <section>
                 <h2>Weather</h2>
             </section>
             <section>
-                {forecast ? forecast.map(({ day, high, low, weather, icon }, i) => 
+                {trail.forecast ? trail.forecast.map(({ day, high, low, weather, icon }, i) => 
                     <article key={i}>
                         <h6>{day}</h6>
                         <img src={icon} alt={`${weather} icon`}/>
@@ -25,7 +17,7 @@ const WeatherWidget = ({ trail, fetchTrail }) => {
                     </article>) : null}
             </section>
         </section>
-    );
+    ) : fetchTrail(trail.id);
 };
 
 const mDTP = dispatch => ({
