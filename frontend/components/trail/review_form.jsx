@@ -51,8 +51,8 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
         createReview({
             rating: rating, 
             text: input,
-            userId: userId, 
-            trailId: trail.id 
+            user_id: userId, 
+            trail_id: trail.id 
         });
         setShowModal(false);
     };
