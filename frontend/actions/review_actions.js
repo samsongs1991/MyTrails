@@ -3,8 +3,7 @@ import * as Utils from "../util/review_api_util.js";
 // Thunk action creators
 export const createReview = review => dispatch => {
     Utils.createReview(review)
-        // .then(review => dispatch(receiveReview(review)));
-        .then(review => console.log("review to be given to redux state", review));
+        .then(review => dispatch(receiveReview(review)));
 };
 
 // Action creators
