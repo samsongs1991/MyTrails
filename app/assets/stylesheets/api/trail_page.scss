@@ -424,15 +424,28 @@
                                 > p:first-child {
                                     font-size: 18px;
                                     font-weight: bold;
+                                    margin-left: 2px;
                                 }
 
                                 > div {
-                                    margin-top: 6px;
+                                    margin-top:10px;
+                                    display: flex;
+                                    align-items: center;
 
                                     > span {
-                                        margin: 0px 10px;
                                         font-size: 14px;
                                         color: #767676;
+                                        margin-right: 15px;
+
+                                        > img {
+                                            filter: grayscale(1);
+                                            height: 18px;
+                                        }
+
+                                        > img.filled {
+                                            filter: none;
+                                        }
+                                        
                                     }
                                     
                                 }

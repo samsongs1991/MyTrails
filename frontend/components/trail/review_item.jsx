@@ -17,12 +17,23 @@ const ReviewsItem = ({ review }) => {
 
         return `${months[mo]} ${day}, ${yr}`;
     };
+
+    const setStars = () => {
+        return [1, 2, 3, 4, 5].map(num => 
+            <img
+                className={num <= review.rating ? "filled" : ""}
+                key={num}
+                src="/trail_images/star_filled.png"
+                alt="star"
+            />
+        );
+    };
     
     return (
         <li>
             <p>{review.reviewer}</p>
             <div>
-                <span>stars</span>
+                <span>{setStars()}</span>
                 <span>{getFormattedDate()}</span>
             </div>
             <p>{review.text}</p>
