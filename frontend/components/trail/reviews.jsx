@@ -4,12 +4,11 @@ import ReviewForm from "./review_form.jsx";
 import { fetchAllReviews } from "../../actions/review_actions.js";
 
 const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
-
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
+    if(trail.forecast) {
         fetchAllReviews({ trail_id: trail.id });
-    }, []);
+    }
     
     const handleNewReview = e => {
         if(signedIn) {
