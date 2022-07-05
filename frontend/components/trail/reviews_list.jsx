@@ -4,13 +4,13 @@ import ReviewItem from "./review_item.jsx";
 const ReviewsList = ({ reviews }) => {
 
     const getLatestReviews = num => {
-        const arr = [];
-        for(let id in reviews) {
-            const review = reviews[id];
-            arr.push(new Date(review.created_at));
-        }
-        arr.sort((a, b) => b - a);
-        return arr.slice(0, num);
+        const arr = Object.values(reviews);
+        arr.sort((a, b) => {
+            const dateA = new Date(a.created_at);
+            const dateB = new Date(b.created_at);
+            return dateB - dateA;
+        });
+        return arr;
     };
     
     return (
