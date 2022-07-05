@@ -8,7 +8,13 @@ export const fetchAllTrails = () => dispatch => {
 
 export const fetchTrail = trailId => dispatch => {
     Utils.fetchTrail(trailId)
-        .then(trail => dispatch(receiveTrail(trail)));
+        .then(trail => {
+            Utils.fetchWeather(trail)
+                .then(({ list }) => {
+                    trail.weather = list;
+                    dispatch(receiveTrail(trail));
+                });
+        });
 };
 
 // Action creators

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { weatherKey } from "../../../secrets.js";
+import { fetchTrail } from "../../actions/trail_actions.js";
 
-const WeatherWidget = ({ trail }) => {
+const WeatherWidget = ({ trail, fetchTrail }) => {
     
     const [forecast, setForecast] = useState(null);
     
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${trail.lat}&lon=${trail.lng}&appid=${weatherKey}`;
+    // const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${trail.lat}&lon=${trail.lng}&appid=${weatherKey}`;
     
     const extractForecast = ({ list }) => {
         const result = [];
@@ -60,9 +62,10 @@ const WeatherWidget = ({ trail }) => {
     };
     
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setForecast(extractForecast(data)));
+        fetchTrail(trail.id);
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => setForecast(extractForecast(data)));
     }, [])
 
     return (
@@ -82,4 +85,8 @@ const WeatherWidget = ({ trail }) => {
     );
 };
 
-export default WeatherWidget;
+const mDTP = dispatch => ({
+    fetchTrail: trailId => dispatch(fetchTrail(trailId))
+});
+
+export default connect(null, mDTP)(WeatherWidget);
