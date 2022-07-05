@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { createReview } from "../../actions/review_actions.js";
 
-const ReviewForm = ({ trail, setShowModal }) => { 
+const ReviewForm = ({ trail, setShowModal, createReview, userId }) => { 
     
     const [rating, setRating] = useState(0);
     const [input, setInput] = useState("");
@@ -46,6 +48,12 @@ const ReviewForm = ({ trail, setShowModal }) => {
     
     const handleSubmit = e => {
         e.preventDefault();
+        createReview({
+            rating: rating, 
+            text: input,
+            userId: userId, 
+            trailId: trail.id 
+        });
         setShowModal(false);
     };
     
@@ -83,4 +91,12 @@ const ReviewForm = ({ trail, setShowModal }) => {
     );
 };
 
-export default ReviewForm;
+const mSTP = state => ({
+    userId: state.session.id
+});
+
+const mDTP = dispatch => ({
+    createReview: review => dispatch(createReview(review))
+});
+
+export default connect(mSTP, mDTP)(ReviewForm);

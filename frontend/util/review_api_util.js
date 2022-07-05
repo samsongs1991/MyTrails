@@ -1,6 +1,7 @@
 export const createReview = review => $.ajax({
     url: "api/reviews", 
-    method: "POST"
+    method: "POST", 
+    data: { review }
 });
 
 export const fetchAllReviews = ({ userId, trailId }) => $.ajax({
