@@ -8,7 +8,7 @@ export const createReview = review => dispatch => {
 
 export const fetchAllReviews = idObj => dispatch => {
     Utils.fetchAllReviews(idObj)
-        .then(data => console.log("INSIDE review_actions.js", data));
+        .then(reviews => dispatch(receiveAllReviews(reviews)));
 };
 
 // Action creators
