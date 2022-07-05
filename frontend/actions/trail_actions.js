@@ -11,7 +11,7 @@ export const fetchTrail = trailId => dispatch => {
         .then(trail => {
             Utils.fetchWeather(trail)
                 .then(({ list }) => {
-                    trail.weather = list;
+                    trail.forecast = Utils.extractForecast(list);
                     dispatch(receiveTrail(trail));
                 });
         });
