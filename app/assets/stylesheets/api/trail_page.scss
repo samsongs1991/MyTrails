@@ -349,6 +349,7 @@
                             display: flex;
                             justify-content: space-around;
                             align-items: center;
+                            padding-top: 30px;
 
                             > div:first-child {
                                 display: flex;
@@ -414,6 +415,35 @@
                         }
 
                         > ol {
+                            padding: 30px;
+
+                            > li {
+                                border-top: 1px solid #c8c8c8;
+                                padding: 26px 12px;
+
+                                > p:first-child {
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                }
+
+                                > div {
+                                    margin-top: 6px;
+
+                                    > span {
+                                        margin: 0px 10px;
+                                        font-size: 14px;
+                                        color: #767676;
+                                    }
+                                    
+                                }
+
+                                > p:last-child {
+                                    font-size: 16px;
+                                    color: #535353;
+                                    margin-top: 26px;
+                                }
+                                
+                            }
                             
                         }
                         

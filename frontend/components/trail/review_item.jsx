@@ -14,20 +14,17 @@ const ReviewsItem = ({ review }) => {
         const day = date.getDate();
         const mo = date.getMonth();
         const yr = date.getFullYear();
-        
+
         return `${months[mo]} ${day}, ${yr}`;
     };
     
     return (
         <li>
-            {/* name */}
             <p>{review.reviewer}</p>
-            {/* star rating : created at */}
             <div>
-                <p>stars</p>
-                <p>{getFormattedDate()}</p>
+                <span>stars</span>
+                <span>{getFormattedDate()}</span>
             </div>
-            {/* text */}
             <p>{review.text}</p>
         </li>
     );
