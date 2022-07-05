@@ -325,6 +325,41 @@
 
                 > #reviews {
 
+                    > section:first-child {
+
+                    }
+
+                    > section:last-child {
+
+                        > article {
+
+                            > div:first-child {
+
+                            }
+
+                            > div:last-child {
+                                position: relative;
+
+                                > button {
+
+                                }
+
+                                > p {
+                                    position: absolute;
+                                    opacity: 0;
+                                    transition: opacity 0.5s ease-in-out;
+                                }
+
+                                > p.flash {
+                                    opacity: 1;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
                     > #review-form {
                         height: 100vh;
                         width: 100vw;
