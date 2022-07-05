@@ -6,9 +6,11 @@ import { fetchAllReviews } from "../../actions/review_actions.js";
 const Reviews = ({ signedIn, fetchAllReviews, trail }) => {
     const [showModal, setShowModal] = useState(false);
 
-    if(trail.forecast) {
-        fetchAllReviews({ trail_id: trail.id });
-    }
+    useEffect(() => {
+        if(trail.forecast) {
+            fetchAllReviews({ trail_id: trail.id });
+        }
+    }, [trail]);
     
     const handleNewReview = e => {
         if(signedIn) {
