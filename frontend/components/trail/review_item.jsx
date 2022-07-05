@@ -3,11 +3,19 @@ import React from "react";
 const ReviewsItem = ({ review }) => {
 
     const getFormattedDate = () => {
+        const months = [
+            "January", "February", "March", 
+            "April", "May", "June", 
+            "July", "August", "September", 
+            "October", "November", "December"
+        ];
+
         const date = new Date(review.created_at);
-        const day = date.getDay();
+        const day = date.getDate();
         const mo = date.getMonth();
         const yr = date.getFullYear();
-        console.log("formatted date", date, day, mo, yr);
+        
+        return `${months[mo]} ${day}, ${yr}`;
     };
     
     return (
