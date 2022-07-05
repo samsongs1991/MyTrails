@@ -4,11 +4,11 @@ import SearchBar from "./search_bar.jsx";
 import TrailCards from "./trail_cards.jsx";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 
-const Home = ({ user, fetchAllTrails, history }) => {
+const Home = ({ user, trails, fetchAllTrails, history }) => {
     
-    useEffect(() => {
+    if(Object.keys(trails).length !== 20) {
         fetchAllTrails();
-    }, []);
+    }
     
     return (
         <section id="home-page">
@@ -22,7 +22,8 @@ const Home = ({ user, fetchAllTrails, history }) => {
 };
 
 const mSTP = state => ({
-    user: state.entities.users[state.session.id]
+    user: state.entities.users[state.session.id],
+    trails: state.entities.trails
 });
 
 const mDTP = dispatch => ({
