@@ -17,7 +17,7 @@ const NearbyTrails = ({ trails, trail }) => {
         
     return (
         <section id="nearby-trails">
-            {closestTrails.slice(0, 8).map((trail, i) => <Card key={i} trail={trail}/>)}
+            {closestTrails.slice(1, 6).map((trail, i) => <Card key={i} trail={trail}/>)}
         </section>
     );
 };
