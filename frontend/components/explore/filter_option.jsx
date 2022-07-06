@@ -8,11 +8,20 @@ const FilterOption = ({ type, input, setInput }) => {
     const hideModal = e => {
         const btn = document.getElementById(type);
         if(e.target !== btn && e.target.className !== "modal-arrow") {
+            const arrows = document.getElementsByClassName("modal-arrow");
+            for(let i = 0; i < arrows.length; i++) {
+                arrows[i].classList.remove("active");
+            }
             setShowModal(false);
         }
     };
 
     const handleModal = e => {
+        if(showModal) {
+            e.target.children[0].classList.remove("active");
+        } else {
+            e.target.children[0].classList.add("active");
+        }
         setShowModal(!showModal);
     };
 

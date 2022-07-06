@@ -133,6 +133,11 @@
                     filter: grayscale(1);
                     height: 12px;
                     margin-left: 2px;
+                    transition: transform 0.2s ease-in-out;
+                }
+
+                > img.active {
+                    transform: rotate(-180deg);
                 }
 
             }
