@@ -19,7 +19,10 @@ const FilterOption = ({ type, input, setInput }) => {
     
     return (
         <div>
-            <button id={type} onClick={() => setShowModal(!showModal)}>{type}</button>
+            <button id={type} onClick={() => setShowModal(!showModal)}>
+                {type}
+                <img src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+            </button>
             {showModal ? Modals[type] : null}
         </div>
     );
