@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createReview } from "../../actions/review_actions.js";
 
@@ -6,6 +6,20 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
     
     const [rating, setRating] = useState(0);
     const [input, setInput] = useState("");
+
+    useEffect(() => {
+        const posY = window.pageYOffset;
+        const reviewForm = document.getElementById("review-form");
+        reviewForm.style.top = `${posY}px`;
+        const body = document.getElementsByTagName("body")[0];
+        body.style.overflow = "hidden";
+    }, []);
+
+    const handleCloseModal = () => {
+        const body = document.getElementsByTagName("body")[0];
+        body.style.overflow = "";
+        setShowModal(false);
+    }
 
     const handleMouseEnter = e => {
         const stars = e.target.parentElement.children;
@@ -54,14 +68,14 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
             user_id: userId, 
             trail_id: trail.id 
         });
-        setShowModal(false);
+        handleCloseModal();
     };
     
     return (
         <section id="review-form">
             <form onSubmit={handleSubmit}>
                 <section>
-                    <img onClick={() => setShowModal(false)} src="/trail_images/x_icon.png" alt="Close"/>
+                    <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
                     <h3>{trail.name}</h3>
                     <div>
                         {[1, 2, 3, 4, 5].map(num => 
