@@ -1,36 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { fetchAllTrails } from "../../actions/trail_actions.js";
 
-const Explore = ({ trails }) => {
-
-    const [map, setMap] = useState(null);
+const Explore = ({ trails, fetchAllTrails }) => {
     const [mapNode, setMapNode] = useState(null);
 
     const seattle = { lat: 47.6062, lng: -122.3321 };
+
+    const createMarkerFromTrail = (trail, map) => {
+        const marker = new google.maps.Marker({
+            position: {
+                lat: trail.lat, 
+                lng: trail.lng
+            }, 
+            map: map, 
+            title: trail.name, 
+        });
+        const infoWindow = new google.maps.InfoWindow();
+        marker.addListener("click", () => {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            marker.setAnimation(null);
+            infoWindow.setContent(marker.getTitle());
+            infoWindow.open(marker.getMap(), marker)
+        })
+    }
     
     useEffect(() => {
-        const mapOptions = {
-            center: { lat: seattle.lat, lng: seattle.lng }, 
-            zoom: 13
-        };
-        if(mapNode) {
-            const newMap = new google.maps.Map(mapNode, mapOptions)
-            // new google.maps.Marker({
-            //     position: {
-            //         lat: trail.lat, 
-            //         lng: trail.lng
-            //     }, 
-            //     map: newMap, 
-            //     title: trail.name, 
-            // });
-            // do above code for each trail
-            setMap(newMap);
+        if(Object.keys(trails).length !== 20) {
+            fetchAllTrails();
         }
-    }, [mapNode]);
+
+        if(mapNode && Object.keys(trails).length === 20) {
+            const mapOptions = {
+                center: { lat: seattle.lat, lng: seattle.lng }, 
+                zoom: 11
+            };
+            const newMap = new google.maps.Map(mapNode, mapOptions)
+            for(let id in trails) {
+                createMarkerFromTrail(trails[id], newMap);
+            }
+        }
+    }, [trails]);
     
     return (
         <section id="explore-page">
-            EXPLORE COMPONENT
             <div 
                 id="map-container"
                 ref={map => setMapNode(map)}
@@ -44,4 +57,8 @@ const mSTP = state => ({
     trails: state.entities.trails
 });
 
-export default connect(mSTP)(Explore);
+const mDTP = dispatch => ({
+    fetchAllTrails: () => dispatch(fetchAllTrails())
+});
+
+export default connect(mSTP, mDTP)(Explore);
