@@ -24,7 +24,7 @@ const Trail = ({ trails, fetchAllTrails, match, history }) => {
                 <TrailImg trail={trail}/>
                 <section>
                     <TrailDetails trail={trail}/>
-                    <NearbyTrails/>
+                    <NearbyTrails trails={trails} trail={trail}/>
                 </section>
             </div>
         </section>
