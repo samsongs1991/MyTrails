@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
+import FilterBar from "./filter_bar.jsx";
 import Map from "./map.jsx";
 
-const Explore = ({ trails, fetchAllTrails }) => {
+const Explore = ({ trails, fetchAllTrails, history }) => {
+
+    const [options, setOptions] = useState({});
 
     useEffect(() => {
         if(Object.keys(trails).length !== 20) {
@@ -13,14 +16,9 @@ const Explore = ({ trails, fetchAllTrails }) => {
     
     return (
         <section id="explore-page">
-
-            <section>
-                {/* filter bar */}
-            </section>
-
+            <FilterBar options={options} setOptions={setOptions} history={history}/>
             <section>
                 {/* trails */}
-                {/* map */}
                 <Map trails={trails}/>
             </section>
         </section>

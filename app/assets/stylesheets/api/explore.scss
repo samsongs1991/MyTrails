@@ -1,14 +1,128 @@
 #explore-page {
     margin-top: 65px;
 
-    > section:first-child {
+    > #filter-bar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
 
+        #search-container {
+            position: relative;
+            z-index: 0;
+            margin: 15px 30px;
+
+            #search-bar {
+                position: relative;
+                z-index: 2;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 36px;
+                width: 300px;
+                border-radius: 10px;
+                border: 1px solid rgb(220, 220, 220);
+    
+                > img:first-child {
+                    display: none;
+                }
+    
+                > input {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #737373;
+                    border: none;
+                    width: 264px;
+                    padding-left: 14px;
+                }
+    
+                > input:focus {
+                    outline: none;
+                }
+
+                > button {
+                    border: none;
+                    background-image: url("/trail_images/search_icon.png");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 16px 16px;
+                    background-color: #52a917;
+                    border-radius: 0px 10px 10px 0px;
+                    height: 37px;
+                    width: 37px;
+                    position: relative;
+                    left: 2px;
+                }
+
+                > button:hover {
+                    opacity: 0.75;
+                    cursor: pointer;
+                }
+                
+            }
+    
+            > #search-modal {
+                position: absolute;
+                z-index: 1;
+                top: 38px;
+                left: 2px;
+                max-height: 350px;
+                width: 300px;
+                background: white;
+                overflow-y: scroll;
+    
+                > a {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    height: 40px;
+                    border-bottom: 0.25px solid rgba(190, 190, 190, 0.25);
+                    color: rgb(70, 70, 70);
+    
+                    > img {
+                        filter: hue-rotate(70deg);
+                        height: 20px;
+                        margin-left: 10px;
+                    }
+    
+                    > article {
+                        margin-left: 10px;
+    
+                        > div:first-child {
+                            font-size: 14px;
+                        }
+    
+                        > div:last-child {
+                            display: none;
+                        }
+                        
+                    }
+                    
+                }
+    
+                > a:hover {
+                    background-color: #52a917;
+                    color: white;
+                    cursor: pointer;
+
+                    > img {
+                        filter: brightness(0%) opacity(0.5);
+                    }
+                    
+                }
+                
+            }
+
+        }
+        
     }
 
     > section:last-child {
+        position: relative;
         
         > #map-container {
-            height: 800px;
+            height: 500px;
         }
     }
     
