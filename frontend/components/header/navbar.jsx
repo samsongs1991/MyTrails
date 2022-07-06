@@ -29,7 +29,7 @@ const NavBar = ({ users, id, clearErrors }) => {
     
     return (
         <nav>
-            <Link to="/trails">Explore</Link>
+            <Link to="/explore">Explore</Link>
             <Link to="/"><img src="/header_images/logo.png" alt="MyTrails Logo"/></Link>
             {user ? profileLinks() : sessionLinks}
         </nav>
