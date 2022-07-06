@@ -171,10 +171,12 @@
                     }
 
                     > p:nth-child(2) {
+                        display: flex;
+                        align-items: center;
 
                         > span {
                             border-radius: 6px;
-                            padding: 2px 8px 4px 8px;
+                            padding: 4px 8px 4px 8px;
                             color: white;
                             margin-right: 2px;
                         }
@@ -189,6 +191,11 @@
 
                         > .hard {
                             background-color: rgb(80, 80, 80);
+                        }
+                        
+                        > img {
+                            height: 20px;
+                            margin: 0px 0px 4px 12px;
                         }
                         
                     }

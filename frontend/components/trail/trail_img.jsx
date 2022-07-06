@@ -7,7 +7,11 @@ const TrailImg = ({ trail }) => {
             <div>
                 <div>
                     <p>{trail.name}</p>
-                    <p><span className={trail.difficulty}>{trail.difficulty}</span> + star rating</p>
+                    <p>
+                        <span className={trail.difficulty}>{trail.difficulty}</span>
+                        <img src="/trail_images/star_filled.png" alt="star"/>    
+                        <div>{trail.avg_rating}</div>
+                    </p>
                 </div>
                 <img id="star" src="/trail_images/star_outline.png" alt="Add to list icon"/>
             </div>
