@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
+import * as Modals from "./filter_modals.jsx";
 
 const FilterOption = ({ type, input, setInput }) => {
 
     const [showModal, setShowModal] = useState(false);
-        
-    const modal = <div>
-        MODAL
-    </div>
 
     const hideModal = e => {
         const btn = document.getElementById(type);
@@ -23,7 +20,7 @@ const FilterOption = ({ type, input, setInput }) => {
     return (
         <div>
             <button id={type} onClick={() => setShowModal(!showModal)}>{type}</button>
-            {showModal ? modal : null}
+            {showModal ? Modals[type] : null}
         </div>
     );
 };
