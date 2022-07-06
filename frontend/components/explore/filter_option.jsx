@@ -7,9 +7,13 @@ const FilterOption = ({ type, input, setInput }) => {
 
     const hideModal = e => {
         const btn = document.getElementById(type);
-        if(e.target !== btn) {
+        if(e.target !== btn && e.target.className !== "modal-arrow") {
             setShowModal(false);
         }
+    };
+
+    const handleModal = e => {
+        setShowModal(!showModal);
     };
 
     useEffect(() => {
@@ -19,9 +23,9 @@ const FilterOption = ({ type, input, setInput }) => {
     
     return (
         <div>
-            <button id={type} onClick={() => setShowModal(!showModal)}>
+            <button id={type} onClick={handleModal}>
                 {type}
-                <img src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img className="modal-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
             </button>
             {showModal ? Modals[type] : null}
         </div>
