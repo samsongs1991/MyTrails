@@ -163,12 +163,19 @@
                 border-radius: 15px;
                 display: flex;
                 flex-direction: column;
+                transform: scale(0);
+                opacity: 0;
 
                 > input[type="checkbox"] {
                     background: #52a917;
                     color: white;
                 }
                 
+            }
+
+            > form.show {
+                opacity: 1;
+                transform: scale(1);
             }
             
         }

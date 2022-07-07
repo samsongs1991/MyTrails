@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const FilterDifficulty = ({ options, setOptions }) => {
-    const [showModal, setShowModal] = useState(false);
 
     const modal = () => {
         const handleCheck = e => {
@@ -24,7 +23,7 @@ const FilterDifficulty = ({ options, setOptions }) => {
         };
         
         return (
-            <form id="form-difficulty">
+            <form id="difficulty-form" className="form-modal" onClick={e => e.stopPropagation()}>
                 <label><input
                     value="easy"
                     type="checkbox"
@@ -45,22 +44,25 @@ const FilterDifficulty = ({ options, setOptions }) => {
     };
 
     const handleModal = e => {
+        e.stopPropagation();
+        const form = document.getElementById("difficulty-form");
         const arrow = document.getElementById("difficulty-arrow");
-        if(showModal) {
+        if(form.classList.contains("show")) {
+            form.classList.remove("show");
             arrow.classList.remove("active");
         } else {
+            form.classList.add("show");
             arrow.classList.add("active");
         }
-        setShowModal(!showModal);
     };
     
     return (
         <div>
-            <button onClick={handleModal}>
+            <button id="difficulty-btn" onClick={handleModal}>
                 Difficulty
-                <img id="difficulty-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img id="difficulty-arrow" className="filter-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
             </button>
-            {showModal ? modal() : null}
+            {modal()}
         </div>
     );
 };

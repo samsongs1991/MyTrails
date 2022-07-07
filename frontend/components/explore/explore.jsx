@@ -20,9 +20,18 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
             fetchAllTrails();
         }
     }, [trails]);
+
+    const handleClick = e => {
+        const formModals = document.getElementsByClassName("form-modal");
+        const filterArrows = document.getElementsByClassName("filter-arrow");
+        for(let i = 0; i < formModals.length; i++) {
+            formModals[i].classList.remove("show");
+            filterArrows[i].classList.remove("active");
+        }
+    };
     
     return (
-        <section id="explore-page">
+        <section onClick={handleClick} id="explore-page">
             <FilterBar options={options} setOptions={setOptions} history={history}/>
             <section>
                 {/* trails */}
