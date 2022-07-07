@@ -165,7 +165,7 @@
                 flex-direction: column;
                 transform: scale(0);
                 opacity: 0;
-                color: rgb(120, 120, 120);
+                color: rgb(100, 100, 100);
             }
 
             > form.show {
@@ -192,6 +192,7 @@
                     padding: 4px 6px;
                     text-align: center;
                     outline: none;  
+                    color: rgb(100, 100, 100);
                 }
 
                 > input:hover, > input:focus {
