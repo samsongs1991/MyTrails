@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FilterLength = ({ options, setOptions }) => {
 
-    const modal = () => {        
+    const modal = () => { 
+
+        const handleRange = e => {
+            console.log(e.target.id);
+        } ;
+
         return (
             <form id="length-form" className="form-modal" onClick={e => e.stopPropagation()}>
-                FILTER LENGTH MODAL
+                <input id="min" onChange={handleRange} placeholder="min"/>
+                to
+                <input id="max" onChange={handleRange} placeholder="max"/>
+                miles
             </form>
         );
     };

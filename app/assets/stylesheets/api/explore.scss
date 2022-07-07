@@ -165,17 +165,48 @@
                 flex-direction: column;
                 transform: scale(0);
                 opacity: 0;
-
-                > input[type="checkbox"] {
-                    background: #52a917;
-                    color: white;
-                }
-                
+                color: rgb(120, 120, 120);
             }
 
             > form.show {
                 opacity: 1;
                 transform: scale(1);
+            }
+
+            > #difficulty-form {
+
+                label:hover {
+                    color: #52a917;
+                }
+                
+            }
+
+            > #length-form {
+                flex-direction: row;
+                align-items: center;
+
+                > input {
+                    width: 25px;
+                    border-radius: 5px;
+                    border: 1px solid rgb(160, 160, 160);
+                    padding: 4px 6px;
+                    text-align: center;
+                    outline: none;  
+                }
+
+                > input:hover, > input:focus {
+                    outline: 1px solid #52a917;
+                    border: 1px solid transparent;
+                }
+
+                > input:first-child {
+                    margin-right: 8px;
+                }
+
+                > input:nth-child(2) {
+                    margin: 0px 8px;
+                }
+
             }
             
         }
