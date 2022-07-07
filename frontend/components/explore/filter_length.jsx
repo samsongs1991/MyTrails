@@ -2,17 +2,36 @@ import React, { useState } from "react";
 
 const FilterLength = ({ options, setOptions }) => {
 
-    const modal = () => { 
+    const modal = () => {
+        const [min, setMin] = useState(0);
+        const [max, setMax] = useState(20);
 
         const handleRange = e => {
-            console.log(e.target.id);
+            let rangeMin = min;
+            let rangeMax = max;
+            if(e.target.id === "min") {
+                rangeMin = Number(e.target.value);
+                setMin(rangeMin);
+            } else {
+                rangeMax = Number(e.target.value);
+                setMax(rangeMax);
+            }
+
+            const val = Number(e.target.value);
+            if(val >= 0 && rangeMin <= rangeMax) {
+                document.getElementById("min").classList.remove("error");
+                document.getElementById("max").classList.remove("error");
+            } else {
+                document.getElementById("min").classList.add("error");
+                document.getElementById("max").classList.add("error");
+            }
         } ;
 
         return (
             <form id="length-form" className="form-modal" onClick={e => e.stopPropagation()}>
-                <input id="min" onChange={handleRange} placeholder="min"/>
+                <input id="min" onChange={handleRange} placeholder="min" value={min}/>
                 to
-                <input id="max" onChange={handleRange} placeholder="max"/>
+                <input id="max" onChange={handleRange} placeholder="max" value={max}/>
                 miles
             </form>
         );

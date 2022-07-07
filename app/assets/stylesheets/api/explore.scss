@@ -207,6 +207,11 @@
                     margin: 0px 8px;
                 }
 
+                > input.error {
+                    outline: 1px solid red;
+                    border: 1px solid transparent;
+                }
+
             }
             
         }
