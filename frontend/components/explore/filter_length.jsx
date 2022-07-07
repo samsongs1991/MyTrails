@@ -9,31 +9,36 @@ const FilterLength = ({ options, setOptions }) => {
         const handleRange = e => {
             let rangeMin = min;
             let rangeMax = max;
-            if(e.target.id === "min") {
+            if(e.target.id === "length-min") {
                 rangeMin = Number(e.target.value);
+                if(!(rangeMin >= 0)) {
+                    rangeMin = min;
+                }
                 setMin(rangeMin);
             } else {
                 rangeMax = Number(e.target.value);
+                if(!(rangeMax >= 0)) {
+                    rangeMax = max;
+                }
                 setMax(rangeMax);
             }
 
-            const val = Number(e.target.value);
-            if(val >= 0 && rangeMin <= rangeMax) {
-                document.getElementById("min").classList.remove("error");
-                document.getElementById("max").classList.remove("error");
-                const newLength = { min: rangeMin, max: rangeMax };
-                setOptions(Object.assign({}, options, { length: newLength }));
+            if(rangeMin <= rangeMax) {
+                document.getElementById("length-min").classList.remove("error");
+                document.getElementById("length-max").classList.remove("error");
+                const newGain = { min: rangeMin, max: rangeMax };
+                setOptions(Object.assign({}, options, { gain: newGain }));
             } else {
-                document.getElementById("min").classList.add("error");
-                document.getElementById("max").classList.add("error");
+                document.getElementById("length-min").classList.add("error");
+                document.getElementById("length-max").classList.add("error");
             }
         } ;
 
         return (
             <form id="length-form" className="form-modal" onClick={e => e.stopPropagation()}>
-                <input id="min" onChange={handleRange} placeholder="min" value={min}/>
+                <input id="length-min" onChange={handleRange} placeholder="min" value={min}/>
                 to
-                <input id="max" onChange={handleRange} placeholder="max" value={max}/>
+                <input id="length-max" onChange={handleRange} placeholder="max" value={max}/>
                 miles
             </form>
         );

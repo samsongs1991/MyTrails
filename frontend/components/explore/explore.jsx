@@ -9,7 +9,7 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
     const [options, setOptions] = useState({
         difficulty: { easy: false, moderate: false, hard: false },
         length: { min: 0, max: 20 },
-        gain: 0,
+        gain: { min: 0, max: 5000 },
         time: 0,
         category: null,
         rating: null

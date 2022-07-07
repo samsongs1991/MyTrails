@@ -181,12 +181,12 @@
                 
             }
 
-            > #length-form {
+            > #length-form, > #gain-form {
                 flex-direction: row;
                 align-items: center;
 
                 > input {
-                    width: 25px;
+                    width: 35px;
                     border-radius: 5px;
                     border: 1px solid rgb(160, 160, 160);
                     padding: 4px 6px;
