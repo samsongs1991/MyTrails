@@ -145,6 +145,7 @@
             > button:hover {
                 border: 2px solid #52a917;
                 color: #52a917;
+                cursor: pointer;
 
                 > img {
                     filter: none;
@@ -160,12 +161,14 @@
                 border: 1px solid rgb(220, 220, 220);
                 box-shadow: -7px -1px 10px -5px rgba(200, 200, 200, 0.5);
                 border-radius: 15px;
-            }
-
-            > #form-difficulty {
                 display: flex;
                 flex-direction: column;
 
+                > input[type="checkbox"] {
+                    background: #52a917;
+                    color: white;
+                }
+                
             }
             
         }

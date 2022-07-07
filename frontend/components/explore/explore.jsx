@@ -6,7 +6,14 @@ import Map from "./map.jsx";
 
 const Explore = ({ trails, fetchAllTrails, history }) => {
 
-    const [options, setOptions] = useState({});
+    const [options, setOptions] = useState({
+        difficulty: { easy: false, moderate: false, hard: false },
+        length: 20,
+        gain: 0,
+        time: 0,
+        category: null,
+        rating: null
+    });
 
     useEffect(() => {
         if(Object.keys(trails).length !== 20) {

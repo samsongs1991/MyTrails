@@ -12,12 +12,12 @@ const FilterBar = ({ options, setOptions, history }) => {
     return (
         <section id="filter-bar">
             <SearchBar history={history}/>
-            <FilterDifficulty/>
-            <FilterLength/>
+            <FilterDifficulty setOptions={setOptions} options={options}/>
+            {/* <FilterLength/>
             <FilterGain/>
             <FilterTime/>
             <FilterCategory/>
-            <FilterRating/>
+            <FilterRating/> */}
         </section>
     );
 };
