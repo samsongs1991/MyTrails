@@ -173,9 +173,29 @@
                 transform: scale(1);
             }
 
-            > #difficulty-form, > #category-form {
+            > #difficulty-form, > #category-form, > #rating-form {
 
-                label:hover {
+                > label {
+                    display: flex;
+                    align-items: center;
+
+                    > input {
+                        margin-right: 8px;
+                    }
+
+                    > span {
+                        width: 10px;
+                        margin-right: 4px;
+                    }
+                    
+                    > img {
+                        height: 16px;
+                        margin-bottom: 2px;
+                    }
+                    
+                }
+
+                > label:hover {
                     color: #52a917;
                 }
                 

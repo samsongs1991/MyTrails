@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { pureFinalPropsSelectorFactory } from "react-redux/es/connect/selectorFactory.js";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 import FilterBar from "./filter_bar.jsx";
 import Map from "./map.jsx";
@@ -12,10 +13,8 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
         gain: { min: 0, max: 5000 },
         time: { min: 0, max: 360 },
         category: { loop: false, outAndBack: false, pointToPoint: false },
-        rating: null
+        rating: { 1: false, 2: false, 3: false, 4: false, 5: false }
     });
-
-    console.log("OPTIONS", options);
 
     useEffect(() => {
         if(Object.keys(trails).length !== 20) {

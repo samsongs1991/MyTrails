@@ -8,7 +8,6 @@ import FilterCategory from "./filter_category.jsx";
 import FilterRating from "./filter_rating.jsx";
 
 const FilterBar = ({ options, setOptions, history }) => {
-
     return (
         <section id="filter-bar">
             <SearchBar history={history}/>
@@ -17,7 +16,7 @@ const FilterBar = ({ options, setOptions, history }) => {
             <FilterGain options={options} setOptions={setOptions}/>
             <FilterTime options={options} setOptions={setOptions}/>
             <FilterCategory options={options} setOptions={setOptions}/>
-            {/* <FilterRating options={options} setOptions={setOptions}/> */}
+            <FilterRating options={options} setOptions={setOptions}/>
         </section>
     );
 };
