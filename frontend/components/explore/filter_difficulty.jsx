@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const FilterDifficulty = ({ options, setOptions }) => {
 
@@ -53,6 +53,14 @@ const FilterDifficulty = ({ options, setOptions }) => {
         } else {
             form.classList.add("show");
             arrow.classList.add("active");
+        }
+        const formModals = document.getElementsByClassName("form-modal");
+        const filterArrows = document.getElementsByClassName("filter-arrow");
+        for(let i = 0; i < formModals.length; i++) {
+            if(formModals[i].id !== "difficulty-form") {
+                formModals[i].classList.remove("show");
+                filterArrows[i].classList.remove("active");
+            }
         }
     };
     
