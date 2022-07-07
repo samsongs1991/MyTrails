@@ -15,7 +15,7 @@ const FilterBar = ({ options, setOptions, history }) => {
             <FilterDifficulty options={options} setOptions={setOptions}/>
             <FilterLength options={options} setOptions={setOptions}/>
             <FilterGain options={options} setOptions={setOptions}/>
-            {/* <FilterTime options={options} setOptions={setOptions}/> */}
+            <FilterTime options={options} setOptions={setOptions}/>
             {/* <FilterCategory options={options} setOptions={setOptions}/> */}
             {/* <FilterRating options={options} setOptions={setOptions}/> */}
         </section>

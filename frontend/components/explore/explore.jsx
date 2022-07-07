@@ -10,7 +10,7 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
         difficulty: { easy: false, moderate: false, hard: false },
         length: { min: 0, max: 20 },
         gain: { min: 0, max: 5000 },
-        time: 0,
+        time: { min: 0, max: 360 },
         category: null,
         rating: null
     });
