@@ -8,12 +8,14 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
 
     const [options, setOptions] = useState({
         difficulty: { easy: false, moderate: false, hard: false },
-        length: 20,
+        length: { min: 0, max: 20 },
         gain: 0,
         time: 0,
         category: null,
         rating: null
     });
+
+    console.log("OPTIONS", options);
 
     useEffect(() => {
         if(Object.keys(trails).length !== 20) {

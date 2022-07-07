@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const FilterLength = ({ options, setOptions }) => {
 
     const modal = () => {
-        const [min, setMin] = useState(0);
-        const [max, setMax] = useState(20);
+        const [min, setMin] = useState(options.length.min);
+        const [max, setMax] = useState(options.length.max);
 
         const handleRange = e => {
             let rangeMin = min;
@@ -21,6 +21,8 @@ const FilterLength = ({ options, setOptions }) => {
             if(val >= 0 && rangeMin <= rangeMax) {
                 document.getElementById("min").classList.remove("error");
                 document.getElementById("max").classList.remove("error");
+                const newLength = { min: rangeMin, max: rangeMax };
+                setOptions(Object.assign({}, options, { length: newLength }));
             } else {
                 document.getElementById("min").classList.add("error");
                 document.getElementById("max").classList.add("error");
