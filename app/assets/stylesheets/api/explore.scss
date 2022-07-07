@@ -118,7 +118,7 @@
         
         > div {
             position: relative;
-            padding: 15px;
+            padding: 5px;
 
             > button {
                 background: none;
@@ -173,7 +173,7 @@
                 transform: scale(1);
             }
 
-            > #difficulty-form {
+            > #difficulty-form, > #category-form {
 
                 label:hover {
                     color: #52a917;

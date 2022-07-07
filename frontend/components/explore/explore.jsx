@@ -11,7 +11,7 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
         length: { min: 0, max: 20 },
         gain: { min: 0, max: 5000 },
         time: { min: 0, max: 360 },
-        category: null,
+        category: { loop: false, outAndBack: false, pointToPoint: false },
         rating: null
     });
 
