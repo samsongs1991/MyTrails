@@ -603,6 +603,8 @@
              >#nearby-trails {
                 display: flex;
                 flex-direction: column;
+                border-right: 1px solid #c8c8c8;
+                border-bottom: 1px solid #c8c8c8;
 
                 > a {
                     height: 300px;
