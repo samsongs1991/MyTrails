@@ -7,16 +7,16 @@ const FilterCategory = ({ options, setOptions }) => {
             let newCategory;
             switch(e.target.value) {
                 case "Loop":
-                    const loop = options.category.loop;
-                    newCategory = Object.assign({}, options.category, { loop: !loop });
+                    const loop = options.category["Loop"];
+                    newCategory = Object.assign({}, options.category, { "Loop": !loop });
                     break;
                 case "Out & Back":
-                    const outAndBack = options.category.outAndBack;
-                    newCategory = Object.assign({}, options.category, { outAndBack: !outAndBack });
+                    const outAndBack = options.category["Out & Back"];
+                    newCategory = Object.assign({}, options.category, { "Out & Back": !outAndBack });
                     break;
                 case "Point to Point":
-                    const pointToPoint = options.category.pointToPoint;
-                    newCategory = Object.assign({}, options.category, { pointToPoint: !pointToPoint });
+                    const pointToPoint = options.category["Point to Point"];
+                    newCategory = Object.assign({}, options.category, { "Point to Point": !pointToPoint });
                     break;
             }
             setOptions(Object.assign({}, options, { category: newCategory }));

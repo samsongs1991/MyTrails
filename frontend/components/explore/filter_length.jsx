@@ -27,7 +27,7 @@ const FilterLength = ({ options, setOptions }) => {
                 document.getElementById("length-min").classList.remove("error");
                 document.getElementById("length-max").classList.remove("error");
                 const newGain = { min: rangeMin, max: rangeMax };
-                setOptions(Object.assign({}, options, { gain: newGain }));
+                setOptions(Object.assign({}, options, { length: newGain }));
             } else {
                 document.getElementById("length-min").classList.add("error");
                 document.getElementById("length-max").classList.add("error");

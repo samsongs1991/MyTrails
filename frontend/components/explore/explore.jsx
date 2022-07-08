@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { pureFinalPropsSelectorFactory } from "react-redux/es/connect/selectorFactory.js";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 import FilterBar from "./filter_bar.jsx";
 import Map from "./map.jsx";
@@ -12,7 +11,7 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
         length: { min: 0, max: 20 },
         gain: { min: 0, max: 5000 },
         time: { min: 0, max: 360 },
-        category: { loop: false, outAndBack: false, pointToPoint: false },
+        category: { "Loop": false, "Out & Back": false, "Point to Point": false },
         rating: { 1: false, 2: false, 3: false, 4: false, 5: false }
     });
 
@@ -35,8 +34,8 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
         <section onClick={handleClick} id="explore-page">
             <FilterBar options={options} setOptions={setOptions} history={history}/>
             <section>
-                {/* trails */}
-                <Map trails={trails}/>
+                {/* trails left sidebar */}
+                <Map options={options} trails={trails}/>
             </section>
         </section>
     );
