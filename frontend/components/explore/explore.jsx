@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 import FilterBar from "./filter_bar.jsx";
+import TrailsSidebar from "./trails_sidebar.jsx";
 import Map from "./map.jsx";
 
 const Explore = ({ trails, fetchAllTrails, history }) => {
@@ -34,7 +35,7 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
         <section onClick={handleClick} id="explore-page">
             <FilterBar options={options} setOptions={setOptions} history={history}/>
             <section>
-                {/* trails left sidebar */}
+                <TrailsSidebar options={options} trails={trails}/>
                 <Map options={options} trails={trails}/>
             </section>
         </section>
