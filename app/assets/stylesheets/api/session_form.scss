@@ -39,13 +39,13 @@
             }
     
             > input:hover {
-                border: 1.5px solid #428a13;
+                border: 1px solid #428a13;
             }
     
             > input:focus-within {
                 color: gray;
                 outline: none;
-                border: 2px solid #428a13;
+                border: 1px solid #428a13;
             }
     
             > ::placeholder {
