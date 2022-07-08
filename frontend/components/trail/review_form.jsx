@@ -15,7 +15,9 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
         body.style.overflow = "hidden";
     }, []);
 
-    const handleCloseModal = () => {
+    const handleCloseModal = e => {
+        e.stopPropagation();
+        console.log("closing modal");
         const body = document.getElementsByTagName("body")[0];
         body.style.overflow = "";
         setShowModal(false);
@@ -72,8 +74,8 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
     };
     
     return (
-        <section id="review-form">
-            <form onSubmit={handleSubmit}>
+        <section onClick={handleCloseModal} id="review-form">
+            <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
                 <section>
                     <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
                     <h3>{trail.name}</h3>
