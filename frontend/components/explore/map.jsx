@@ -24,19 +24,19 @@ const Map = ({ trails, options }) => {
         })
     };
 
-    // if(mapNode) {
-    //     const mapOptions = {
-    //         center: { lat: seattle.lat, lng: seattle.lng }, 
-    //         zoom: 11
-    //     };
-    //     const newMap = new google.maps.Map(mapNode, mapOptions)
+    if(mapNode) {
+        const mapOptions = {
+            center: { lat: seattle.lat, lng: seattle.lng }, 
+            zoom: 11
+        };
+        const newMap = new google.maps.Map(mapNode, mapOptions)
 
-    //     const filteredTrails = filter(Object.values(trails));
+        const filteredTrails = filter(trails, options);
         
-    //     for(let i = 0; i < filteredTrails.length; i++) {
-    //         createMarkerFromTrail(filteredTrails[i], newMap);
-    //     }
-    // }
+        for(let i = 0; i < filteredTrails.length; i++) {
+            createMarkerFromTrail(filteredTrails[i], newMap);
+        }
+    }
     
     useEffect(() => {
         // if(mapNode && Object.keys(trails).length === 20) {
