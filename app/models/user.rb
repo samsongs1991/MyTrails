@@ -8,8 +8,10 @@ class User < ApplicationRecord
 
     has_many :reviews
 
+    has_one_attached :photo
+
     attr_reader :password
-    
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         if user.nil?
@@ -45,5 +47,5 @@ class User < ApplicationRecord
     def generate_session_token
         SecureRandom.urlsafe_base64
     end
-    
+
 end
