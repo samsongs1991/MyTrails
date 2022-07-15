@@ -1,10 +1,11 @@
 json.extract! trail,
-    :id, :name, :lat, :lng, 
+    :id, :name, :lat, :lng,
     :location, :city, :state, :country,
     :difficulty, :length, :gain, :category
 
-json.set! :key, 
-    ENV['WEATHER_API_KEY']
+json.set! :key,
+    # ENV['WEATHER_API_KEY']
+    Rails.application.credentials.weather[:api_key]
 
 count = 0;
 sum = 0;
@@ -18,5 +19,5 @@ if count > 0
     avg_rating = (Float(sum) / Float(count)).round(2)
 end
 
-json.set! :avg_rating, 
+json.set! :avg_rating,
     avg_rating
