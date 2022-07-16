@@ -7,14 +7,14 @@ import { removeSessionErrors } from "../../actions/session_actions.js";
 const NavBar = ({ users, id, clearErrors }) => {
     const user = users[id];
     const [modalHidden, setModalHidden] = useState(true);
-        
+
     const profileLinks = () => (
         <div id="profile-links-container">
             <div>Welcome {user.fname}</div>
-            <img 
+            <img
                 src="/header_images/menu_bar.png" alt="Menu bar icon"
-                onMouseOver={() => setModalHidden(false)} 
-                onMouseLeave={() => setModalHidden(true)} 
+                onMouseOver={() => setModalHidden(false)}
+                onMouseLeave={() => setModalHidden(true)}
             />
             {modalHidden ? null : <ProfileModal setModalHidden={setModalHidden}/>}
         </div>
@@ -26,7 +26,7 @@ const NavBar = ({ users, id, clearErrors }) => {
             <Link to="/signin" onClick={clearErrors}>Log In</Link>
         </div>
     );
-    
+
     return (
         <nav>
             <Link to="/explore">Explore</Link>
