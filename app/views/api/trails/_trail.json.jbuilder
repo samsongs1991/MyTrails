@@ -21,3 +21,5 @@ end
 
 json.set! :avg_rating,
     avg_rating
+
+json.set! :trail_img, url_for(trail.photo)
