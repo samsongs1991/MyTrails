@@ -31,15 +31,14 @@ const ReviewsItem = ({ review }) => {
 
     return (
         <li>
-            <p>
-                <img src={review.reviewer_img} alt="reviewer photo"/>
-                {review.reviewer}
-            </p>
             <div>
-                <span>{setStars()}</span>
-                <span>{getFormattedDate()}</span>
+                <img src={review.reviewer_img} alt="reviewer photo"/>
+                <div>
+                    <span>{review.reviewer}</span>
+                    <span>{setStars()}<span>{getFormattedDate()}</span></span>
+                </div>
             </div>
-            <p>{review.text}</p>
+            <div>{review.text}</div>
         </li>
     );
 };

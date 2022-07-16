@@ -429,7 +429,7 @@
                                 border-top: 1px solid #c8c8c8;
                                 padding: 26px 12px;
 
-                                > p:first-child {
+                                > div:first-child {
                                     font-size: 18px;
                                     font-weight: bold;
                                     margin-left: 2px;
@@ -438,36 +438,46 @@
 
                                     > img {
                                         margin-right: 10px;
-                                        height: 50px;
+                                        height: 60px;
                                         border-radius: 50%;
                                     }
 
-                                }
+                                    > div {
+                                        display: flex;
+                                        flex-direction: column;
 
-                                > div {
-                                    margin-top:10px;
-                                    display: flex;
-                                    align-items: center;
-
-                                    > span {
-                                        font-size: 14px;
-                                        color: #767676;
-                                        margin-right: 15px;
-
-                                        > img {
-                                            filter: grayscale(1);
-                                            height: 18px;
+                                        > span {
+                                            margin: 3px 0px;
                                         }
 
-                                        > img.filled {
-                                            filter: none;
+                                        > span:last-child {
+                                            font-size: 14px;
+                                            color: #767676;
+                                            margin-right: 15px;
+                                            display: flex;
+
+                                            > img {
+                                                filter: grayscale(1);
+                                                height: 18px;
+                                                margin-right: 5px;
+                                            }
+
+                                            > img.filled {
+                                                filter: none;
+                                            }
+
+                                            > span {
+                                                margin-top: 3px;
+                                            }
+
                                         }
 
                                     }
 
                                 }
 
-                                > p:last-child {
+
+                                > div:last-child {
                                     font-size: 16px;
                                     color: #535353;
                                     margin-top: 25px;
