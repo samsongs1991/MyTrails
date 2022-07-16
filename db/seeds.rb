@@ -8,6 +8,8 @@
 
 # Demo user
 User.create(email: "demo@gmail.com", password: 123456, fname: "Sam", lname: "Song", about_me: "I am the creator of this AllTrails clone site. I actually do love hiking and being outside with nature. My favorite hike is Bandera Mountain near Seattle, WA.", city: "Dallas", state: "TX")
+    .photo
+    .attach(io: File.open("./seed_images/demo_profile.jpg"), filename: "demo_profile.jpg")
 
 # 20 trails near Seattle, WA
 trails = [
