@@ -37,17 +37,17 @@
                 margin: 8px;
                 padding: 0px 20px 0px 20px;
             }
-    
+
             > input:hover {
                 border: 1px solid #428a13;
             }
-    
+
             > input:focus-within {
                 color: gray;
                 outline: none;
                 border: 1px solid #428a13;
             }
-    
+
             > ::placeholder {
                 color: rgb(180, 180, 180);
             }
@@ -60,7 +60,7 @@
                 > li {
                     list-style: none;
                 }
-                
+
             }
 
             > button {
@@ -73,18 +73,18 @@
                 color: white;
                 background: #428a13;
                 margin: 8px;
-                padding: 0px 20px 0px 20px;            
+                padding: 0px 20px 0px 20px;
             }
 
             > button:hover {
                 opacity: 0.85;
                 cursor: pointer;
             }
-            
+
         }
 
         > div:last-child {
-            color: gray;  
+            color: gray;
             margin: 15px;
 
             > a {
@@ -96,7 +96,7 @@
             > a:hover {
                 opacity: 0.85;
             }
-            
+
         }
 
     }
