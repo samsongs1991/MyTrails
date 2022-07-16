@@ -4,9 +4,9 @@ const ReviewsItem = ({ review }) => {
 
     const getFormattedDate = () => {
         const months = [
-            "January", "February", "March", 
-            "April", "May", "June", 
-            "July", "August", "September", 
+            "January", "February", "March",
+            "April", "May", "June",
+            "July", "August", "September",
             "October", "November", "December"
         ];
 
@@ -19,7 +19,7 @@ const ReviewsItem = ({ review }) => {
     };
 
     const setStars = () => {
-        return [1, 2, 3, 4, 5].map(num => 
+        return [1, 2, 3, 4, 5].map(num =>
             <img
                 className={num <= review.rating ? "filled" : ""}
                 key={num}
@@ -28,10 +28,13 @@ const ReviewsItem = ({ review }) => {
             />
         );
     };
-    
+
     return (
         <li>
-            <p>{review.reviewer}</p>
+            <p>
+                <img src={review.reviewer_img} alt="reviewer photo"/>
+                {review.reviewer}
+            </p>
             <div>
                 <span>{setStars()}</span>
                 <span>{getFormattedDate()}</span>
