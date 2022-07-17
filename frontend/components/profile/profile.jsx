@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 
 const Profile = ({ users, id }) => {
     const user = users[id];
+    const formatDate = date => {
+        const months = [
+            "January", "February", "March", "April",
+            "May", "June", "July", "August",
+            "September", "October", "November", "December"
+        ]
+        date = new Date(date);
+        return `${months[date.getMonth()]} ${date.getFullYear()}`;
+    }
 
     return (
         <section id="profile-page">
@@ -16,7 +25,7 @@ const Profile = ({ users, id }) => {
                     <div>
                         <img src={user.profile_img} alt="profile picture"/>
                         <p>Member Since</p>
-                        <p>{user.created_at}</p>
+                        <p>{formatDate(user.created_at)}</p>
                     </div>
                     <div>
                         <h3>{user.fname} {user.lname}</h3>
