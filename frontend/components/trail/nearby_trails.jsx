@@ -4,7 +4,7 @@ import Card from "../home/card.jsx";
 const NearbyTrails = ({ trails, trail }) => {
 
     const getClosestTrails = () => {
-        const arr = Object.values(trails);        
+        const arr = Object.values(trails);
         arr.sort((a, b) => {
             const A = Math.abs(trail.lat - a.lat) + Math.abs(trail.lng - a.lng);
             const B = Math.abs(trail.lat - b.lat) + Math.abs(trail.lng - b.lng);
@@ -14,9 +14,10 @@ const NearbyTrails = ({ trails, trail }) => {
     };
 
     const closestTrails = getClosestTrails();
-        
+
     return (
         <section id="nearby-trails">
+            <h2>Nearby Trails</h2>
             {closestTrails.slice(1, 6).map((trail, i) => <Card key={i} trail={trail}/>)}
         </section>
     );

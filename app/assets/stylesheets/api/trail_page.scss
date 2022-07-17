@@ -625,8 +625,17 @@
                 border-right: 1px solid #c8c8c8;
                 border-bottom: 1px solid #c8c8c8;
 
+                > h2 {
+                    font-weight: bold;
+                    font-size: 22px;
+                    color: #428a13;
+                    text-align: center;
+                    margin-top: 16px;
+                    margin-bottom: 8px;
+                }
+
                 > a {
-                    height: 300px;
+                    height: auto;
                     width: 300px;
                     padding: 8px;
                     transition: all 0.1s ease-in-out;
