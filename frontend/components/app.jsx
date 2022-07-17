@@ -8,6 +8,8 @@ import SignUpForm from "./session_forms/signup_form.jsx";
 import SignInForm from "./session_forms/signin_form.jsx";
 import Trail from "./trail/trail.jsx";
 import Explore from "./explore/explore.jsx";
+import Profile from "./profile/profile.jsx";
+import Lists from "./lists/lists.jsx";
 
 const App = () => (
     <>
@@ -17,6 +19,8 @@ const App = () => (
         <AuthRoute path="/signin" component={SignInForm}/>
         <Route path="/trails/:trailId" component={Trail}/>
         <Route path="/explore" component={Explore}/>
+        <ProtectedRoute path="/users/:userId/profile" component={Profile}/>
+        <ProtectedRoute path="/users/:userId/lists" component={Lists}/>
         <Footer/>
     </>
 );
