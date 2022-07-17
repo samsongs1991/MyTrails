@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createReview } from "../../actions/review_actions.js";
 
-const ReviewForm = ({ trail, setShowModal, createReview, userId }) => { 
-    
+const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
+
     const [rating, setRating] = useState(0);
     const [input, setInput] = useState("");
 
@@ -17,7 +17,6 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
 
     const handleCloseModal = e => {
         e.stopPropagation();
-        console.log("closing modal");
         const body = document.getElementsByTagName("body")[0];
         body.style.overflow = "";
         setShowModal(false);
@@ -41,7 +40,7 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
             stars[i].classList.remove("active");
         }
     };
-    
+
     const handleRating = e => {
         const id = Number(e.target.id);
         const stars = e.target.parentElement.children;
@@ -59,20 +58,20 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
                     img.classList.add("selected");
                 }
             }
-        }        
+        }
     };
-    
+
     const handleSubmit = e => {
         e.preventDefault();
         createReview({
-            rating: rating, 
+            rating: rating,
             text: input,
-            user_id: userId, 
-            trail_id: trail.id 
+            user_id: userId,
+            trail_id: trail.id
         });
-        handleCloseModal();
+        handleCloseModal(e);
     };
-    
+
     return (
         <section onClick={handleCloseModal} id="review-form">
             <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
@@ -80,26 +79,26 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
                     <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
                     <h3>{trail.name}</h3>
                     <div>
-                        {[1, 2, 3, 4, 5].map(num => 
-                            <img 
+                        {[1, 2, 3, 4, 5].map(num =>
+                            <img
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
-                                onClick={handleRating} 
-                                id={num} 
+                                onClick={handleRating}
+                                id={num}
                                 key={num}
-                                src="/trail_images/star_filled.png" 
+                                src="/trail_images/star_filled.png"
                                 alt="star"
                             />
                         )}
                     </div>
-                    <textarea 
+                    <textarea
                         onChange={e => setInput(e.target.value)}
                         placeholder="Share your thoughts about the trail so others know what to expect."
                     />
                 </section>
                 <section>
                     <div>
-                        <button>Submit</button>
+                        <button type="submit">Submit</button>
                     </div>
                 </section>
             </form>
