@@ -3,63 +3,90 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgb(240, 240, 240);
+    background: white;
     color: rgb(75, 75, 75);
 
-    > section:first-child {
+    > div {
+        width: 1000px;
+        background: white;
+        border: 1px solid rgb(220, 220, 220);
 
+        > section:first-child {
+            background: rgb(240, 240, 240);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            margin-top: -1px;
 
-        > h2 {
+            > h2 {
+                font-size: 30px;
+                margin-left: 10px;
+            }
+
+            > a {
+                margin-right: 10px;
+                background: rgb(41, 156, 190);
+                border: 2px solid rgb(41, 156, 190);
+                border-radius: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                color: white;
+                padding: 8px 14px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            > a:hover {
+                background: white;
+                color: rgb(41, 156, 190);
+            }
 
         }
 
-        > a {
+        > section:last-child {
+
+            > div:first-child {
+
+                > img {
+                    height: 150px;
+                    width: 150px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+
+                > p:nth-child(2) {
+
+                }
+
+                > p:last-child {
+
+                }
+
+            }
+
+            > div:last-child {
+
+                > h3 {
+
+                }
+
+                > p:nth-child(2) {
+
+                }
+
+                > p:nth-child(3) {
+
+                }
+
+                > p:last-child {
+
+                }
+
+            }
 
         }
 
     }
 
-    > section:last-child {
-
-        > div:first-child {
-
-            > img {
-                height: 150px;
-                width: 150px;
-                object-fit: cover;
-                border-radius: 50%;
-            }
-
-            > p:nth-child(2) {
-
-            }
-
-            > p:last-child {
-
-            }
-
-        }
-
-        > div:last-child {
-
-            > h3 {
-
-            }
-
-            > p:nth-child(2) {
-
-            }
-
-            > p:nth-child(3) {
-
-            }
-
-            > p:last-child {
-
-            }
-
-        }
-
-    }
 
 }
