@@ -17,7 +17,7 @@ const ProfileModal = ({ users, id, signOut, setModalHidden }) => {
             onMouseLeave={() => setModalHidden(true)}
         >
             <Link to={`/users/${user.id}/profile`}>Profile</Link>
-            <Link to={`/users/${user.id}/lists`}>My Lists</Link>
+            <Link to={`/users/${user.id}/lists`}>Lists</Link>
             <Link to="/" onClick={handleLogout}>Logout</Link>
         </menu>
     );
