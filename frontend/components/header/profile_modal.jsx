@@ -12,12 +12,12 @@ const ProfileModal = ({ users, id, signOut, setModalHidden }) => {
     };
 
     return (
-        <menu 
+        <menu
             onMouseOver={() => setModalHidden(false)}
             onMouseLeave={() => setModalHidden(true)}
         >
-            <Link to={`/users/${user.id}`}>Dashboard</Link>
-            <Link to={`/users/${user.id}/settings`}>Settings</Link>
+            <Link to={`/users/${user.id}/profile`}>Profile</Link>
+            <Link to={`/users/${user.id}/lists`}>My Lists</Link>
             <Link to="/" onClick={handleLogout}>Logout</Link>
         </menu>
     );
