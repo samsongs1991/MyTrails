@@ -633,7 +633,9 @@
 
                     > img {
                         width: 100%;
+                        height: 200px;
                         border-radius: 25px;
+                        object-fit: cover;
                     }
 
                     > div:nth-child(2) {
