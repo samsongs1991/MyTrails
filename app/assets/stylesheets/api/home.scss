@@ -1,5 +1,5 @@
 #home-page {
-        
+
     > #home-image {
         height: 580px;
         background-position: center;
@@ -9,7 +9,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-       
+
         animation: switchImg infinite 60s ease-in-out;
 
         @keyframes switchImg {
@@ -28,7 +28,7 @@
             90% { background-image: url("/home_images/p1.jpg") }
             100% { background-image: url("/home_images/p1.jpg") }
         }
-        
+
         > div {
             color: white;
             font-size: 60px;
@@ -51,12 +51,12 @@
                 width: 644px;
                 border-radius: 40px;
                 box-shadow: 0px 10px 20px 0px rgba(120, 120, 120, 0.3);
-    
+
                 > img:first-child {
                     height: 22px;
-                    filter: opacity(0.5) drop-shadow(0 0 0 rgb(219, 219, 219)); 
+                    filter: opacity(0.5) drop-shadow(0 0 0 rgb(219, 219, 219));
                 }
-    
+
                 > input {
                     font-size: 18px;
                     font-weight: 400;
@@ -65,7 +65,7 @@
                     width: 520px;
                     margin: 0px 15px;
                 }
-    
+
                 > input:focus {
                     outline: none;
                 }
@@ -84,9 +84,9 @@
                     opacity: 0.75;
                     cursor: pointer;
                 }
-                
+
             }
-    
+
             > #search-modal {
                 position: absolute;
                 z-index: 1;
@@ -97,7 +97,7 @@
                 overflow-y: scroll;
                 padding-top: 37px;
                 border-radius: 0px 0px 0px 40px;
-    
+
                 > a {
                     display: flex;
                     align-items: center;
@@ -105,39 +105,39 @@
                     height: 60px;
                     border-bottom: 0.25px solid rgba(190, 190, 190, 0.25);
                     color: rgb(70, 70, 70);
-    
+
                     > img {
                         height: 30px;
                         margin-left: 15px;
                         filter: hue-rotate(70deg);
                     }
-    
+
                     > article {
                         margin-left: 15px;
-    
+
                         > div:first-child {
                             font-size: 18px;
                         }
-    
+
                         > div:last-child {
                             font-size: 12px;
                             margin-top: 8px;
                         }
-                        
+
                     }
-                    
+
                 }
-    
+
                 > a:hover {
                     background-color: rgb(232, 232, 232);
                     color: #428a13;
                     cursor: pointer;
                 }
-                
+
             }
 
         }
-        
+
     }
 
     > #trail-cards-container {
@@ -151,23 +151,23 @@
             width: 95vw;
             color: rgb(75, 75, 75);
             padding: 55px 0px;
-    
+
             > h3 {
                 font-size: 22px;
                 font-weight: bold;
                 padding-bottom: 30px;
-    
+
                 > span {
                     text-decoration: underline;
                 }
-                
+
             }
-    
+
             > .cards {
                 display: flex;
                 justify-content: space-around;
                 height: 350px;
-                        
+
                 > a {
                     height: 300px;
                     width: 300px;
@@ -177,7 +177,9 @@
 
                     > img {
                         width: 100%;
+                        height: 200px;
                         border-radius: 25px;
+                        object-fit: cover;
                     }
 
                     > div:nth-child(2) {
@@ -193,7 +195,7 @@
                             color: white;
                             margin-right: 2px;
                         }
-                        
+
                         > .easy {
                             background-color: #428a13;
                         }
@@ -211,7 +213,7 @@
                             width: 14px;
                             margin-left: 2px;
                         }
-                        
+
                     }
 
                     > div:nth-child(3) {
@@ -232,19 +234,19 @@
                         color: rgb(120, 120, 120);
                         font-size: 12px;
                     }
-                    
+
                 }
 
                 > a:hover {
                     background: white;
                     box-shadow: 0px 0px 15px 10px rgb(200, 200, 200);
                 }
-                
+
             }
-            
+
         }
 
     }
-    
-    
+
+
 }
