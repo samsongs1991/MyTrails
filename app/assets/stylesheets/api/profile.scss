@@ -44,6 +44,9 @@
         }
 
         > section:last-child {
+            padding: 25px;
+            display: flex;
+            height: 500px;
 
             > div:first-child {
 
@@ -65,6 +68,7 @@
             }
 
             > div:last-child {
+                margin-left: 25px;
 
                 > h3 {
 
