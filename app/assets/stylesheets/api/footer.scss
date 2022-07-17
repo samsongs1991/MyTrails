@@ -3,13 +3,13 @@ footer {
     align-items: center;
     justify-content: center;
     // font-family:Verdana, Geneva, Tahoma, sans-serif;
-    
+
     > section:first-child {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         width: 30vw;
-        
+
         > p {
             font-size: 20px;
             font-weight: bold;
@@ -18,7 +18,7 @@ footer {
                 color: #428a13;
                 font-size: 24px;
             }
-            
+
         }
 
     }
@@ -27,7 +27,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         > #developer-img {
             height: 120px;
             border-radius: 100%;
@@ -50,10 +50,11 @@ footer {
 
         > .social-link-img:hover {
             transform: translate(0px, -2px);
-            opacity: 0.75;
+            // opacity: 0.75;
             cursor: pointer;
+            filter: invert(25%) sepia(120%) saturate(1000%) hue-rotate(60deg) brightness(120%) contrast(120%);
         }
 
     }
-    
+
 }
