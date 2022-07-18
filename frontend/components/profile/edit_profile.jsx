@@ -127,6 +127,7 @@ const EditProfile = ({ users, id, updateUser }) => {
                         <img src={user.profile_img} alt="profile picture"/>
                         <p>Member Since</p>
                         <p>{formatDate(user.created_at)}</p>
+                        <label for="file-upload">Change Photo<input id="file-upload" type="file"/></label>
                     </div>
                     <div>
                         <input onChange={handleName} value={name}/>

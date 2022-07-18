@@ -83,6 +83,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                position: relative;
 
                 > img {
                     height: 150px;
@@ -97,8 +98,33 @@
                     margin-top: 10px;
                 }
 
-                > p:last-child {
+                > p:nth-child(3) {
                     font-size: 14px;
+                }
+
+                > label {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    background: white;
+                    opacity: 0.75;
+                    border-radius: 50%;
+                    height: 150px;
+                    width: 150px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    > input {
+                        display: none;
+                    }
+
+                }
+
+                > label:hover {
+                    color: #428a13;
+                    background: rgb(240, 240, 240);
+                    cursor: pointer;
                 }
 
             }
@@ -175,6 +201,7 @@
 
                 > input:focus, > textarea:focus, > input:hover, > textarea:hover {
                     border-bottom: 1px solid #428a13;
+                    color: #428a13;
                 }
 
                 > input.error {
