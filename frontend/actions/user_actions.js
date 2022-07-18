@@ -2,7 +2,6 @@ import * as Utils from "../util/user_api_util.js";
 
 // Thunk action creators
 export const updateUser = user => dispatch => {
-    console.log("actions", user);
     Utils.updateUser(user)
         .then(
             user => dispatch(receiveUser(user)),

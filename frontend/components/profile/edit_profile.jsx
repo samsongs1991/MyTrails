@@ -20,6 +20,7 @@ const EditProfile = ({ users, id, updateUser }) => {
     const [aboutMe, setAboutMe] = useState(user.about_me);
     const [errors, setErrors] = useState({ name: undefined, place: undefined });
     const [photo, setPhoto] = useState();
+    const [photoUrl, setPhotoUrl] = useState(user.profile_img);
 
     const handleSave = e => {
         const fname = name.split(" ")[0];
@@ -58,9 +59,15 @@ const EditProfile = ({ users, id, updateUser }) => {
             const mime = photo.type;
             return mimes.includes(mime);
         };
-        if(e.target.files[0]) {
-            setPhoto(e.target.files[0]);
-            if(validPhoto(e.target.files[0])) {
+        const fileReader = new FileReader();
+        const file = e.target.files[0];
+        if(file) {
+            fileReader.readAsDataURL(file);
+            if(validPhoto(file)) {
+                fileReader.onloadend = () => {
+                    setPhoto(file);
+                    setPhotoUrl(fileReader.result);
+                }
                 e.target.parentElement.classList.remove("error");
                 setErrors(Object.assign({}, errors, { photo: undefined }));
             } else {
@@ -160,7 +167,7 @@ const EditProfile = ({ users, id, updateUser }) => {
                 </section>
                 <section>
                     <div>
-                        <img src={user.profile_img} alt="profile picture"/>
+                        <img src={photoUrl} alt="profile picture"/>
                         <p>Member Since</p>
                         <p>{formatDate(user.created_at)}</p>
                         <label htmlFor="file-upload">
