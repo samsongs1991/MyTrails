@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Profile = ({ users, id }) => {
+const Profile = ({ users, id, errors }) => {
     const user = users[id];
     const formatDate = date => {
         const months = [
@@ -14,12 +14,26 @@ const Profile = ({ users, id }) => {
         return `${months[date.getMonth()]} ${date.getFullYear()}`;
     }
 
+    useEffect(() => {
+        if(errors.length > 0) {
+            const ul = document.querySelector("ul");
+            ul.classList.add("show");
+            setTimeout(() => {
+                ul.classList.remove("show");
+            }, 4000);
+        }
+    }, [errors]);
+
     return (
         <section id="profile-page">
             <div>
                 <section>
                     <h2>Profile</h2>
                     <Link to={`/users/${user.id}/edit`}>Edit Profile</Link>
+                    <ul>
+                        <p>Update failed</p>
+                        {errors.map((item, i) => <li key={i}> - {item}</li>)}
+                    </ul>
                 </section>
                 <section>
                     <div>
@@ -41,7 +55,8 @@ const Profile = ({ users, id }) => {
 
 const mSTP = state => ({
     users: state.entities.users,
-    id: state.session.id
+    id: state.session.id,
+    errors: state.errors.user
 });
 
 export default connect(mSTP)(Profile);
