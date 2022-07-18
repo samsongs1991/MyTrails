@@ -146,6 +146,11 @@
                     border-bottom: 1px solid #428a13;
                 }
 
+                > input.error {
+                    border-bottom: 1px solid red;
+                    color: red;
+                }
+
             }
 
         }

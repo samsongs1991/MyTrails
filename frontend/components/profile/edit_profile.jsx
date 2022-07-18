@@ -14,19 +14,97 @@ const EditProfile = ({ users, id }) => {
         return `${months[date.getMonth()]} ${date.getFullYear()}`;
     }
 
-    const [fname, setFname] = useState(user.fname);
-    const [lname, setLname] = useState(user.lname);
-    const [city, setCity] = useState(user.city);
-    const [state, setState] = useState(user.state);
-    const [email, setEmail] = useState(user.email);
+    const [name, setName] = useState(`${user.fname} ${user.lname}`);
+    const [place, setPlace] = useState(`${user.city}, ${user.state}`);
     const [aboutMe, setAboutMe] = useState(user.about_me);
+
+    const handleSave = e => {
+        console.log("handle save");
+    };
+
+    const handleName = e => {
+        const validName = name => {
+            return name.split(" ").length === 2;
+        };
+        setName(e.target.value);
+        if(validName(e.target.value)) {
+            e.target.classList.remove("error");
+        } else {
+            e.target.classList.add("error");
+        }
+    };
+
+    const handlePlace = e => {
+        const validPlace = place => {
+            const states = [
+                "Alabama", "AL",
+                "Alaska", "AK",
+                "Arizona", "AZ",
+                "Arkansas", "AR",
+                "California", "CA",
+                "Colorado", "CO",
+                "Connecticut", "CT",
+                "Delaware", "DE",
+                "Florida", "FL",
+                "Georgia", "GA",
+                "Hawaii", "HI",
+                "Idaho", "ID",
+                "Illinois", "IL",
+                "Indiana", "IN",
+                "Iowa", "IA",
+                "Kansas", "KS",
+                "Kentucky", "KY",
+                "Louisiana", "LA",
+                "Maine", "ME",
+                "Maryland", "MD",
+                "Massachusetts", "MA",
+                "Michigan", "MI",
+                "Minnesota", "MN",
+                "Mississippi", "MS",
+                "Missouri", "MO",
+                "Montana", "MT",
+                "Nebraska", "NE",
+                "Nevada", "NV",
+                "New Hampshire", "NH",
+                "New Jersey", "NJ",
+                "New Mexico", "NM",
+                "New York", "NY",
+                "North Carolina", "NC",
+                "North Dakota", "ND",
+                "Ohio", "OH",
+                "Oklahoma", "OK",
+                "Oregon", "OR",
+                "Pennsylvania", "PA",
+                "Rhode Island", "RI",
+                "South Carolina", "SC",
+                "South Dakota", "SD",
+                "Tennessee", "TN",
+                "Texas", "TX",
+                "Utah", "UT",
+                "Vermont", "VT",
+                "Virginia", "VA",
+                "Washington", "WA",
+                "West Virginia", "WV",
+                "Wisconsin", "WI",
+                "Wyoming", "WY"
+            ];
+            const arr = place.split(", ");
+            return arr.length === 2 && states.includes(arr[1]);
+        };
+        setPlace(e.target.value);
+        if(validPlace(e.target.value)) {
+            e.target.classList.remove("error");
+        } else {
+            e.target.classList.add("error");
+        }
+    };
 
     return (
         <section id="profile-page">
             <div>
                 <section>
                     <h2>Profile</h2>
-                    <Link to={`/users/${user.id}/profile`}>Save Changes</Link>
+                    <Link onClick={handleSave} to={`/users/${user.id}/profile`}>Save Changes</Link>
                 </section>
                 <section>
                     <div>
@@ -35,10 +113,10 @@ const EditProfile = ({ users, id }) => {
                         <p>{formatDate(user.created_at)}</p>
                     </div>
                     <div>
-                        <input value={`${fname} ${lname}`}/>
-                        <input value={`${city}, ${state}`}/>
-                        <input value={email}/>
-                        <textarea value={aboutMe}/>
+                        <input onChange={handleName} value={name}/>
+                        <input onChange={handlePlace} value={place}/>
+                        <p>{user.email}</p>
+                        <textarea onChange={e => setAboutMe(e.target.value)} value={aboutMe}/>
                     </div>
                 </section>
             </div>
