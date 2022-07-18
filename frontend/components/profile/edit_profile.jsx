@@ -19,19 +19,55 @@ const EditProfile = ({ users, id, updateUser }) => {
     const [place, setPlace] = useState(`${user.city}, ${user.state}`);
     const [aboutMe, setAboutMe] = useState(user.about_me);
     const [errors, setErrors] = useState({ name: undefined, place: undefined });
+    const [photo, setPhoto] = useState();
 
     const handleSave = e => {
         const fname = name.split(" ")[0];
         const lname = name.split(" ")[1];
         const city = place.split(", ")[0];
         const state = place.split(", ")[1];
-        const updatedUser = Object.assign({},
-            user, {
-                fname, lname, city, state,
-                about_me: aboutMe,
-                errors
-            })
-        updateUser(updatedUser);
+
+        const formData = new FormData();
+        formData.append("id", user.id);
+        formData.append("user[id]", user.id);
+        formData.append("user[email]", user.email);
+        formData.append("user[profile_img]", user.profile_img);
+        formData.append("user[created_at]", user.created_at);
+        formData.append("user[fname]", fname);
+        formData.append("user[lname]", lname);
+        formData.append("user[city]", city);
+        formData.append("user[state]", state);
+        formData.append("user[about_me]", aboutMe);
+        formData.append("user[errors]", JSON.stringify(errors));
+        formData.append("user[photo]", photo);
+
+        updateUser(formData);
+    };
+
+    const handlePhoto = e => {
+        const validPhoto = photo => {
+            const mimes = [
+                "image/apng",
+                "image/avif",
+                "image/gif",
+                "image/jpeg",
+                "image/png",
+                "image/svg+xml",
+                "image/webp"
+            ]
+            const mime = photo.type;
+            return mimes.includes(mime);
+        };
+        if(e.target.files[0]) {
+            setPhoto(e.target.files[0]);
+            if(validPhoto(e.target.files[0])) {
+                e.target.parentElement.classList.remove("error");
+                setErrors(Object.assign({}, errors, { photo: undefined }));
+            } else {
+                e.target.parentElement.classList.add("error");
+                setErrors(Object.assign({}, errors, { photo: "Invalid image" }));
+            }
+        }
     };
 
     const handleName = e => {
@@ -127,7 +163,10 @@ const EditProfile = ({ users, id, updateUser }) => {
                         <img src={user.profile_img} alt="profile picture"/>
                         <p>Member Since</p>
                         <p>{formatDate(user.created_at)}</p>
-                        <label for="file-upload">Change Photo<input id="file-upload" type="file"/></label>
+                        <label htmlFor="file-upload">
+                            Change Photo
+                            <input onChange={handlePhoto} id="file-upload" type="file"/>
+                        </label>
                     </div>
                     <div>
                         <input onChange={handleName} value={name}/>

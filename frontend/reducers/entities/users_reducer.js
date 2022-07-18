@@ -7,7 +7,7 @@ const usersReducer = (prevState={}, action) => {
             return { [action.user.id]: action.user };
         case REMOVE_USER:
             return {};
-        default: 
+        default:
             return prevState;
     }
 };

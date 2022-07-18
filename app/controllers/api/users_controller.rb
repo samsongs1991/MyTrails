@@ -15,16 +15,16 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        data = update_params
         errors = check_update_params
-        if errors.empty? && @user.update(
-            fname: params[:user][:fname],
-            lname: params[:user][:lname],
-            city: params[:user][:city],
-            state: params[:user][:state],
-            about_me: params[:user][:about_me]
-        )
-            render :show, status: 200
+        if errors.empty?
+            @user = User.find(data[:id])
+            if @user.update(fname: data[:fname], lname: data[:lname], city: data[:city], state: data[:state], about_me: data[:about_me])
+                @user.photo.attach(data[:photo])
+                render :show, status: 200
+            else
+                render json: @user.errors.full_messages, status: 422
+            end
         else
             render json: errors, status: 422
         end
@@ -82,12 +82,20 @@ class Api::UsersController < ApplicationController
         !!User.find_by(email: email)
     end
 
+    def update_params
+        params.require(:user).permit(
+            :id, :email, :profile_img, :created_at,
+            :fname, :lname, :city, :state,
+            :about_me, :errors, :photo
+        )
+    end
+
     def check_update_params
         errors = []
-        if params[:user][:errors]
-            errors.push(params[:user][:errors][:name]) if params[:user][:errors][:name]
-            errors.push(params[:user][:errors][:place]) if params[:user][:errors][:place]
-        end
+        error_params = JSON.parse(update_params[:errors])
+        errors.push(error_params["name"]) if error_params["name"]
+        errors.push(error_params["place"]) if error_params["place"]
+        errors.push(error_params["photo"]) if error_params["photo"]
         errors
     end
 

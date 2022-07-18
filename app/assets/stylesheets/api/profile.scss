@@ -127,6 +127,10 @@
                     cursor: pointer;
                 }
 
+                > label.error {
+                    color: red;
+                }
+
             }
 
             > div:last-child {
