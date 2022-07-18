@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { clearUserErrors } from "../../actions/user_actions.js";
 
-const Profile = ({ users, id, errors }) => {
+const Profile = ({ users, id, errors, clearUserErrors }) => {
     const user = users[id];
     const formatDate = date => {
         const months = [
@@ -21,6 +22,9 @@ const Profile = ({ users, id, errors }) => {
             setTimeout(() => {
                 ul.classList.remove("show");
             }, 4000);
+            setTimeout(() => {
+                clearUserErrors();
+            }, 4500);
         }
     }, [errors]);
 
@@ -59,4 +63,8 @@ const mSTP = state => ({
     errors: state.errors.user
 });
 
-export default connect(mSTP)(Profile);
+const mDTP = dispatch => ({
+    clearUserErrors: () => dispatch(clearUserErrors())
+});
+
+export default connect(mSTP, mDTP)(Profile);

@@ -21,3 +21,8 @@ const receiveUserErrors = errors => ({
     type: RECEIVE_USER_ERRORS,
     errors
 });
+
+export const CLEAR_USER_ERRORS = "CLEAR_USER_ERRORS";
+export const clearUserErrors = () => ({
+    type: CLEAR_USER_ERRORS,
+});
