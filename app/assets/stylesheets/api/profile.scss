@@ -74,26 +74,76 @@
 
             > div:last-child {
                 margin-left: 25px;
+                display: flex;
+                flex-direction: column;
 
                 > h3 {
                     font-size: 26px;
                     font-weight: bold;
+                    border-bottom: 1px solid transparent;
+                }
+
+                > input:first-child {
+                    font-family: "Proxima Nova";
+                    font-size: 26px;
+                    font-weight: bold;
+                    color: rgb(75, 75, 75);
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgb(75, 75, 75);
                 }
 
                 > p {
                     margin-top: 10px;
+                    border-bottom: 1px solid transparent;
                 }
 
                 > p:nth-child(2) {
                     font-style: italic;
                 }
 
+                > input:nth-child(2) {
+                    margin-top: 10px;
+                    font-style: italic;
+                    font-size: 16px;
+                    font-family: "Proxima Nova";
+                    color: rgb(75, 75, 75);
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgb(75, 75, 75);
+                }
+
                 > p:nth-child(3) {
 
                 }
 
+                > input:nth-child(3) {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    font-family: "Proxima Nova";
+                    color: rgb(75, 75, 75);
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgb(75, 75, 75);
+                }
+
                 > p:last-child {
 
+                }
+
+                > textarea {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    font-family: "Proxima Nova";
+                    color: rgb(75, 75, 75);
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgb(75, 75, 75);
+                    width: 770px;
+                }
+
+                > input:focus, > textarea:focus, > input:hover, > textarea:hover {
+                    border-bottom: 1px solid #428a13;
                 }
 
             }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -14,6 +14,13 @@ const EditProfile = ({ users, id }) => {
         return `${months[date.getMonth()]} ${date.getFullYear()}`;
     }
 
+    const [fname, setFname] = useState(user.fname);
+    const [lname, setLname] = useState(user.lname);
+    const [city, setCity] = useState(user.city);
+    const [state, setState] = useState(user.state);
+    const [email, setEmail] = useState(user.email);
+    const [aboutMe, setAboutMe] = useState(user.about_me);
+
     return (
         <section id="profile-page">
             <div>
@@ -28,10 +35,10 @@ const EditProfile = ({ users, id }) => {
                         <p>{formatDate(user.created_at)}</p>
                     </div>
                     <div>
-                        <h3>{user.fname} {user.lname}</h3>
-                        <p>{user.city}, {user.state}</p>
-                        <p>{user.email}</p>
-                        <p>{user.about_me}</p>
+                        <input value={`${fname} ${lname}`}/>
+                        <input value={`${city}, ${state}`}/>
+                        <input value={email}/>
+                        <textarea value={aboutMe}/>
                     </div>
                 </section>
             </div>
