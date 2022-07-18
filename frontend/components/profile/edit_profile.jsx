@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { updateUser } from "../../actions/user_actions.js";
 
-const EditProfile = ({ users, id }) => {
+const EditProfile = ({ users, id, updateUser }) => {
     const user = users[id];
     const formatDate = date => {
         const months = [
@@ -17,9 +18,20 @@ const EditProfile = ({ users, id }) => {
     const [name, setName] = useState(`${user.fname} ${user.lname}`);
     const [place, setPlace] = useState(`${user.city}, ${user.state}`);
     const [aboutMe, setAboutMe] = useState(user.about_me);
+    const [errors, setErrors] = useState({ name: undefined, place: undefined });
 
     const handleSave = e => {
-        console.log("handle save");
+        const fname = name.split(" ")[0];
+        const lname = name.split(" ")[1];
+        const city = place.split(", ")[0];
+        const state = place.split(", ")[1];
+        const updatedUser = Object.assign({},
+            user, {
+                fname, lname, city, state,
+                about_me: aboutMe,
+                errors
+            })
+        updateUser(updatedUser);
     };
 
     const handleName = e => {
@@ -29,8 +41,10 @@ const EditProfile = ({ users, id }) => {
         setName(e.target.value);
         if(validName(e.target.value)) {
             e.target.classList.remove("error");
+            setErrors(Object.assign({}, errors, { name: undefined }));
         } else {
             e.target.classList.add("error");
+            setErrors(Object.assign({}, errors, { name: "Invalid name" }));
         }
     };
 
@@ -94,8 +108,10 @@ const EditProfile = ({ users, id }) => {
         setPlace(e.target.value);
         if(validPlace(e.target.value)) {
             e.target.classList.remove("error");
+            setErrors(Object.assign({}, errors, { place: undefined }));
         } else {
             e.target.classList.add("error");
+            setErrors(Object.assign({}, errors, { place: "Invalid location" }));
         }
     };
 
@@ -129,4 +145,8 @@ const mSTP = state => ({
     id: state.session.id
 });
 
-export default connect(mSTP)(EditProfile);
+const mDTP = dispatch => ({
+    updateUser: user => dispatch(updateUser(user))
+});
+
+export default connect(mSTP, mDTP)(EditProfile);
