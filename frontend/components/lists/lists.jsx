@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import ListCard from "./list_card.jsx";
 
 const Lists = ({ match, lists }) => {
+    console.log("LISTS COMP props - lists", lists);
+
     const userId = match.params.userId;
 
     return (
