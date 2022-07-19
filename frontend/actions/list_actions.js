@@ -17,6 +17,14 @@ export const createList = list => dispatch => {
         );
 };
 
+export const deleteList = listId => dispatch => {
+    Utils.deleteList(listId)
+        .then(
+            listId => dispatch(removeList(listId)),
+            err => console.log("Error from DB in deleteList function of list_action.js", err)
+        );
+};
+
 // Action creators
 export const RECEIVE_LISTS = "RECEIVE_LISTS";
 const receiveLists = lists => ({
@@ -28,4 +36,10 @@ export const RECEIVE_LIST = "RECEIVE_LIST";
 const receiveList = list => ({
     type: RECEIVE_LIST,
     list
+});
+
+export const REMOVE_LIST = "REMOVE_LIST";
+const removeList = listId => ({
+    type: REMOVE_LIST,
+    listId
 });
