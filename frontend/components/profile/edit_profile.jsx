@@ -21,6 +21,7 @@ const EditProfile = ({ users, id, updateUser }) => {
     const [errors, setErrors] = useState({ name: undefined, place: undefined });
     const [photo, setPhoto] = useState();
     const [photoUrl, setPhotoUrl] = useState(user.profile_img);
+    const [status, setStatus] = useState(true);
 
     const handleSave = e => {
         const fname = name.split(" ")[0];
@@ -70,9 +71,11 @@ const EditProfile = ({ users, id, updateUser }) => {
                 }
                 e.target.parentElement.classList.remove("error");
                 setErrors(Object.assign({}, errors, { photo: undefined }));
+                setStatus(true);
             } else {
                 e.target.parentElement.classList.add("error");
                 setErrors(Object.assign({}, errors, { photo: "Invalid image" }));
+                setStatus(false);
             }
         }
     };
@@ -85,9 +88,11 @@ const EditProfile = ({ users, id, updateUser }) => {
         if(validName(e.target.value)) {
             e.target.classList.remove("error");
             setErrors(Object.assign({}, errors, { name: undefined }));
+            setStatus(true);
         } else {
             e.target.classList.add("error");
             setErrors(Object.assign({}, errors, { name: "Invalid name" }));
+            setStatus(false);
         }
     };
 
@@ -152,9 +157,11 @@ const EditProfile = ({ users, id, updateUser }) => {
         if(validPlace(e.target.value)) {
             e.target.classList.remove("error");
             setErrors(Object.assign({}, errors, { place: undefined }));
+            setStatus(true);
         } else {
             e.target.classList.add("error");
             setErrors(Object.assign({}, errors, { place: "Invalid location" }));
+            setStatus(false);
         }
     };
 
@@ -163,7 +170,7 @@ const EditProfile = ({ users, id, updateUser }) => {
             <div>
                 <section>
                     <h2>Profile</h2>
-                    <Link onClick={handleSave} to={`/users/${user.id}/profile`}>Save Changes</Link>
+                    <Link onClick={handleSave} to={{ pathname: `/users/${user.id}/profile`, state: status }}>Save Changes</Link>
                 </section>
                 <section>
                     <div>

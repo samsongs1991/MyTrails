@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { clearUserErrors } from "../../actions/user_actions.js";
 
-const Profile = ({ users, id, errors, clearUserErrors }) => {
+const Profile = ({ users, id, errors, clearUserErrors, location }) => {
     const user = users[id];
+    const updated = location.state;
     const formatDate = date => {
         const months = [
             "January", "February", "March", "April",
@@ -16,8 +17,9 @@ const Profile = ({ users, id, errors, clearUserErrors }) => {
     }
 
     useEffect(() => {
-        if(errors.length > 0) {
-            const ul = document.querySelector("ul");
+        if(updated !== undefined) {
+            let ul;
+            ul = updated ? document.getElementById("success-popup") : document.getElementById("fail-popup");
             ul.classList.add("show");
             setTimeout(() => {
                 ul.classList.remove("show");
@@ -26,7 +28,7 @@ const Profile = ({ users, id, errors, clearUserErrors }) => {
                 clearUserErrors();
             }, 4500);
         }
-    }, [errors]);
+    }, []);
 
     return (
         <section id="profile-page">
@@ -34,9 +36,12 @@ const Profile = ({ users, id, errors, clearUserErrors }) => {
                 <section>
                     <h2>Profile</h2>
                     <Link to={`/users/${user.id}/edit`}>Edit Profile</Link>
-                    <ul>
+                    <ul id="fail-popup">
                         <p>Update failed</p>
                         {errors.map((item, i) => <li key={i}> - {item}</li>)}
+                    </ul>
+                    <ul id="success-popup">
+                        <p>Update successful</p>
                     </ul>
                 </section>
                 <section>
