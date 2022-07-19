@@ -9,12 +9,12 @@ const Lists = ({ match, lists, createList, fetchLists }) => {
     const userId = match.params.userId;
 
     const handleTEST = e => {
-        const list = {
-            name: "test name",
-            user_id: userId
-        }
-        createList(list);
-        // fetchLists(userId);
+        // const list = {
+        //     name: "test name",
+        //     user_id: userId
+        // }
+        // createList(list);
+        fetchLists(userId);
     }
 
     return (
