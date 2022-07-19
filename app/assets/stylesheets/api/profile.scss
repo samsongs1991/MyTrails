@@ -214,7 +214,8 @@
                 }
 
                 > p:last-child {
-
+                    white-space: pre-wrap;
+                    overflow: auto;
                 }
 
                 > textarea {
@@ -224,11 +225,12 @@
                     color: rgb(75, 75, 75);
                     border: none;
                     outline: none;
-                    border-bottom: 1px solid rgb(75, 75, 75);
+                    border: 1px solid rgb(75, 75, 75);
                     width: 770px;
+                    height: 900px;
                 }
 
-                > input:focus, > textarea:focus, > input:hover, > textarea:hover {
+                > input:focus, > input:hover {
                     border-bottom: 1px solid #428a13;
                     color: #428a13;
                 }
@@ -236,6 +238,11 @@
                 > input.error {
                     border-bottom: 1px solid red;
                     color: red;
+                }
+
+                > textarea:focus, > textarea:hover {
+                    border: 1px solid #428a13;
+                    color: #428a13;
                 }
 
             }
