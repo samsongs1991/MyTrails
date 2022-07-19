@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import ListCard from "./list_card.jsx";
-import { createList } from "../../actions/list_actions.js";
+import { createList, fetchLists } from "../../actions/list_actions.js";
 
-const Lists = ({ match, lists, createList }) => {
+const Lists = ({ match, lists, createList, fetchLists }) => {
     console.log("LISTS COMP props - lists", lists);
 
     const userId = match.params.userId;
@@ -14,6 +14,7 @@ const Lists = ({ match, lists, createList }) => {
             user_id: userId
         }
         createList(list);
+        // fetchLists(userId);
     }
 
     return (
@@ -39,7 +40,8 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    createList: list => dispatch(createList(list))
+    createList: list => dispatch(createList(list)),
+    fetchLists: userId => dispatch(fetchLists(userId))
 });
 
 export default connect(mSTP, mDTP)(Lists);
