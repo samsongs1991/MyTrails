@@ -7,7 +7,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     has_many :reviews
-
+    has_many :lists
     has_one_attached :photo
 
     attr_reader :password

@@ -21,7 +21,13 @@ class Api::ListsController < ApplicationController
         p "= = = = = = = = = = = = = = = = = ="
         p "INDEX action in LISTS CONTROLLER"
 
-
+        user = User.find(params[:user_id])
+        if user.nil?
+            render json: user.errors.full_messages, status: 404
+        else
+            @lists = user.lists
+            render :index, status: 200
+        end
 
         p "= = = = = = = = = = = = = = = = = ="
         p "= = = = = = = = = = = = = = = = = ="
