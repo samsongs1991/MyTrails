@@ -11,7 +11,7 @@ const Lists = ({ match, lists, createList }) => {
     const handleTEST = e => {
         const list = {
             name: "test name",
-            userId: userId
+            user_id: userId
         }
         createList(list);
     }
