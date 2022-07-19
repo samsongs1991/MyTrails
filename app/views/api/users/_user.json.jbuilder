@@ -1,7 +1,3 @@
-# json.extract! user,
-#     :id, :email, :fname, :lname,
-#     :about_me, :city, :state, :created_at
-
 json.set! :id, user[:id]
 json.set! :email, user[:email]
 json.set! :created_at, user[:created_at]
