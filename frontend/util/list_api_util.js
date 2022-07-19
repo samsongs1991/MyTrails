@@ -4,8 +4,8 @@ export const fetchLists = userId => $.ajax({
     data: { userId }
 });
 
-export const createList = lists => $.ajax({
+export const createList = list => $.ajax({
     url: "api/lists",
     method: "POST",
-    data: { lists }
+    data: { list }
 });
