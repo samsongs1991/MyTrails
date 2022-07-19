@@ -4,6 +4,14 @@ class Api::ListsController < ApplicationController
         p "= = = = = = = = = = = = = = = = = ="
         p "= = = = = = = = = = = = = = = = = ="
         p "CREATE action in LISTS CONTROLLER"
+
+        @list = List.new(list_params)
+        if @list.save
+            render :show, status: 200
+        else
+            render json: @list.errors.full_messages, status: 402
+        end
+
         p "= = = = = = = = = = = = = = = = = ="
         p "= = = = = = = = = = = = = = = = = ="
     end
@@ -12,6 +20,9 @@ class Api::ListsController < ApplicationController
         p "= = = = = = = = = = = = = = = = = ="
         p "= = = = = = = = = = = = = = = = = ="
         p "INDEX action in LISTS CONTROLLER"
+
+
+
         p "= = = = = = = = = = = = = = = = = ="
         p "= = = = = = = = = = = = = = = = = ="
     end
