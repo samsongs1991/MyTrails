@@ -13,7 +13,7 @@ const Lists = ({ match, lists }) => {
             <div>
                 <section>
                     <h2>Lists</h2>
-                    <Link to={`/users/${userId}/lists/edit`}>Edit Lists</Link>
+                    <button>New List</button>
                 </section>
                 <section>
                     <ListCard/>

@@ -25,7 +25,7 @@
                 margin-left: 10px;
             }
 
-            > a {
+            > button {
                 margin-right: 10px;
                 background: rgb(41, 156, 190);
                 border: 2px solid rgb(41, 156, 190);
@@ -37,7 +37,7 @@
                 transition: all 0.2s ease-in-out;
             }
 
-            > a:hover {
+            > button:hover {
                 background: white;
                 color: rgb(41, 156, 190);
             }
