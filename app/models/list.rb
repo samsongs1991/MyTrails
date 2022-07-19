@@ -4,4 +4,5 @@ class List < ApplicationRecord
 
     belongs_to :user
     has_many :trails
+    has_one_attached :photo
 end
