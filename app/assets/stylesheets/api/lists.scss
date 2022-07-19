@@ -25,6 +25,23 @@
                 margin-left: 10px;
             }
 
+            > a {
+                margin-right: 10px;
+                background: rgb(41, 156, 190);
+                border: 2px solid rgb(41, 156, 190);
+                border-radius: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                color: white;
+                padding: 8px 14px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            > a:hover {
+                background: white;
+                color: rgb(41, 156, 190);
+            }
+
         }
 
         > section:last-child {
