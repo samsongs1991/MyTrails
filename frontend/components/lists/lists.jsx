@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import ListCard from "./list_card.jsx";
 
-const Lists = ({ match }) => {
+const Lists = ({ match, lists }) => {
     const userId = match.params.userId;
 
     return (
@@ -23,4 +24,8 @@ const Lists = ({ match }) => {
     );
 };
 
-export default Lists;
+const mSTP = state => ({
+    lists: state.entities.lists
+});
+
+export default connect(mSTP)(Lists);
