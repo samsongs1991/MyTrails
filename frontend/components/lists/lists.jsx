@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ListCard from "./list_card.jsx";
-import { createList, fetchLists } from "../../actions/list_actions.js";
+import { createList, fetchLists, deleteList } from "../../actions/list_actions.js";
 
 const Lists = ({ match, lists, createList, fetchLists }) => {
     console.log("LISTS COMP props - lists", lists);
@@ -14,7 +14,7 @@ const Lists = ({ match, lists, createList, fetchLists }) => {
         //     user_id: userId
         // }
         // createList(list);
-        fetchLists(userId);
+        // fetchLists(userId);
     }
 
     return (
