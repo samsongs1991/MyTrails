@@ -94,3 +94,14 @@ reviews = [
 reviews.each do |review|
     Review.create(review)
 end
+
+# Lists
+lists = [
+    { name: "Dog Friendly", user_id: 1 },
+    { name: "Epic Views", user_id: 1 },
+    { name: "Best Sunsets", user_id: 1 },
+    { name: "Exercise", user_id: 1 }
+]
+lists.each do |list|
+    List.create(list)
+end
