@@ -20,7 +20,6 @@ class Api::UsersController < ApplicationController
         if errors.empty?
             @user = User.find(data[:id])
             if @user.update(fname: data[:fname], lname: data[:lname], city: data[:city], state: data[:state], about_me: data[:about_me])
-                p data[:photo]
                 @user.photo.attach(data[:photo]) if data[:photo] != "undefined"
                 render :show, status: 200
             else
