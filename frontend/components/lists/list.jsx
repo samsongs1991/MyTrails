@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { updateList, deleteList } from "../../actions/list_actions.js";
 
 // NOTES
 // copy over what i need to from edit_profile comp
@@ -80,6 +81,8 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     // createList: list => dispatch(createList(list))
+    updateList: list => dispatch(updateList(list)),
+    deleteList: listId => dispatch(deleteList(listId))
 });
 
 export default connect(mSTP, mDTP)(List);

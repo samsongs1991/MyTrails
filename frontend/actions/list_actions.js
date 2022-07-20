@@ -17,6 +17,14 @@ export const createList = list => dispatch => {
         );
 };
 
+export const updateList = list => dispatch => {
+    Utils.updateList(list)
+        .then(
+            list => dispatch(receiveList(list)),
+            err => console.log("Error from DB in updateLists function of list_action.js", err)
+        );
+};
+
 export const deleteList = listId => dispatch => {
     Utils.deleteList(listId)
         .then(

@@ -10,6 +10,12 @@ export const createList = list => $.ajax({
     data: { list }
 });
 
+export const updateList = list => $.ajax({
+    url: `api/lists${list.id}`,
+    method: "PATCH",
+    data: { list }
+});
+
 export const deleteList = listId => $.ajax({
     url: `api/lists/${listId}`,
     method: "DELETE"
