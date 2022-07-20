@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createList } from "../../actions/list_actions.js";
 
-const ListForm = ({ setShowModal, createList, userId }) => {
+const ListForm = ({ setShowForm, createList, userId }) => {
 
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState("");
@@ -19,7 +19,7 @@ const ListForm = ({ setShowModal, createList, userId }) => {
         e.stopPropagation();
         const body = document.querySelector("body");
         body.style.overflow = "";
-        setShowModal(false);
+        setShowForm(false);
     }
 
     const handleSubmit = e => {

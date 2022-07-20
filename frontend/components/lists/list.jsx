@@ -10,8 +10,8 @@ import { connect } from "react-redux";
     // - when on trail page, work on adding trail to a list upon star click = another modal form
 // - delete list
 
-const List = ({ list, setShowModal }) => {
-
+const List = ({ selectedList, setSelectedList }) => {
+    const list = selectedList;
     const [name, setName] = useState(list.name);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const List = ({ list, setShowModal }) => {
         e.stopPropagation();
         const body = document.querySelector("body");
         body.style.overflow = "";
-        setShowModal(false);
+        setSelectedList();
     }
 
     const handleSubmit = e => {
