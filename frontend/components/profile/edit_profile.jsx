@@ -18,7 +18,7 @@ const EditProfile = ({ users, id, updateUser }) => {
     const [name, setName] = useState(`${user.fname} ${user.lname}`);
     const [place, setPlace] = useState(`${user.city}, ${user.state}`);
     const [aboutMe, setAboutMe] = useState(user.about_me);
-    const [errors, setErrors] = useState({ name: undefined, place: undefined });
+    const [errors, setErrors] = useState({ name: undefined, place: undefined, photo: undefined });
     const [photo, setPhoto] = useState();
     const [photoUrl, setPhotoUrl] = useState(user.profile_img);
     const [status, setStatus] = useState(true);

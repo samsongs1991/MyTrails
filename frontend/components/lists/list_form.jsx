@@ -4,7 +4,8 @@ import { createList } from "../../actions/list_actions.js";
 
 const ListForm = ({ setShowModal, createList, userId }) => {
 
-    const [input, setInput] = useState("");
+    const [name, setName] = useState("");
+    const [nameError, setNameError] = useState("");
 
     useEffect(() => {
         const posY = window.pageYOffset;
@@ -23,11 +24,24 @@ const ListForm = ({ setShowModal, createList, userId }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        createList({
-            name: input,
-            user_id: userId
-        });
+        if(!nameError) {
+            createList({
+                name,
+                user_id: userId
+            });
+        }
         handleCloseModal(e);
+    };
+
+    const handleName = e => {
+        if(e.target.value.length > 0) {
+            setName(e.target.value);
+            e.target.classList.remove("error");
+            setNameError("");
+        } else {
+            e.target.classList.add("error");
+            setNameError("Title required");
+        }
     };
 
     return (
@@ -36,7 +50,9 @@ const ListForm = ({ setShowModal, createList, userId }) => {
                 <section>
                     <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
                     <h3>Create A New List</h3>
-                    <input onChange={e => setInput(e.target.value)} placeholder="Title for your new list"/>
+                    <div>
+                        <input onChange={handleName} placeholder={nameError ? nameError : "Title for your new list"}/>
+                    </div>
                 </section>
                 <section>
                     <div>

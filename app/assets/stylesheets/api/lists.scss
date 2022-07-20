@@ -40,6 +40,7 @@
             > button:hover {
                 background: white;
                 color: rgb(41, 156, 190);
+                cursor: pointer;
             }
 
         }
@@ -66,7 +67,7 @@
         > form {
             background: white;
             width: 470px;
-            height: 490px;
+            height: 300px;
             border-radius: 15px;
             padding: 25px;
             display: flex;
@@ -89,6 +90,37 @@
                     font-size: 30px;
                     font-weight: bold;
                     margin-top: 24px;
+                }
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    > input {
+                        margin-top: 50px;
+                        width: 75%;
+                        border: none;
+                        font-size: 20px;
+                        border-bottom: 1px solid gray;
+                        outline: none;
+                        color: gray;
+                        text-align: center;
+                    }
+
+                    > input:hover, > input:focus {
+                        border-bottom: 1px solid #428a13;
+                        color: #428a13;
+                    }
+
+                    > input.error {
+                        border-bottom: 1px solid red;
+                    }
+
+                    > input.error::placeholder {
+                        color: red;
+                    }
+
                 }
 
             }
