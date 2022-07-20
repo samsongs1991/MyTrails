@@ -45,6 +45,7 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
     };
 
     const handleDelete = e => {
+        deleteList(list.id);
         handleCloseModal(e);
     };
 

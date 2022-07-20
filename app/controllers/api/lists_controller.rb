@@ -33,7 +33,7 @@ class Api::ListsController < ApplicationController
     def destroy
         list = List.find(params[:id])
         if list.destroy
-            render json: { list_id: params[:id] }, status: 200
+            render json: params[:id], status: 200
         else
             render json: list.errors.full_messages, status: 404
         end
