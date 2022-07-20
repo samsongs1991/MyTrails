@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 // NOTES
 // copy over what i need to from edit_profile comp
 // working to have list comp modal have the following
-// - edit photo
 // - edit title
 // - remove trail or visit the trail page
     // - when on trail page, work on adding trail to a list upon star click = another modal form
 // - delete list
+// - edit photo
 
 const List = ({ selectedList, setSelectedList }) => {
     const list = selectedList;
@@ -39,12 +39,21 @@ const List = ({ selectedList, setSelectedList }) => {
         handleCloseModal(e);
     };
 
+    const handleName = e => {
+        setName(e.target.value);
+        if(e.target.value.length === 0) {
+            e.target.classList.add("error");
+        } else {
+            e.target.classList.remove("error");
+        }
+    };
+
     return (
         <section onClick={handleCloseModal} id={`list-${list.id}`} className="list-modal">
             <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
                 <section>
                     <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
-                    <h3>{list.name}</h3>
+                    <input onChange={handleName} value={name} placeholder="Title required"/>
                 </section>
                 <section>
                     <div>

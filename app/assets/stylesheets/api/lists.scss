@@ -241,6 +241,8 @@
             justify-content: space-between;
 
             > section:first-child {
+                display: flex;
+                flex-direction: column;
 
                 > img {
                     height: 24px;
@@ -252,10 +254,27 @@
                     cursor: pointer;
                 }
 
-                > h3 {
+                > input {
                     font-size: 30px;
                     font-weight: bold;
                     margin-top: 24px;
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid rgb(75, 75, 75);
+                    color: rgb(75, 75, 75);
+                }
+
+                > input:hover, > input:focus {
+                    border-bottom: 1px solid #428a13;
+                    color: #428a13;
+                }
+
+                > input::placeholder {
+                    color: red;
+                }
+
+                > input.error {
+                    border-bottom: 1px solid red;
                 }
 
             }
