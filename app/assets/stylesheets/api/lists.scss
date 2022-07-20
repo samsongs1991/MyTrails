@@ -233,7 +233,7 @@
         > form {
             background: white;
             width: 470px;
-            height: 300px;
+            height: 490px;
             border-radius: 15px;
             padding: 25px;
             display: flex;
@@ -243,10 +243,12 @@
             > section:first-child {
                 display: flex;
                 flex-direction: column;
+                position: relative;
 
-                > div {
+                > div:first-child {
                     display: flex;
                     justify-content: space-between;
+                    z-index: 1;
 
                     > img {
                         height: 24px;
@@ -260,27 +262,56 @@
 
                 }
 
-                > input {
-                    font-size: 30px;
-                    font-weight: bold;
+                > div:nth-child(2) {
+                    display: flex;
+                    align-items: center;
                     margin-top: 24px;
-                    outline: none;
-                    border: none;
-                    border-bottom: 1px solid rgb(75, 75, 75);
-                    color: rgb(75, 75, 75);
+
+                    > img {
+                        height: 30px;
+                    }
+
+                    > img:hover {
+                        cursor: pointer;
+                        opacity: 0.75;
+                    }
+
+                    > input {
+                        font-size: 30px;
+                        font-weight: bold;
+                        outline: none;
+                        border: none;
+                        border-bottom: 1px solid rgb(75, 75, 75);
+                        color: rgb(75, 75, 75);
+                        z-index: 1;
+                    }
+
+                    > input:hover, > input:focus {
+                        border-bottom: 1px solid #428a13;
+                        color: #428a13;
+                    }
+
+                    > input::placeholder {
+                        color: red;
+                    }
+
+                    > input.error {
+                        border-bottom: 1px solid red;
+                    }
+
                 }
 
-                > input:hover, > input:focus {
-                    border-bottom: 1px solid #428a13;
-                    color: #428a13;
-                }
 
-                > input::placeholder {
-                    color: red;
-                }
-
-                > input.error {
-                    border-bottom: 1px solid red;
+                > img {
+                    position: absolute;
+                    top: 90px;
+                    left: 85px;
+                    z-index: 0;
+                    opacity: 0.25;
+                    height: 300px;
+                    width: 300px;
+                    object-fit: cover;
+                    border-radius: 50%;
                 }
 
             }

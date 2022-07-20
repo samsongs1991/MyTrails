@@ -58,8 +58,6 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
         }
     };
 
-
-
     return (
         <section onClick={handleCloseModal} id={`list-${list.id}`} className="list-modal">
             <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
@@ -68,7 +66,11 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
                         <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
                         <img onClick={handleDelete} src="/list_images/trash_icon.png" alt="Delete List"/>
                     </div>
-                    <input onChange={handleName} value={name} placeholder="Title required"/>
+                    <div>
+                        <img src="/list_images/add_img_icon.png" alt="Add image"/>
+                        <input onChange={handleName} value={name} placeholder="Title required"/>
+                    </div>
+                    <img src="/list_images/alltrails_symbol.png" alt="List photo"/>
                 </section>
                 <section>
                     <div>
@@ -80,14 +82,9 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
     );
 };
 
-const mSTP = state => ({
-    // userId: state.session.id
-});
-
 const mDTP = dispatch => ({
-    // createList: list => dispatch(createList(list))
     updateList: list => dispatch(updateList(list)),
     deleteList: listId => dispatch(deleteList(listId))
 });
 
-export default connect(mSTP, mDTP)(List);
+export default connect(null, mDTP)(List);
