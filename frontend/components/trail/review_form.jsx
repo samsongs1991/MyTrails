@@ -11,13 +11,13 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
         const posY = window.pageYOffset;
         const reviewForm = document.getElementById("review-form");
         reviewForm.style.top = `${posY}px`;
-        const body = document.getElementsByTagName("body")[0];
+        const body = document.querySelector("body");
         body.style.overflow = "hidden";
     }, []);
 
     const handleCloseModal = e => {
         e.stopPropagation();
-        const body = document.getElementsByTagName("body")[0];
+        const body = document.querySelector("body");
         body.style.overflow = "";
         setShowModal(false);
     }
