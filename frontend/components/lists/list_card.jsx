@@ -6,10 +6,11 @@ const ListCard = ({ list }) => {
     // will render an edit list card comp
 
     return (
-        <article id="list-card">
-            {/* <img src={list.img_url} alt="Photo for list"/>
-            <div>{list.name}</div> */}
-            LIST CARD COMP
+        <article>
+            <img src={list.img_url ? list.img_url : "./list_images/alltrails_symbol.png"} alt="Photo for list"/>
+            <div>
+                <p>{list.name}</p>
+            </div>
         </article>
     );
 };

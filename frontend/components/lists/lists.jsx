@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import ListCard from "./list_card.jsx";
 import ListForm from "./list_form.jsx";
+import ListCard from "./list_card.jsx";
 import { fetchLists } from "../../actions/list_actions.js";
 
-const Lists = ({ match, lists, createList, fetchLists }) => {
-    console.log("LISTS COMP props - lists", lists);
-
+const Lists = ({ match, lists, fetchLists }) => {
     const userId = match.params.userId;
     const [showModal, setShowModal] = useState(false);
 
@@ -25,10 +23,7 @@ const Lists = ({ match, lists, createList, fetchLists }) => {
                     <button onClick={() => setShowModal(true)}>New List</button>
                 </section>
                 <section>
-                    <ListCard/>
-                    {/* get lists from state */}
-                    {/* iterate through them as array and return array of list_card comps */}
-                    {/* display lists as photos with list title overlayed on photo */}
+                    {Object.values(lists).map((list, i) => <ListCard key={i} list={list}/>)}
                 </section>
             </div>
             {showModal ? <ListForm setShowModal={setShowModal}/> : null}

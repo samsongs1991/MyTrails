@@ -102,7 +102,7 @@
         > section:last-child {
             padding: 25px;
             display: flex;
-            height: 500px;
+            min-height: 467px;
 
             > div:first-child {
                 display: flex;
@@ -227,7 +227,7 @@
                     outline: none;
                     border: 1px solid rgb(75, 75, 75);
                     width: 770px;
-                    height: 900px;
+                    height: 366px;
                 }
 
                 > input:focus, > input:hover {
