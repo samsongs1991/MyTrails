@@ -11,7 +11,7 @@ import { updateList, deleteList } from "../../actions/list_actions.js";
 // - remove trail or visit the trail page
     // - when on trail page, work on adding trail to a list upon star click = another modal form
 
-const List = ({ selectedList, setSelectedList }) => {
+const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
     const list = selectedList;
     const [name, setName] = useState(list.name);
 
@@ -37,6 +37,10 @@ const List = ({ selectedList, setSelectedList }) => {
             // - name
             // - photo
             // - trails
+        updateList({
+            id: list.id,
+            name
+        });
         handleCloseModal(e);
     };
 
