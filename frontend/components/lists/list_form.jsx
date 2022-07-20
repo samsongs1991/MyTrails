@@ -9,8 +9,8 @@ const ListForm = ({ setShowModal, createList, userId }) => {
 
     useEffect(() => {
         const posY = window.pageYOffset;
-        const reviewForm = document.getElementById("list-form");
-        reviewForm.style.top = `${posY}px`;
+        const listForm = document.getElementById("list-form");
+        listForm.style.top = `${posY}px`;
         const body = document.querySelector("body");
         body.style.overflow = "hidden";
     }, []);

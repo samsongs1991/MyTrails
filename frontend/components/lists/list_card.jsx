@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import List from "./list.jsx";
 
 const ListCard = ({ list }) => {
-
-    // add ability to click button "edit list"
-    // will render an edit list card comp
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <article>
@@ -11,6 +10,7 @@ const ListCard = ({ list }) => {
             <div>
                 <p>{list.name}</p>
             </div>
+            {showModal ? <List list={list} setShowModal={setShowModal}/> : null}
         </article>
     );
 };
