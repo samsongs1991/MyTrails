@@ -24,7 +24,7 @@ const ListForm = ({ setShowModal, createList, userId }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(!nameError) {
+        if(name.length > 0) {
             createList({
                 name,
                 user_id: userId
