@@ -5,8 +5,8 @@ import { updateList, deleteList } from "../../actions/list_actions.js";
 // NOTES
 // copy over what i need to from edit_profile comp
 // working to have list comp modal have the following
-// - edit title
-// - delete list
+// - edit title X
+// - delete list X
 // - edit photo
 // - remove trail or visit the trail page
     // - when on trail page, work on adding trail to a list upon star click = another modal form
@@ -14,6 +14,8 @@ import { updateList, deleteList } from "../../actions/list_actions.js";
 const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
     const list = selectedList;
     const [name, setName] = useState(list.name);
+    const [photo, setPhoto] = useState();
+    const [photoUrl, setPhotoUrl] = useState("/list_images/alltrails_symbol.png");
 
     useEffect(() => {
         const posY = window.pageYOffset;
@@ -49,6 +51,55 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
         handleCloseModal(e);
     };
 
+    const handlePhoto = e => {
+        const validPhoto = photo => {
+            const mimes = [
+                "image/apng",
+                "image/avif",
+                "image/gif",
+                "image/jpeg",
+                "image/png",
+                "image/svg+xml",
+                "image/webp"
+            ]
+            const mime = photo.type;
+            return mimes.includes(mime);
+        };
+        const fileReader = new FileReader();
+        const file = e.target.files[0];
+        if(file) {
+            fileReader.readAsDataURL(file);
+            const img = e.target.parentElement.children[0];
+            if(validPhoto(file)) {
+                fileReader.onloadend = () => {
+                    setPhoto(file);
+                    setPhotoUrl(fileReader.result);
+                }
+                img.classList.remove("error");
+                img.classList.add("success");
+            } else {
+                img.classList.remove("success");
+                img.classList.add("error");
+                setTimeout(() => {
+                    img.classList.remove("error");
+                    setTimeout(() => {
+                        img.classList.add("error");
+                        setTimeout(() => {
+                            img.classList.remove("error");
+                            setTimeout(() => {
+                                img.classList.add("error");
+                                setTimeout(() => {
+                                    img.classList.remove("error");
+                                }, 250);
+                            }, 250);
+                        }, 250);
+                    }, 250);
+                }, 250);
+
+            }
+        }
+    };
+
     const handleName = e => {
         setName(e.target.value);
         if(e.target.value.length === 0) {
@@ -67,10 +118,13 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
                         <img onClick={handleDelete} src="/list_images/trash_icon.png" alt="Delete List"/>
                     </div>
                     <div>
-                        <img src="/list_images/add_img_icon.png" alt="Add image"/>
+                        <label htmlFor="file-upload">
+                            <img src="/list_images/add_img_icon.png" alt="Add image"/>
+                            <input onChange={handlePhoto} id="file-upload" type="file"/>
+                        </label>
                         <input onChange={handleName} value={name} placeholder="Title required"/>
                     </div>
-                    <img src="/list_images/alltrails_symbol.png" alt="List photo"/>
+                    <img src={photoUrl} alt="List photo"/>
                 </section>
                 <section>
                     <div>

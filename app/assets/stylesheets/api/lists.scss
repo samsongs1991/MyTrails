@@ -267,13 +267,31 @@
                     align-items: center;
                     margin-top: 24px;
 
-                    > img {
-                        height: 30px;
-                    }
+                    > label {
 
-                    > img:hover {
-                        cursor: pointer;
-                        opacity: 0.75;
+                        > img {
+                            height: 35px;
+                            filter: grayscale(1) brightness(0.5);
+                        }
+
+                        > img:hover {
+                            cursor: pointer;
+                            opacity: 0.75;
+                            filter: none;
+                        }
+
+                        > img.success {
+                            filter: none;
+                        }
+
+                        > img.error {
+                            filter: hue-rotate(265deg) saturate(1.5);
+                        }
+
+                        > input {
+                            display: none;
+                        }
+
                     }
 
                     > input {
@@ -304,7 +322,7 @@
 
                 > img {
                     position: absolute;
-                    top: 90px;
+                    top: 100px;
                     left: 85px;
                     z-index: 0;
                     opacity: 0.25;
