@@ -6,7 +6,7 @@ import TrailsSidebar from "./trails_sidebar.jsx";
 import Map from "./map.jsx";
 
 const Explore = ({ trails, fetchAllTrails, history }) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
 
     const [options, setOptions] = useState({
         difficulty: { easy: false, moderate: false, hard: false },
