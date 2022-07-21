@@ -11,8 +11,6 @@ User.create(email: "demo@gmail.com", password: 123456, fname: "Sam", lname: "Son
     .photo
     .attach(io: File.open("./seed_images/demo_profile.jpg"), filename: "demo_profile.jpg")
 
-List.create(name: "Favorites", user_id: 1)
-
 # 20 trails near Seattle, WA
 trails = [
     # easy difficulty
