@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SessionForm = ({ errors, formType, processForm, loginDemoUser, clearErrors }) => {
+    window.scrollTo({ top: 0 });
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
+
     const handleSubmit = e => {
         e.preventDefault();
         if(e.target.id === "demo-login") {
@@ -13,7 +15,7 @@ const SessionForm = ({ errors, formType, processForm, loginDemoUser, clearErrors
             processForm({ email, password });
         }
     };
-    
+
     const navLink = () => {
         if(formType === "signup") {
             return <div>Already have an account? <Link to="/signin" onClick={clearErrors}>Log In</Link></div>
@@ -21,7 +23,7 @@ const SessionForm = ({ errors, formType, processForm, loginDemoUser, clearErrors
             return <div>Don't have an account? <Link to="/signup" onClick={clearErrors}>Sign up for free</Link></div>
         }
     };
-    
+
     return (
         <section id="session-page" className={formType === "signup" ? "signup-page" : "signin-page"}>
             <article id="session-form">
