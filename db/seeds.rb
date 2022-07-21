@@ -85,3 +85,26 @@ lists.each do |list|
         .photo
         .attach(io: File.open("./seed_images/#{list[:name]}.jpg"), filename: "#{list[:name]}.jpg")
 end
+
+# ListsTrails
+lists_trails = [
+    { list_id: 1, trail_id: 1},
+    { list_id: 1, trail_id: 8},
+    { list_id: 1, trail_id: 16},
+    { list_id: 1, trail_id: 4},
+    { list_id: 2, trail_id: 12},
+    { list_id: 2, trail_id: 20},
+    { list_id: 2, trail_id: 7},
+    { list_id: 3, trail_id: 15},
+    { list_id: 3, trail_id: 2},
+    { list_id: 3, trail_id: 10},
+    { list_id: 4, trail_id: 18},
+    { list_id: 4, trail_id: 6},
+    { list_id: 4, trail_id: 14},
+    { list_id: 5, trail_id: 3},
+    { list_id: 5, trail_id: 11},
+    { list_id: 5, trail_id: 19}
+]
+lists_trails.each do |lists_trail|
+    ListsTrail.create(lists_trail)
+end
