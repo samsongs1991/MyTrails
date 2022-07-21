@@ -34,8 +34,8 @@ const ListForm = ({ setShowForm, createList, userId }) => {
     };
 
     const handleName = e => {
+        setName(e.target.value);
         if(e.target.value.length > 0) {
-            setName(e.target.value);
             e.target.classList.remove("error");
             setNameError("");
         } else {
