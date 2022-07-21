@@ -4,6 +4,6 @@ class Trail < ApplicationRecord
     validates :lng, presence: true
 
     has_many :reviews
-
     has_one_attached :photo
+    has_many :lists
 end
