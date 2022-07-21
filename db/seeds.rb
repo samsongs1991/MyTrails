@@ -40,28 +40,6 @@ trails = [
     { name: "Mailbox Peak Trail", lat: 47.4674, lng: -121.6749, location: "Middle Fork Snoqualmie National Resources Conservation Area", city: "River Bend", state: "WA", country: "USA", difficulty: "hard", length: 4.8, gain: 3959, category: "Out & Back" },
 
 ]
-filenames = {
-    "Discovery Park and Lighthouse Loop Trail": "Discovery Park and Lighthouse Loop Trail",
-    "Green Lake Trail": "Green Lake Trail",
-    "Cougar Mountain Indian Trail": "Cougar Mountain Indian Trail",
-    "Big Gulch Trail": "Big Gulch Trail",
-    "The Washington Park Arboretum": "The Washington Park Arboretum",
-    "Seward Park Perimeter Loop": "Seward Park Perimeter Loop",
-    "Red Top Lookout Trail": "Red Top Lookout Trail",
-    "Twin Falls Trail": "Twin Falls Trail",
-    "Wallace Falls": "Wallace Falls",
-    "Little Si": "Little Si",
-    "Mirror Lake Trail": "Mirror Lake Trail",
-    "Rattlesnake Ledge Trail": "Rattlesnake Ledge Trail",
-    "Lake 22 Trail": "Lake 22 Trail",
-    "Heather Lake Trail": "Heather Lake Trail",
-    "Bridal Veil Falls Trail": "Bridal Veil Falls Trail",
-    "Index Town Wall Trail": "Index Town Wall Trail",
-    "Mount Pilchuck Trail": "Mount Pilchuck Trail",
-    "Poo Poo Point Trail": "Poo Poo Point Trail",
-    "Bandera Mountain Summit": "Bandera Mountain Summit",
-    "Mailbox Peak Trail": "Mailbox Peak Trail"
-}
 trails.each do |trail|
     Trail.create(trail)
         .photo
@@ -104,4 +82,6 @@ lists = [
 ]
 lists.each do |list|
     List.create(list)
+        .photo
+        .attach(io: File.open("./seed_images/#{list[:name]}.jpg"), filename: "#{list[:name]}.jpg")
 end
