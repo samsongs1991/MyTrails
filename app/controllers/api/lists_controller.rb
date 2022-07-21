@@ -22,8 +22,10 @@ class Api::ListsController < ApplicationController
     end
 
     def update
-        @list = List.find(params[:id])
-        if @list.update(name: params[:list][:name])
+        data = update_params
+        @list = List.find(data[:id])
+        if @list.update(name: data[:name])
+            @list.photo.attach(data[:photo]) if data[:photo] != "undefined"
             render :show, status: 200
         else
             render json: @list.errors.full_messages, status: 422
@@ -43,6 +45,10 @@ class Api::ListsController < ApplicationController
 
     def list_params
         params.require(:list).permit(:name, :user_id)
+    end
+
+    def update_params
+        params.require(:list).permit(:id, :name, :user_id, :photo)
     end
 
 end
