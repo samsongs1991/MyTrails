@@ -748,6 +748,48 @@
                     margin-top: 24px;
                 }
 
+                > ul {
+                    overflow: auto;
+                    height: 270px;
+                    margin-top: 20px;
+
+                    > li {
+                        display: flex;
+                        align-items: center;
+                        margin: 20px 30px;
+                        font-size: 20px;
+                        color: rgb(120, 120, 120);
+                    }
+
+                    > li:last-child {
+
+                        > img {
+                            height: 20px;
+                        }
+
+                        > img:hover {
+                            cursor: pointer;
+                            opacity: 0.75;
+                        }
+
+                        > input {
+                            outline: none;
+                            border: none;
+                            border-bottom: 1px solid rgb(120, 120, 120);
+                            font-size: 20px;
+                            margin-left: 6px;
+                            color: rgb(120, 120, 120);
+                        }
+
+                        > input:hover, >input:focus {
+                            border-bottom: 1px solid #428a13;
+                            color: #428a13;
+                        }
+
+                    }
+
+                }
+
             }
 
             > section:last-child {
