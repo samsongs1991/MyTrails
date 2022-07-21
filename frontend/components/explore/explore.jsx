@@ -6,6 +6,7 @@ import TrailsSidebar from "./trails_sidebar.jsx";
 import Map from "./map.jsx";
 
 const Explore = ({ trails, fetchAllTrails, history }) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const [options, setOptions] = useState({
         difficulty: { easy: false, moderate: false, hard: false },
@@ -30,7 +31,7 @@ const Explore = ({ trails, fetchAllTrails, history }) => {
             filterArrows[i].classList.remove("active");
         }
     };
-    
+
     return (
         <section onClick={handleClick} id="explore-page">
             <FilterBar options={options} setOptions={setOptions} history={history}/>
