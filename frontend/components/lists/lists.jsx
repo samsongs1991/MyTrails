@@ -6,6 +6,8 @@ import List from "./list.jsx";
 import { fetchLists } from "../../actions/list_actions.js";
 
 const Lists = ({ match, lists, fetchLists }) => {
+    window.scrollTo({ top: 0 });
+
     const userId = match.params.userId;
     const [showForm, setShowForm] = useState(false);
     const [selectedList, setSelectedList] = useState();

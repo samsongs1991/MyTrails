@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { updateUser } from "../../actions/user_actions.js";
 
 const EditProfile = ({ users, id, updateUser }) => {
+    window.scrollTo({ top: 0 });
+
     const user = users[id];
     const formatDate = date => {
         const months = [

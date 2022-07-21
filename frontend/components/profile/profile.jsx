@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { clearUserErrors } from "../../actions/user_actions.js";
 
 const Profile = ({ users, id, errors, clearUserErrors, location }) => {
+    window.scrollTo({ top: 0 });
+
     const user = users[id];
     const updated = location.state;
     const formatDate = date => {
