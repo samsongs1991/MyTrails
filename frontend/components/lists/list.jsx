@@ -32,17 +32,19 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
         setSelectedList();
     }
 
-    const handleSubmit = e => {
+    const handleSave = e => {
         e.preventDefault();
         // dispatch action to ...
         // - update list
             // - name
             // - photo
             // - trails
-        updateList({
-            id: list.id,
-            name
-        });
+        const formData = new FormData();
+        formData.append("id", list.id);
+        formData.append("list[id]", list.id);
+        formData.append("list[name]", list.name);
+        formData.append("list[photo]", list.photo);
+        updateList(formData);
         handleCloseModal(e);
     };
 
@@ -111,7 +113,7 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
 
     return (
         <section onClick={handleCloseModal} id={`list-${list.id}`} className="list-modal">
-            <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
+            <form onClick={e => e.stopPropagation()} onSubmit={handleSave}>
                 <section>
                     <div>
                         <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
