@@ -3,12 +3,22 @@ class Api::UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def create
-        @user = User.new(user_params)
         errors = check_create_params
 
-        if errors.empty? && @user.save
-            signin(@user)
-            render :show, status: 200
+        if errors.empty?
+            @user = User.new(user_params)
+            @user.fname = "FirstName"
+            @user.lname = "LastName"
+            @user.city = "City"
+            @user.state = "State"
+            @user.about_me = "About Me"
+            if @user.save
+                List.create(name: "Favorites", user_id: @user.id)
+                signin(@user)
+                render :show, status: 200
+            else
+                render json: @user.errors.full_messages, status: 422
+            end
         else
             render json: errors, status: 422
         end
