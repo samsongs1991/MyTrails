@@ -1,7 +1,6 @@
 import React from "react";
-import ListsTrailForm from "./lists_trail_form.jsx";
 
-const TrailImg = ({ trail }) => {
+const TrailImg = ({ setShowForm, trail }) => {
     return (
         <section id="trail-img">
             <img src={trail.trail_img} alt="Image of trail"/>
@@ -14,9 +13,8 @@ const TrailImg = ({ trail }) => {
                         {trail.avg_rating}
                     </p>
                 </div>
-                <img id="star" src="/trail_images/star_outline.png" alt="Add to a list"/>
+                <img onClick={() => setShowForm(true)} id="star" src="/trail_images/star_outline.png" alt="Add to a list"/>
             </div>
-            <ListsTrailForm trail={trail}/>
         </section>
     );
 };
