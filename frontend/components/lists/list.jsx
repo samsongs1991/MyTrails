@@ -3,11 +3,6 @@ import { connect } from "react-redux";
 import { updateList, deleteList } from "../../actions/list_actions.js";
 
 // NOTES
-// copy over what i need to from edit_profile comp
-// working to have list comp modal have the following
-// - edit title X
-// - delete list X
-// - edit photo
 // - remove trail or visit the trail page
     // - when on trail page, work on adding trail to a list upon star click = another modal form
 
@@ -15,7 +10,7 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
     const list = selectedList;
     const [name, setName] = useState(list.name);
     const [photo, setPhoto] = useState();
-    const [photoUrl, setPhotoUrl] = useState("/list_images/alltrails_symbol.png");
+    const [photoUrl, setPhotoUrl] = useState(list.list_img ? list.list_img : "/list_images/alltrails_symbol.png");
 
     useEffect(() => {
         const posY = window.pageYOffset;
@@ -34,16 +29,11 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
 
     const handleSave = e => {
         e.preventDefault();
-        // dispatch action to ...
-        // - update list
-            // - name
-            // - photo
-            // - trails
         const formData = new FormData();
         formData.append("id", list.id);
         formData.append("list[id]", list.id);
-        formData.append("list[name]", list.name);
-        formData.append("list[photo]", list.photo);
+        formData.append("list[name]", name);
+        formData.append("list[photo]", photo);
         updateList(formData);
         handleCloseModal(e);
     };
