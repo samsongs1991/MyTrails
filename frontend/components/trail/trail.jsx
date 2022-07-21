@@ -7,16 +7,17 @@ import TrailDetails from "./trail_details.jsx";
 import NearbyTrails from "./nearby_trails.jsx";
 
 const Trail = ({ trails, fetchAllTrails, match, history }) => {
+    window.scrollTo({ top: 0 });
 
     const trailId = match.params.trailId;
     const trail = trails[trailId];
-    
+
     useEffect(() => {
         if(!trail) {
             fetchAllTrails();
         }
     }, []);
-    
+
     return trail ? (
         <section id="trail-page">
             <div>
