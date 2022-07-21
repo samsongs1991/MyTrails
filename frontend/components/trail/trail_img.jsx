@@ -13,7 +13,7 @@ const TrailImg = ({ trail }) => {
                         {trail.avg_rating}
                     </p>
                 </div>
-                <img id="star" src="/trail_images/star_outline.png" alt="Add to list icon"/>
+                <img id="star" src="/trail_images/star_outline.png" alt="Add to a list"/>
             </div>
         </section>
     );
