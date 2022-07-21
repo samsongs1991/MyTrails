@@ -5,11 +5,12 @@ import TrailCards from "./trail_cards.jsx";
 import { fetchAllTrails } from "../../actions/trail_actions.js";
 
 const Home = ({ user, trails, fetchAllTrails, history }) => {
-    
+    window.scrollTo({ top: 0 });
+
     if(Object.keys(trails).length !== 20) {
         fetchAllTrails();
     }
-    
+
     return (
         <section id="home-page">
             <section id="home-image">
