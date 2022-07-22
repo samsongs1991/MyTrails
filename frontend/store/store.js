@@ -3,7 +3,12 @@ import { logger } from "redux-logger";
 import reducer from "../reducers/root_reducer.js";
 
 const createConfiguredStore = () => {
-    let middleware = getDefaultMiddleware => getDefaultMiddleware().concat(logger);
+    let middleware;
+    if (process.env.NODE_ENV !== "production") {
+        middleware = getDefaultMiddleware => getDefaultMiddleware().concat(logger);
+    } else {
+        middleware = getDefaultMiddleware => getDefaultMiddleware();
+    }
     let preloadedState;
     if(window.currentUser) {
         preloadedState = {
