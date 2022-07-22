@@ -27,6 +27,8 @@ const Trail = ({ trails, userId, listsTrails, fetchAllTrails, fetchLists, match,
     useEffect(() => {
         if(!trail) {
             fetchAllTrails();
+        }
+        if(userId) {
             fetchLists(userId);
         }
     }, []);
