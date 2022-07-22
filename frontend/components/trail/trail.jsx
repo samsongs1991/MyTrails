@@ -8,7 +8,7 @@ import TrailDetails from "./trail_details.jsx";
 import NearbyTrails from "./nearby_trails.jsx";
 import ListsTrailForm from "./lists_trail_form.jsx";
 
-const Trail = ({ trails, userId, listsTrails, fetchAllTrails, fetchLists, match, history }) => {
+const Trail = ({ trails, userId, listsTrails, lists, fetchAllTrails, fetchLists, match, history }) => {
     window.scrollTo({ top: 0 });
 
     const trailId = match.params.trailId;
