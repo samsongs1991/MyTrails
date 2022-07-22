@@ -20,5 +20,5 @@ class Api::SessionsController < ApplicationController
             render json: ["Already signed out"], status: 404
         end
     end
-    
+
 end
