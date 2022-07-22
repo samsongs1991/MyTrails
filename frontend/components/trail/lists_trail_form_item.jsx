@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addTrailToList } from "../../actions/lists_trail_actions.js";
+import { addTrailToList, removeTrailFromList } from "../../actions/lists_trail_actions.js";
 
-const ListsTrailFormItem = ({ list, trail, listsTrails, addTrailToList }) => {
+const ListsTrailFormItem = ({ list, trail, listsTrails, addTrailToList, removeTrailFromList }) => {
 
-    const trailInList = () => {
+    const findListsTrail = () => {
         for(let id in listsTrails) {
             const listTrail = listsTrails[id];
             if(listTrail.list_id === list.id && listTrail.trail_id === trail.id) {
-                return true;
+                return listTrail;
             }
         }
-        return false;
+        return null;
     };
 
-    const [added, setAdded] = useState(trailInList());
+    const [added, setAdded] = useState(Boolean(findListsTrail()));
 
     const handleAdd = e => {
         addTrailToList({ trail_id: trail.id, list_id: list.id });
@@ -22,9 +22,8 @@ const ListsTrailFormItem = ({ list, trail, listsTrails, addTrailToList }) => {
     };
 
     const handleRemove = e => {
-        // remove trail from list front/backend
-        // removeTrailFromList(listsTrailId)
-        console.log("HANDLE REMOVE");
+        removeTrailFromList(findListsTrail().id);
+        setAdded(false);
     };
 
     const starOutline = <img onClick={handleAdd} src="/trail_images/star_outline.png" alt="Add trail to list"/>;
@@ -43,7 +42,8 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    addTrailToList: listsTrail => dispatch(addTrailToList(listsTrail))
+    addTrailToList: listsTrail => dispatch(addTrailToList(listsTrail)),
+    removeTrailFromList: listsTrailId => dispatch(removeTrailFromList(listsTrailId))
 });
 
 export default connect(mSTP, mDTP)(ListsTrailFormItem);

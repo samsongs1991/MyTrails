@@ -10,7 +10,7 @@ export const fetchListsTrails = listId => $.ajax({
     data: { list_id: listId }
 });
 
-// export const deleteListsTrail = listsTrailId => $.ajax({
-//     url: `api/lists_trails/${listsTrailId}`,
-//     method: "DELETE"
-// });
+export const deleteListsTrail = listsTrailId => $.ajax({
+    url: `api/lists_trails/${listsTrailId}`,
+    method: "DELETE"
+});
