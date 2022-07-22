@@ -4,32 +4,28 @@ import * as Utils from "../util/list_api_util.js";
 export const fetchLists = userId => dispatch => {
     Utils.fetchLists(userId)
         .then(
-            lists => dispatch(receiveLists(lists)),
-            err => console.log("Error from DB in fetchLists function of list_actions.js", err)
+            lists => dispatch(receiveLists(lists))
         );
 };
 
 export const createList = list => dispatch => {
     Utils.createList(list)
         .then(
-            list => dispatch(receiveList(list)),
-            err => console.log("Error from DB in createLists function of list_actions.js", err)
+            list => dispatch(receiveList(list))
         );
 };
 
 export const updateList = list => dispatch => {
     Utils.updateList(list)
         .then(
-            list => dispatch(receiveList(list)),
-            err => console.log("Error from DB in updateLists function of list_actions.js", err)
+            list => dispatch(receiveList(list))
         );
 };
 
 export const deleteList = listId => dispatch => {
     Utils.deleteList(listId)
         .then(
-            listId => dispatch(removeList(listId)),
-            err => console.log("Error from DB in deleteList function of list_actions.js", err)
+            listId => dispatch(removeList(listId))
         );
 };
 

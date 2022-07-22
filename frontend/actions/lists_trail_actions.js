@@ -4,16 +4,14 @@ import * as Utils from "../util/lists_trail_api_util.js";
 export const addTrailToList = listsTrail => dispatch => {
     Utils.createListsTrail(listsTrail)
         .then(
-            listsTrail => dispatch(receiveListsTrail(listsTrail)),
-            err => console.log("Error from DB in addTrailToList function of lists_trail_actions.js", err)
+            listsTrail => dispatch(receiveListsTrail(listsTrail))
         );
 };
 
 export const removeTrailFromList = listsTrailId => dispatch => {
     Utils.deleteListsTrail(listsTrailId)
         .then(
-            listsTrailId => dispatch(removeListsTrail(listsTrailId)),
-            err => console.log("Error from DB in removeTrailFromList function of lists_trail_actions.js", err)
+            listsTrailId => dispatch(removeListsTrail(listsTrailId))
         );
 };
 
