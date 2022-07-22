@@ -254,14 +254,25 @@
                     justify-content: space-between;
                     z-index: 1;
 
-                    > img {
-                        height: 24px;
+                    > img:first-child {
+                        height: 32px;
                         width: 32px;
+                        filter: grayscale(1);
                     }
 
-                    > img:hover {
+                    > img:first-child:hover {
                         opacity: 0.7;
                         cursor: pointer;
+                    }
+
+                    > img:last-child {
+                        height: 26px;
+                        width: 26px;
+                        filter: grayscale(1);
+                    }
+
+                    > img:last-child:hover {
+                        filter: none;
                     }
 
                 }

@@ -113,8 +113,8 @@ const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, 
             <form onClick={e => e.stopPropagation()} onSubmit={handleSave}>
                 <section>
                     <div>
-                        <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
-                        <img onClick={handleDelete} src="/list_images/trash_icon.png" alt="Delete List"/>
+                        <img onClick={handleCloseModal} src="/list_images/x_icon.png" alt="Close"/>
+                        <img onClick={handleDelete} src="/list_images/trash_can_icon.png" alt="Delete List"/>
                     </div>
                     <div>
                         <label htmlFor="file-upload">
