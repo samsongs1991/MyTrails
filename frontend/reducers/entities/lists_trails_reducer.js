@@ -8,7 +8,7 @@ const listsTrailsReducer = (prevState={}, action) => {
         case RECEIVE_LISTS:
             return action.lists.lists_trails;
         case RECEIVE_LISTS_TRAIL:
-            return Object.assign({}, prevState, { [action.listsTrail.id]:action.listsTrail });
+            return Object.assign({}, prevState, action.listsTrail);
         case REMOVE_USER:
             return {};
         default:
