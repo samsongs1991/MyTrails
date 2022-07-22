@@ -9,9 +9,9 @@ class Api::ReviewsController < ApplicationController
 
     def index
         if(params[:trail_id])
-            @reviews = Trail.includes(:reviews, reviews: [:user]).find(params[:trail_id]).reviews
+            @reviews = Trail.includes(:reviews, reviews: [:user, user: {photo_attachment: :blob}]).find(params[:trail_id]).reviews
         elsif(params[:user_id])
-            @reviews = User.includes(:reviews, reviews: [:user]).find(params[:user_id]).reviews
+            @reviews = User.includes(:reviews, reviews: [:user, user: {photo_attachment: :blob}]).find(params[:user_id]).reviews
         end
 
         if(@reviews)

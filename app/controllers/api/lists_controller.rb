@@ -10,7 +10,7 @@ class Api::ListsController < ApplicationController
     end
 
     def index
-        user = User.includes(:lists, lists: [:lists_trails]).find(params[:user_id])
+        user = User.includes(:lists, lists: [:lists_trails, photo_attachment: :blob]).find(params[:user_id])
         if user.nil?
             render json: user.errors.full_messages, status: 404
         else
