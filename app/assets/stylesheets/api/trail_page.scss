@@ -202,14 +202,13 @@
 
                 }
 
-                > #star {
+                > #flag {
                     height: 40px;
-                    width: 40px;
+                    width: 45px;
                     margin: 0px 35px 50px 0px;
-                    filter: invert(100%);
                 }
 
-                > #star:hover {
+                > #flag:hover {
                     transform: scale(1.25);
                     cursor: pointer;
                 }
@@ -762,7 +761,10 @@
 
                         > img {
                             height: 22px;
-                            filter: invert(0.25);
+                        }
+
+                        > img#flag-dark {
+                            filter: brightness(0.4);
                         }
 
                         > img:hover {

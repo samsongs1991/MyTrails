@@ -8,11 +8,20 @@ import TrailDetails from "./trail_details.jsx";
 import NearbyTrails from "./nearby_trails.jsx";
 import ListsTrailForm from "./lists_trail_form.jsx";
 
-const Trail = ({ trails, userId, fetchAllTrails, fetchLists, match, history }) => {
+const Trail = ({ trails, userId, listsTrails, fetchAllTrails, fetchLists, match, history }) => {
     window.scrollTo({ top: 0 });
 
     const trailId = match.params.trailId;
     const trail = trails[trailId];
+    const trailInList = () => {
+        for(let id in listsTrails) {
+            const listsTrail = listsTrails[id];
+            if(listsTrail.trail_id === trail.id) {
+                return true;
+            }
+        }
+        return false;
+    };
     const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
@@ -26,7 +35,7 @@ const Trail = ({ trails, userId, fetchAllTrails, fetchLists, match, history }) =
         <section id="trail-page">
             <div>
                 <LocationTree trail={trail} history={history}/>
-                <TrailImg setShowForm={setShowForm} trail={trail}/>
+                <TrailImg trailInList={trailInList()}setShowForm={setShowForm} trail={trail}/>
                 <section>
                     <TrailDetails trail={trail}/>
                     <NearbyTrails trails={trails} trail={trail}/>
@@ -39,7 +48,8 @@ const Trail = ({ trails, userId, fetchAllTrails, fetchLists, match, history }) =
 
 const mSTP = state => ({
     trails: state.entities.trails,
-    userId: state.session.id
+    userId: state.session.id,
+    listsTrails: state.entities.listsTrails
 });
 
 const mDTP = dispatch => ({
