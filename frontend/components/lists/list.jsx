@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { updateList, deleteList } from "../../actions/list_actions.js";
+import ListItem from "./list_item.jsx";
 
-const List = ({ selectedList, setSelectedList, listsTrails, updateList, deleteList }) => {
+const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, deleteList }) => {
     const list = selectedList;
+    const trailsInList = () => {
+        const arr = [];
+        for(let id in listsTrails) {
+            const listsTrail = listsTrails[id];
+            if(listsTrail.list_id === list.id) {
+                arr.push(trails[listsTrail.trail_id]);
+            }
+        }
+        return arr;
+    };
     const [name, setName] = useState(list.name);
     const [photo, setPhoto] = useState();
     const [photoUrl, setPhotoUrl] = useState(list.list_img ? list.list_img : "/list_images/alltrails_symbol.png");
@@ -113,6 +124,9 @@ const List = ({ selectedList, setSelectedList, listsTrails, updateList, deleteLi
                         <input onChange={handleName} value={name} placeholder="Title required"/>
                     </div>
                     <img src={photoUrl} alt="List photo"/>
+                    <ul>
+                        {trailsInList().map((trail, i) => <ListItem key={i} trail={trail} list={list}/>)}
+                    </ul>
                 </section>
                 <section>
                     <div>
@@ -125,6 +139,7 @@ const List = ({ selectedList, setSelectedList, listsTrails, updateList, deleteLi
 };
 
 const mSTP = state => ({
+    trails: state.entities.trails,
     listsTrails: state.entities.listsTrails
 });
 
