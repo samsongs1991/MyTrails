@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :trails, only: [:show, :index]
     resources :reviews, only: [:create, :index]
     resources :lists, only: [:create, :index, :update, :destroy]
+    resources :lists_trails, only: [:create, :destroy]
   end
 
 end

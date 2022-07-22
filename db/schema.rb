@@ -49,21 +49,22 @@ ActiveRecord::Schema.define(version: 2022_07_21_051447) do
     t.integer "trail_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["list_id", "trail_id"], name: "index_lists_trails_on_list_id_and_trail_id", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
+    t.integer "rating", null: false
     t.text "text"
-    t.integer "user_id"
-    t.integer "trail_id"
+    t.integer "user_id", null: false
+    t.integer "trail_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "trails", force: :cascade do |t|
-    t.string "name"
-    t.float "lat"
-    t.float "lng"
+    t.string "name", null: false
+    t.float "lat", null: false
+    t.float "lng", null: false
     t.string "location"
     t.string "city"
     t.string "state"

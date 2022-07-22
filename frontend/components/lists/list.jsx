@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { updateList, deleteList } from "../../actions/list_actions.js";
 
-// NOTES
-// - remove trail or visit the trail page
-    // - when on trail page, work on adding trail to a list upon star click = another modal form
-
-const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
+const List = ({ selectedList, setSelectedList, listsTrails, updateList, deleteList }) => {
     const list = selectedList;
     const [name, setName] = useState(list.name);
     const [photo, setPhoto] = useState();
@@ -128,9 +124,13 @@ const List = ({ selectedList, setSelectedList, updateList, deleteList }) => {
     );
 };
 
-const mDTP = dispatch => ({
-    updateList: list => dispatch(updateList(list)),
-    deleteList: listId => dispatch(deleteList(listId))
+const mSTP = state => ({
+    listsTrails: state.entities.listsTrails
 });
 
-export default connect(null, mDTP)(List);
+const mDTP = dispatch => ({
+    updateList: list => dispatch(updateList(list)),
+    deleteList: listId => dispatch(deleteList(listId)),
+});
+
+export default connect(mSTP, mDTP)(List);

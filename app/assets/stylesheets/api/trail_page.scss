@@ -759,6 +759,22 @@
                         margin: 20px 30px;
                         font-size: 20px;
                         color: rgb(120, 120, 120);
+
+                        > img {
+                            height: 22px;
+                            filter: invert(0.25);
+                        }
+
+                        > img:hover {
+                            cursor: pointer;
+                            opacity: 0.75;
+                        }
+
+                        > p {
+                            margin-left: 6px;
+                            color: rgb(120, 120, 120);
+                        }
+
                     }
 
                     > li:last-child {
