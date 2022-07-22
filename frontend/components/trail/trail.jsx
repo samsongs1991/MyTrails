@@ -37,7 +37,7 @@ const Trail = ({ trails, userId, listsTrails, fetchAllTrails, fetchLists, match,
         <section id="trail-page">
             <div>
                 <LocationTree trail={trail} history={history}/>
-                <TrailImg trailInList={trailInList()}setShowForm={setShowForm} trail={trail}/>
+                <TrailImg trailInList={trailInList()} setShowForm={setShowForm} trail={trail} userId={userId}/>
                 <section>
                     <TrailDetails trail={trail}/>
                     <NearbyTrails trails={trails} trail={trail}/>

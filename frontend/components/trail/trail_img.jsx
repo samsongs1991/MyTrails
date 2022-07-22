@@ -1,6 +1,6 @@
 import React from "react";
 
-const TrailImg = ({ trailInList, setShowForm, trail }) => {
+const TrailImg = ({ trailInList, setShowForm, trail, userId }) => {
     return (
         <section id="trail-img">
             <img src={trail.trail_img} alt="Image of trail"/>
@@ -13,7 +13,7 @@ const TrailImg = ({ trailInList, setShowForm, trail }) => {
                         {trail.avg_rating}
                     </p>
                 </div>
-                <img onClick={() => setShowForm(true)} id="flag" src={`/trail_images/flag_${trailInList ? "filled" : "outline"}.png`} alt="Add to a list"/>
+                {userId ? <img onClick={() => setShowForm(true)} id="flag" src={`/trail_images/flag_${trailInList ? "filled" : "outline"}.png`} alt="Add to a list"/> : null}
             </div>
         </section>
     );
