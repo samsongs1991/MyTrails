@@ -15,9 +15,14 @@ const ListItem = ({ trail, list, listsTrails, removeTrailFromList }) => {
         }
     };
 
+    const handleLink = e => {
+        const body = document.querySelector("body");
+        body.style.overflow = "";
+    };
+
     return (
         <li>
-            <Link to={`/trails/${trail.id}`}>{trail.name}</Link>
+            <Link onClick={handleLink} to={`/trails/${trail.id}`}>{trail.name}</Link>
             <img onClick={handleDelete} src="/trail_images/x_icon.png" alt="Remove trail from list"/>
         </li>
     );

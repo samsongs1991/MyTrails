@@ -1,8 +1,3 @@
-// BUGS
-// 1. after clicking <Link> tag, the body's scroll is still gone
-// 2. if refreshing on this page, the trails are not loaded to state
-
-
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { updateList, deleteList } from "../../actions/list_actions.js";
