@@ -57,7 +57,8 @@
                 opacity: 0;
                 transition:
                     opacity 0.5s ease-in-out,
-                    top 0.5s ease-in-out;
+                    top 0.5s ease-in-out,
+                    z-index 0.5s ease-in-out;
 
                 > p {
                     font-size: 18px;
@@ -89,7 +90,8 @@
                 opacity: 0;
                 transition:
                     opacity 0.5s ease-in-out,
-                    top 0.5s ease-in-out;
+                    top 0.5s ease-in-out,
+                    z-index 0.5s ease-in-out;
 
                 > p {
                     font-size: 18px;
