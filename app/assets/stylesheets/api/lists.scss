@@ -323,6 +323,46 @@
 
                 }
 
+                > ul {
+                    z-index: 1;
+                    overflow: auto;
+                    margin: 15px 0px;
+                    height: 300px;
+
+                    > li {
+                        margin: 20px 35px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        > a {
+                            font-size: 20px;
+                        }
+
+                        > a:hover {
+                            color:#428a13;
+                        }
+
+                        > a:hover ~ img {
+                            filter: none;
+                        }
+
+                        > img {
+                            height: 24px;
+                            width: 24px;
+                            transition: transform 4s linear;
+                            filter: brightness(0);
+                        }
+
+                        > img:hover {
+                            cursor: pointer;
+                            opacity: 0.75;
+                            filter: none;
+                        }
+
+                    }
+
+                }
 
                 > img {
                     position: absolute;
@@ -344,7 +384,6 @@
                     display: flex;
                     justify-content: flex-end;
                     align-items: flex-end;
-                    margin-top: 24px;
                     border-top: 1px solid #e6e6e6;
                     height: 70px;
 

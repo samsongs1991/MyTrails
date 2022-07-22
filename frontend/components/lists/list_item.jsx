@@ -23,7 +23,7 @@ const ListItem = ({ trail, list, listsTrails, removeTrailFromList }) => {
     return (
         <li>
             <Link onClick={handleLink} to={`/trails/${trail.id}`}>{trail.name}</Link>
-            <img onClick={handleDelete} src="/trail_images/x_icon.png" alt="Remove trail from list"/>
+            <img onClick={handleDelete} src="/list_images/x_icon.png" alt="Remove trail from list"/>
         </li>
     );
 };

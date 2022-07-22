@@ -123,10 +123,10 @@ const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, 
                         </label>
                         <input onChange={handleName} value={name} placeholder="Title required"/>
                     </div>
-                    <img src={photoUrl} alt="List photo"/>
                     <ul>
                         {trailsInList().map((trail, i) => <ListItem key={i} trail={trail} list={list}/>)}
                     </ul>
+                    <img src={photoUrl} alt="List photo"/>
                 </section>
                 <section>
                     <div>
