@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { filter } from "../../util/filter_util.js";
 
 const Map = ({ trails, options }) => {
@@ -9,11 +9,11 @@ const Map = ({ trails, options }) => {
     const createMarkerFromTrail = (trail, map) => {
         const marker = new google.maps.Marker({
             position: {
-                lat: trail.lat, 
+                lat: trail.lat,
                 lng: trail.lng
-            }, 
-            map: map, 
-            title: trail.name, 
+            },
+            map: map,
+            title: trail.name,
         });
         const infoWindow = new google.maps.InfoWindow();
         marker.addListener("click", () => {
@@ -26,35 +26,20 @@ const Map = ({ trails, options }) => {
 
     if(mapNode) {
         const mapOptions = {
-            center: { lat: seattle.lat, lng: seattle.lng }, 
+            center: { lat: seattle.lat, lng: seattle.lng },
             zoom: 11
         };
         const newMap = new google.maps.Map(mapNode, mapOptions)
 
         const filteredTrails = filter(trails, options);
-        
+
         for(let i = 0; i < filteredTrails.length; i++) {
             createMarkerFromTrail(filteredTrails[i], newMap);
         }
     }
-    
-    useEffect(() => {
-        // if(mapNode && Object.keys(trails).length === 20) {
-            // const mapOptions = {
-            //     center: { lat: seattle.lat, lng: seattle.lng }, 
-            //     zoom: 11
-            // };
-            // const newMap = new google.maps.Map(mapNode, mapOptions)
-            // for(let id in trails) {
-            //     createMarkerFromTrail(trails[id], newMap);
-            // }   
-        // }
 
-
-    }, [trails]);
-    
     return (
-        <div 
+        <div
             id="map-container"
             ref={map => setMapNode(map)}
         >

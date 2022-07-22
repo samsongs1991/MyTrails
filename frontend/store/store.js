@@ -11,7 +11,7 @@ const createConfiguredStore = () => {
                 users: {
                     [window.currentUser.id]: window.currentUser
                 }
-            }, 
+            },
             session: {
                 id: window.currentUser.id
             }
@@ -20,9 +20,6 @@ const createConfiguredStore = () => {
     const store = configureStore({reducer, middleware, preloadedState});
     delete window.currentUser;
 
-    // for testing
-    window.store = store;
-    
     return store;
 }
 
