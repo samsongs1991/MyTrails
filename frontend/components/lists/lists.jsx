@@ -4,8 +4,9 @@ import ListCard from "./list_card.jsx";
 import ListForm from "./list_form.jsx";
 import List from "./list.jsx";
 import { fetchLists } from "../../actions/list_actions.js";
+import { fetchAllTrails } from "../../actions/trail_actions.js";
 
-const Lists = ({ match, lists, fetchLists }) => {
+const Lists = ({ match, lists, fetchLists, fetchAllTrails }) => {
     window.scrollTo({ top: 0 });
 
     const userId = match.params.userId;
@@ -15,6 +16,7 @@ const Lists = ({ match, lists, fetchLists }) => {
     useEffect(() => {
         if(Object.keys(lists).length === 0) {
             fetchLists(userId);
+            fetchAllTrails();
         }
     }, [lists]);
 
@@ -41,7 +43,8 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    fetchLists: userId => dispatch(fetchLists(userId))
+    fetchLists: userId => dispatch(fetchLists(userId)),
+    fetchAllTrails: () => dispatch(fetchAllTrails())
 });
 
 export default connect(mSTP, mDTP)(Lists);
