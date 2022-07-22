@@ -28,7 +28,7 @@ const Trail = ({ trails, userId, listsTrails, fetchAllTrails, fetchLists, match,
         if(!trail) {
             fetchAllTrails();
         }
-        if(userId) {
+        if(userId && Object.keys(lists).length === 0) {
             fetchLists(userId);
         }
     }, []);
@@ -51,7 +51,8 @@ const Trail = ({ trails, userId, listsTrails, fetchAllTrails, fetchLists, match,
 const mSTP = state => ({
     trails: state.entities.trails,
     userId: state.session.id,
-    listsTrails: state.entities.listsTrails
+    listsTrails: state.entities.listsTrails,
+    lists: state.entities.lists
 });
 
 const mDTP = dispatch => ({
