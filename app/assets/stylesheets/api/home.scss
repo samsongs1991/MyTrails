@@ -173,7 +173,9 @@
                     width: 300px;
                     padding: 8px;
                     border-radius: 15px;
-                    transition: all 0.1s ease-in-out;
+                    transition:
+                        background-color 0.1s ease-in-out,
+                        box-shadow 0.1s ease-in-out;
 
                     > img {
                         width: 100%;

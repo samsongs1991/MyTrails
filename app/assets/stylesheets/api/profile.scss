@@ -34,7 +34,9 @@
                 font-weight: bold;
                 color: white;
                 padding: 8px 14px;
-                transition: all 0.2s ease-in-out;
+                transition:
+                    background-color 0.2s ease-in-out,
+                    color 0.2s ease-in-out;
             }
 
             > a:hover {
@@ -53,7 +55,9 @@
                 padding: 15px;
                 color: red;
                 opacity: 0;
-                transition: all 0.5s ease-in-out;
+                transition:
+                    opacity 0.5s ease-in-out,
+                    top 0.5s ease-in-out;
 
                 > p {
                     font-size: 18px;
@@ -83,7 +87,9 @@
                 padding: 15px;
                 color: #428a13;
                 opacity: 0;
-                transition: all 0.5s ease-in-out;
+                transition:
+                    opacity 0.5s ease-in-out,
+                    top 0.5s ease-in-out;
 
                 > p {
                     font-size: 18px;

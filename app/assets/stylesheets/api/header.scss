@@ -1,5 +1,4 @@
 header {
-    // font-family: Arial, Helvetica, sans-serif;
     animation: loadImg 1 5s;
     background-size: 0%;
 
@@ -70,7 +69,7 @@ header {
             > a:nth-child(2) {
                 color: rgb(41, 156, 190);
             }
-            
+
         }
 
         #profile-links-container {
@@ -86,7 +85,7 @@ header {
             > img {
                 transition: transform 0.2s;
             }
-            
+
             > img:hover {
                 opacity: 0.75;
                 transform: scale(0.9);
@@ -125,9 +124,9 @@ header {
                 > a:last-child:hover {
                     border-radius: 0px 0px 15px 15px;
                 }
-                
+
             }
-            
+
         }
 
     }
