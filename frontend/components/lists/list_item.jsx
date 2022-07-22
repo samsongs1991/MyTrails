@@ -1,15 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeTrailFromList } from "../../actions/lists_trail_actions";
 
-const ListItem = ({ trail, list, listsTrails, removeTrailFromList }) => {
+const ListItem = ({ trail, list, listsTrails, listsTrailsToDelete, setListsTrailsToDelete }) => {
 
     const handleDelete = e => {
         for(let id in listsTrails) {
             const listsTrail = listsTrails[id];
             if(listsTrail.list_id === list.id && listsTrail.trail_id === trail.id) {
-                removeTrailFromList(id);
+                const arr = listsTrailsToDelete.slice();
+                arr.push(id);
+                setListsTrailsToDelete(arr);
+                e.target.parentElement.classList.add("hide");
                 return;
             }
         }
@@ -32,8 +34,4 @@ const mSTP = state => ({
     listsTrails: state.entities.listsTrails
 });
 
-const mDTP = dispatch => ({
-    removeTrailFromList: listsTrailId => dispatch(removeTrailFromList(listsTrailId))
-});
-
-export default connect(mSTP, mDTP)(ListItem);
+export default connect(mSTP)(ListItem);

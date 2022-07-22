@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { updateList, deleteList } from "../../actions/list_actions.js";
+import { removeTrailFromList } from "../../actions/lists_trail_actions";
 import ListItem from "./list_item.jsx";
 
-const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, deleteList }) => {
+const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, deleteList, removeTrailFromList }) => {
     const list = selectedList;
     const trailsInList = () => {
         const arr = [];
@@ -18,6 +19,7 @@ const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, 
     const [name, setName] = useState(list.name);
     const [photo, setPhoto] = useState();
     const [photoUrl, setPhotoUrl] = useState(list.list_img ? list.list_img : "/list_images/alltrails_symbol.png");
+    const [listsTrailsToDelete, setListsTrailsToDelete] = useState([]);
 
     useEffect(() => {
         const posY = window.pageYOffset;
@@ -42,6 +44,7 @@ const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, 
         formData.append("list[name]", name);
         formData.append("list[photo]", photo);
         updateList(formData);
+        listsTrailsToDelete.forEach(id => removeTrailFromList(id));
         handleCloseModal(e);
     };
 
@@ -124,7 +127,11 @@ const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, 
                         <input onChange={handleName} value={name} placeholder="Title required"/>
                     </div>
                     <ul>
-                        {trailsInList().map((trail, i) => <ListItem key={i} trail={trail} list={list}/>)}
+                        {trailsInList().map((trail, i) =>
+                            <ListItem key={i} trail={trail} list={list}
+                                listsTrailsToDelete={listsTrailsToDelete}
+                                setListsTrailsToDelete={setListsTrailsToDelete}/>
+                        )}
                     </ul>
                     <img src={photoUrl} alt="List photo"/>
                 </section>
@@ -146,6 +153,7 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     updateList: list => dispatch(updateList(list)),
     deleteList: listId => dispatch(deleteList(listId)),
+    removeTrailFromList: listsTrailId => dispatch(removeTrailFromList(listsTrailId))
 });
 
 export default connect(mSTP, mDTP)(List);
