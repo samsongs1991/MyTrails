@@ -1,6 +1,4 @@
 class Api::UsersController < ApplicationController
-    # only for postman testing! - 6/20/22
-    skip_before_action :verify_authenticity_token
 
     def create
         errors = check_create_params

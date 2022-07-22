@@ -1,6 +1,4 @@
 class Api::ListsController < ApplicationController
-    # only for postman testing! - 7/19/22
-    skip_before_action :verify_authenticity_token
 
     def create
         @list = List.new(list_params)

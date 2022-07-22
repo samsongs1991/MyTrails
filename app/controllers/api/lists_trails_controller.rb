@@ -1,6 +1,4 @@
 class Api::ListsTrailsController < ApplicationController
-    # only for postman testing! - 7/21/22
-    skip_before_action :verify_authenticity_token
 
     def create
         @lists_trail = ListsTrail.new(lists_trail_params)
