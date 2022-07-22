@@ -15,7 +15,7 @@ class Api::ListsTrailsController < ApplicationController
         @lists_trail = ListsTrail.find(params[:id])
         if @lists_trail
             @lists_trail.delete
-            render :show, status: 200
+            render json: @lists_trail.id, status: 200
         else
             render json: @lists_trail.errors.full_messages, status: 404
         end
