@@ -46,44 +46,44 @@
 # end
 
 # # Dummy reviews
-reviews = [
-    { user_id: 1, trail_id: 1, rating: 5, text: "Such a great trail!" },
-    { user_id: 1, trail_id: 2, rating: 4, text: "This is a must see for any family outing." },
-    { user_id: 1, trail_id: 3, rating: 5, text: "I highly recommend this for you and your dogs!" },
-    { user_id: 1, trail_id: 4, rating: 4, text: "I loved the scenery here." },
-    { user_id: 1, trail_id: 5, rating: 5, text: "What a great hike for a cool summer day." },
-    { user_id: 1, trail_id: 6, rating: 4, text: "The weather was perfect." },
-    { user_id: 1, trail_id: 7, rating: 5, text: "It is a well maintained trail." },
-    { user_id: 1, trail_id: 8, rating: 4, text: "Very clean pathway free of any trash or overgrown brush." },
-    { user_id: 1, trail_id: 9, rating: 5, text: "This is an amazing trail!" },
-    { user_id: 1, trail_id: 10, rating: 4, text: "A great hike by yourself or with friends." },
-    { user_id: 1, trail_id: 11, rating: 5, text: "Mother nature will really bring out the best!" },
-    { user_id: 1, trail_id: 12, rating: 4, text: "I met some friendly hikers along the way!" },
-    { user_id: 1, trail_id: 13, rating: 5, text: "I had so much fun!" },
-    { user_id: 1, trail_id: 14, rating: 4, text: "The constant sweat in my eyes made for a great challenge." },
-    { user_id: 1, trail_id: 15, rating: 5, text: "It was the perfect day!" },
-    { user_id: 1, trail_id: 16, rating: 4, text: "I had a blast going trekking on this trail." },
-    { user_id: 1, trail_id: 17, rating: 5, text: "Nothing beats looking out over the horizon on top of a mountain." },
-    { user_id: 1, trail_id: 18, rating: 4, text: "Simply the most beautiful views you can imagine." },
-    { user_id: 1, trail_id: 19, rating: 5, text: "The trail can be sketchy and dangerous but it is worth it." },
-    { user_id: 1, trail_id: 20, rating: 4, text: "I got a great workout in today!" }
-]
-reviews.each do |review|
-    Review.create(review)
-end
+# reviews = [
+#     { user_id: 1, trail_id: 1, rating: 5, text: "Such a great trail!" },
+#     { user_id: 1, trail_id: 2, rating: 4, text: "This is a must see for any family outing." },
+#     { user_id: 1, trail_id: 3, rating: 5, text: "I highly recommend this for you and your dogs!" },
+#     { user_id: 1, trail_id: 4, rating: 4, text: "I loved the scenery here." },
+#     { user_id: 1, trail_id: 5, rating: 5, text: "What a great hike for a cool summer day." },
+#     { user_id: 1, trail_id: 6, rating: 4, text: "The weather was perfect." },
+#     { user_id: 1, trail_id: 7, rating: 5, text: "It is a well maintained trail." },
+#     { user_id: 1, trail_id: 8, rating: 4, text: "Very clean pathway free of any trash or overgrown brush." },
+#     { user_id: 1, trail_id: 9, rating: 5, text: "This is an amazing trail!" },
+#     { user_id: 1, trail_id: 10, rating: 4, text: "A great hike by yourself or with friends." },
+#     { user_id: 1, trail_id: 11, rating: 5, text: "Mother nature will really bring out the best!" },
+#     { user_id: 1, trail_id: 12, rating: 4, text: "I met some friendly hikers along the way!" },
+#     { user_id: 1, trail_id: 13, rating: 5, text: "I had so much fun!" },
+#     { user_id: 1, trail_id: 14, rating: 4, text: "The constant sweat in my eyes made for a great challenge." },
+#     { user_id: 1, trail_id: 15, rating: 5, text: "It was the perfect day!" },
+#     { user_id: 1, trail_id: 16, rating: 4, text: "I had a blast going trekking on this trail." },
+#     { user_id: 1, trail_id: 17, rating: 5, text: "Nothing beats looking out over the horizon on top of a mountain." },
+#     { user_id: 1, trail_id: 18, rating: 4, text: "Simply the most beautiful views you can imagine." },
+#     { user_id: 1, trail_id: 19, rating: 5, text: "The trail can be sketchy and dangerous but it is worth it." },
+#     { user_id: 1, trail_id: 20, rating: 4, text: "I got a great workout in today!" }
+# ]
+# reviews.each do |review|
+#     Review.create(review)
+# end
 
 # # Lists
-# lists = [
-#     { name: "Dog Friendly", user_id: 1 },
-#     { name: "Epic Views", user_id: 1 },
-#     { name: "Best Sunsets", user_id: 1 },
-#     { name: "Exercise", user_id: 1 }
-# ]
-# lists.each do |list|
-#     List.create(list)
-#         .photo
-#         .attach(io: File.open("./seed_images/#{list[:name]}.jpg"), filename: "#{list[:name]}.jpg")
-# end
+lists = [
+    { name: "Dog Friendly", user_id: 1 },
+    { name: "Epic Views", user_id: 1 },
+    { name: "Best Sunsets", user_id: 1 },
+    { name: "Exercise", user_id: 1 }
+]
+lists.each do |list|
+    List.create(list)
+        .photo
+        .attach(io: File.open("./seed_images/#{list[:name]}.jpg"), filename: "#{list[:name]}.jpg")
+end
 
 # # ListsTrails
 # lists_trails = [
