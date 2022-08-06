@@ -77,11 +77,9 @@ const EditProfile = ({ users, id, updateUser }) => {
                 }
                 e.target.parentElement.classList.remove("error");
                 setErrors(Object.assign({}, errors, { photo: undefined }));
-                // setStatus(true);
             } else {
                 e.target.parentElement.classList.add("error");
                 setErrors(Object.assign({}, errors, { photo: "Invalid image" }));
-                // setStatus(false);
             }
         }
     };
@@ -94,11 +92,9 @@ const EditProfile = ({ users, id, updateUser }) => {
         if(validName(e.target.value)) {
             e.target.classList.remove("error");
             setErrors(Object.assign({}, errors, { name: undefined }));
-            // setStatus(true);
         } else {
             e.target.classList.add("error");
             setErrors(Object.assign({}, errors, { name: "Invalid name" }));
-            // setStatus(false);
         }
     };
 
@@ -163,11 +159,9 @@ const EditProfile = ({ users, id, updateUser }) => {
         if(validPlace(e.target.value)) {
             e.target.classList.remove("error");
             setErrors(Object.assign({}, errors, { place: undefined }));
-            // setStatus(true);
         } else {
             e.target.classList.add("error");
             setErrors(Object.assign({}, errors, { place: "Invalid location" }));
-            // setStatus(false);
         }
     };
 
