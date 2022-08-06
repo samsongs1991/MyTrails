@@ -21,7 +21,7 @@ const FilterCategory = ({ options, setOptions }) => {
             }
             setOptions(Object.assign({}, options, { category: newCategory }));
         };
-        
+
         return (
             <form id="category-form" className="form-modal" onClick={e => e.stopPropagation()}>
                 <label><input
@@ -63,12 +63,12 @@ const FilterCategory = ({ options, setOptions }) => {
             }
         }
     };
-    
+
     return (
         <div>
             <button id="category-btn" onClick={handleModal}>
                 Category
-                <img id="category-arrow" className="filter-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img id="category-arrow" className="filter-arrow" src={images.menu_arrow} alt="menu arrow"/>
             </button>
             {modal()}
         </div>

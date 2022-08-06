@@ -29,7 +29,7 @@ const FilterRating = ({ options, setOptions }) => {
             }
             setOptions(Object.assign({}, options, { rating: newRating }));
         };
-        
+
         return (
             <form id="rating-form" className="form-modal" onClick={e => e.stopPropagation()}>
                 <label>
@@ -40,7 +40,7 @@ const FilterRating = ({ options, setOptions }) => {
                         checked={options.rating[1]}
                     />
                     <span>1</span>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
                 </label>
                 <label>
                     <input
@@ -50,8 +50,8 @@ const FilterRating = ({ options, setOptions }) => {
                         checked={options.rating[2]}
                     />
                     <span>2</span>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
                 </label>
                 <label>
                     <input
@@ -61,9 +61,9 @@ const FilterRating = ({ options, setOptions }) => {
                         checked={options.rating[3]}
                     />
                     <span>3</span>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
                 </label>
                 <label>
                     <input
@@ -73,10 +73,10 @@ const FilterRating = ({ options, setOptions }) => {
                         checked={options.rating[4]}
                     />
                     <span>4</span>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
                 </label>
                 <label>
                     <input
@@ -86,11 +86,11 @@ const FilterRating = ({ options, setOptions }) => {
                         checked={options.rating[5]}
                     />
                     <span>5</span>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
-                    <img src="/trail_images/star_filled.png" alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
+                    <img src={images.star_filled} alt="star"/>
                 </label>
             </form>
         );
@@ -116,12 +116,12 @@ const FilterRating = ({ options, setOptions }) => {
             }
         }
     };
-    
+
     return (
         <div>
             <button id="rating-btn" onClick={handleModal}>
                 Rating
-                <img id="rating-arrow" className="filter-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img id="rating-arrow" className="filter-arrow" src={images.menu_arrow} alt="menu arrow"/>
             </button>
             {modal()}
         </div>

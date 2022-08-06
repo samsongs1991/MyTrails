@@ -21,7 +21,7 @@ const FilterDifficulty = ({ options, setOptions }) => {
             }
             setOptions(Object.assign({}, options, { difficulty: newDifficulty }));
         };
-        
+
         return (
             <form id="difficulty-form" className="form-modal" onClick={e => e.stopPropagation()}>
                 <label><input
@@ -63,12 +63,12 @@ const FilterDifficulty = ({ options, setOptions }) => {
             }
         }
     };
-    
+
     return (
         <div>
             <button id="difficulty-btn" onClick={handleModal}>
                 Difficulty
-                <img id="difficulty-arrow" className="filter-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img id="difficulty-arrow" className="filter-arrow" src={images.menu_arrow} alt="menu arrow"/>
             </button>
             {modal()}
         </div>

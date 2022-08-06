@@ -64,12 +64,12 @@ const FilterGain = ({ options, setOptions }) => {
             }
         }
     };
-    
+
     return (
         <div>
             <button id="gain-btn" onClick={handleModal}>
                 Gain
-                <img id="gain-arrow" className="filter-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img id="gain-arrow" className="filter-arrow" src={images.menu_arrow} alt="menu arrow"/>
             </button>
             {modal()}
         </div>

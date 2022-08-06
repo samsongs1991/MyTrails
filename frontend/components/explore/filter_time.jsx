@@ -64,12 +64,12 @@ const FilterTime = ({ options, setOptions }) => {
             }
         }
     };
-    
+
     return (
         <div>
             <button id="time-btn" onClick={handleModal}>
                 Time
-                <img id="time-arrow" className="filter-arrow" src="/explore_images/menu-arrow.png" alt="menu arrow"/>
+                <img id="time-arrow" className="filter-arrow" src={images.menu_arrow} alt="menu arrow"/>
             </button>
             {modal()}
         </div>
