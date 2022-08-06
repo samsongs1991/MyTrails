@@ -26,8 +26,8 @@ const ListsTrailFormItem = ({ list, trail, listsTrails, addTrailToList, removeTr
         setAdded(false);
     };
 
-    const flagOutline = <img id="flag-dark" onClick={handleAdd} src="/trail_images/flag_outline.png" alt="Add trail to list"/>;
-    const flagFilled = <img onClick={handleRemove} src="/trail_images/flag_filled.png" alt="Remove trail from list"/>;
+    const flagOutline = <img id="flag-dark" onClick={handleAdd} src={images.flag_outline} alt="Add trail to list"/>;
+    const flagFilled = <img onClick={handleRemove} src={images.flag_filled} alt="Remove trail from list"/>;
 
     return (
         <li>

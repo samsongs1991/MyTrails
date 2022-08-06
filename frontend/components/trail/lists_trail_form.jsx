@@ -34,12 +34,12 @@ const ListsTrailForm = ({ setShowForm, trail, userId, lists, createList }) => {
         <section onClick={handleCloseModal} id="lists-trail-form">
             <form onClick={e => e.stopPropagation()} onSubmit={handleCloseModal}>
                 <section>
-                    <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
+                    <img onClick={handleCloseModal} src={images.x_icon} alt="Close"/>
                     <h3>Add {trail.name}</h3>
                     <ul>
                         {Object.values(lists).map((list, i) => <ListsTrailFormItem key={i} list={list} trail={trail}/>)}
                         <li>
-                            <img onClick={handleNewList} src="/trail_images/plus_icon.png" alt="Create new list"/>
+                            <img onClick={handleNewList} src={images.plus_icon} alt="Create new list"/>
                             <input onChange={e => setName(e.target.value)} value={name} placeholder="Create a new list"/>
                         </li>
                     </ul>

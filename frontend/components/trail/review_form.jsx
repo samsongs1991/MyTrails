@@ -76,7 +76,7 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
         <section onClick={handleCloseModal} id="review-form">
             <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
                 <section>
-                    <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
+                    <img onClick={handleCloseModal} src={images.x_icon} alt="Close"/>
                     <h3>{trail.name}</h3>
                     <div>
                         {[1, 2, 3, 4, 5].map(num =>
@@ -86,7 +86,7 @@ const ReviewForm = ({ trail, setShowModal, createReview, userId }) => {
                                 onClick={handleRating}
                                 id={num}
                                 key={num}
-                                src="/trail_images/star_filled.png"
+                                src={images.star_filled}
                                 alt="star"
                             />
                         )}

@@ -1,10 +1,10 @@
 export const fetchAllTrails = () => $.ajax({
-    url: "api/trails", 
+    url: "api/trails",
     method: "GET"
 });
 
 export const fetchTrail = trailId => $.ajax({
-    url: `api/trails/${trailId}`, 
+    url: `api/trails/${trailId}`,
     method: "GET"
 });
 
@@ -17,9 +17,21 @@ export const extractForecast = list => {
     const result = [];
 
     const days = [
-        "Sunday", "Monday", "Tuesday", "Wednesday", 
+        "Sunday", "Monday", "Tuesday", "Wednesday",
         "Thursday", "Friday", "Saturday"
     ];
+
+    const weatherSymbols = {
+        "01": "sunny",
+        "02": "partly_cloudy",
+        "03": "cloudy",
+        "04": "overcast",
+        "09": "showers",
+        "10": "rain",
+        "11": "storm",
+        "13": "snow",
+        "50": "fog"
+    };
 
     const extractMinMaxTemps = () => {
         const minMaxTemps = {};
@@ -53,11 +65,11 @@ export const extractForecast = list => {
         const day = days[date.getDay()];
         if(time === "12:00:00 PM") {
             result.push({
-                day: day, 
-                high: minMaxTemps[day].temp_max, 
-                low: minMaxTemps[day].temp_min, 
-                weather: weather[0].description, 
-                icon: `/trail_images/${weather[0].icon.slice(0, 2)}.jpg`
+                day: day,
+                high: minMaxTemps[day].temp_max,
+                low: minMaxTemps[day].temp_min,
+                weather: weather[0].description,
+                icon: weatherSymbols[weather[0].icon.slice(0, 2)]
             });
         }
     }

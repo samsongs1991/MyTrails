@@ -9,10 +9,10 @@ const WeatherWidget = ({ trail, fetchTrail }) => {
                 <h2>Weather</h2>
             </section>
             <section>
-                {trail.forecast ? trail.forecast.map(({ day, high, low, weather, icon }, i) => 
+                {trail.forecast ? trail.forecast.map(({ day, high, low, weather, icon }, i) =>
                     <article key={i}>
                         <h6>{day}</h6>
-                        <img src={icon} alt={`${weather} icon`}/>
+                        <img src={images[icon]} alt={`${weather} icon`}/>
                         <p>{`${high}° / ${low}° F`}</p>
                     </article>) : null}
             </section>

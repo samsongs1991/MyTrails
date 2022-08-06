@@ -12,7 +12,7 @@ const Reviews = ({ signedIn, fetchAllReviews, reviews, trail }) => {
             fetchAllReviews({ trail_id: trail.id });
         }
     }, [trail]);
-    
+
     const handleNewReview = e => {
         if(signedIn) {
             setShowModal(true);
@@ -42,7 +42,7 @@ const Reviews = ({ signedIn, fetchAllReviews, reviews, trail }) => {
         }
         return count;
     };
-    
+
     return (
         <section id="reviews">
             <section>
@@ -52,7 +52,7 @@ const Reviews = ({ signedIn, fetchAllReviews, reviews, trail }) => {
                 <section>
                     <div>
                         <div>
-                            <img src="/trail_images/star_filled.png" alt="star icon"/>
+                            <img src={images.star_filled} alt="star icon"/>
                             <p>{calcAvgRating()}</p>
                         </div>
                         <p>{getNumReviews()} Reviews</p>

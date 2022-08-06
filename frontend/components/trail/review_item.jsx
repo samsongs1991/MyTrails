@@ -23,7 +23,7 @@ const ReviewsItem = ({ review }) => {
             <img
                 className={num <= review.rating ? "filled" : ""}
                 key={num}
-                src="/trail_images/star_filled.png"
+                src={images.star_filled}
                 alt="star"
             />
         );
