@@ -19,7 +19,7 @@ const Card = ({ trail }) => {
     return (
         <Link to={`/trails/${trail.id}`}>
             <img src={trail.trail_img} alt={`Image of ${trail.location}`}/>
-            <div><span className={trail.difficulty}>{trail.difficulty}</span> • <img src="/home_images/star_icon.png" alt="Star"/> {trail.avg_rating}</div>
+            <div><span className={trail.difficulty}>{trail.difficulty}</span> • <img src={images.star_icon} alt="Star"/> {trail.avg_rating}</div>
             <div>{trail.name}</div>
             <div>{trail.city}, {trail.state}</div>
             <div>Length: {trail.length} mi • Est. {calcTime()}</div>

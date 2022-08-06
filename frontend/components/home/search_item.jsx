@@ -8,10 +8,10 @@ const SearchItem = ({ trail, setModalHidden, setInput }) => {
         setModalHidden(true);
         setInput(trail.name);
     };
-    
+
     return (
         <Link to={`/trails/${trail.id}`} onClick={handleClick}>
-            <img src="/home_images/marker_icon.png" alt="Location Icon"/>
+            <img src={images.marker_icon} alt="Location Icon"/>
             <article>
                 <div>{trail.name}</div>
                 <div>{trail.location}, {trail.city}, {trail.state}</div>

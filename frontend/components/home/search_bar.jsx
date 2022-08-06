@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import SearchModal from "./search_modal.jsx";
 
-const SearchBar = ({ trails, history }) => {  
-    
+const SearchBar = ({ trails, history }) => {
+
     const [modalHidden, setModalHidden] = useState(true);
     const [input, setInput] = useState("");
-    
+
     const handleModal = e => {
         e.stopPropagation();
         setModalHidden(false);
@@ -28,11 +28,11 @@ const SearchBar = ({ trails, history }) => {
             }
         }
     };
-    
+
     return (
         <section id="search-container">
             <form onSubmit={handleSubmit} id="search-bar">
-                <img src="/home_images/search_icon.png" alt="Search Icon"/>
+                <img src={images.search_icon} alt="Search Icon"/>
                 <input value={input} onChange={e => setInput(e.target.value)} onClick={handleModal} placeholder="Search by trail name"/>
                 <button type="submit"></button>
             </form>
