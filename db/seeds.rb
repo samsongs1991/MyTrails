@@ -45,7 +45,7 @@
 #         .attach(io: File.open("./seed_images/#{trail[:name]}.jpg"), filename: "#{trail[:name]}.jpg")
 # end
 
-# # Dummy reviews
+# Dummy reviews
 # reviews = [
 #     { user_id: 1, trail_id: 1, rating: 5, text: "Such a great trail!" },
 #     { user_id: 1, trail_id: 2, rating: 4, text: "This is a must see for any family outing." },
@@ -72,38 +72,38 @@
 #     Review.create(review)
 # end
 
-# # Lists
-lists = [
-    { name: "Dog Friendly", user_id: 1 },
-    { name: "Epic Views", user_id: 1 },
-    { name: "Best Sunsets", user_id: 1 },
-    { name: "Exercise", user_id: 1 }
-]
-lists.each do |list|
-    List.create(list)
-        .photo
-        .attach(io: File.open("./seed_images/#{list[:name]}.jpg"), filename: "#{list[:name]}.jpg")
-end
-
-# # ListsTrails
-# lists_trails = [
-#     { list_id: 1, trail_id: 1},
-#     { list_id: 1, trail_id: 8},
-#     { list_id: 1, trail_id: 16},
-#     { list_id: 1, trail_id: 4},
-#     { list_id: 2, trail_id: 12},
-#     { list_id: 2, trail_id: 20},
-#     { list_id: 2, trail_id: 7},
-#     { list_id: 2, trail_id: 15},
-#     { list_id: 3, trail_id: 2},
-#     { list_id: 3, trail_id: 10},
-#     { list_id: 3, trail_id: 18},
-#     { list_id: 3, trail_id: 6},
-#     { list_id: 4, trail_id: 14},
-#     { list_id: 4, trail_id: 3},
-#     { list_id: 4, trail_id: 11},
-#     { list_id: 4, trail_id: 19}
+# Lists
+# lists = [
+#     { name: "Dog Friendly", user_id: 1 },
+#     { name: "Epic Views", user_id: 1 },
+#     { name: "Best Sunsets", user_id: 1 },
+#     { name: "Exercise", user_id: 1 }
 # ]
-# lists_trails.each do |lists_trail|
-#     ListsTrail.create(lists_trail)
+# lists.each do |list|
+#     List.create(list)
+#         .photo
+#         .attach(io: File.open("./seed_images/#{list[:name]}.jpg"), filename: "#{list[:name]}.jpg")
 # end
+
+# ListsTrails
+lists_trails = [
+    { list_id: 1, trail_id: 1},
+    { list_id: 1, trail_id: 8},
+    { list_id: 1, trail_id: 16},
+    { list_id: 1, trail_id: 4},
+    { list_id: 2, trail_id: 12},
+    { list_id: 2, trail_id: 20},
+    { list_id: 2, trail_id: 7},
+    { list_id: 2, trail_id: 15},
+    { list_id: 3, trail_id: 2},
+    { list_id: 3, trail_id: 10},
+    { list_id: 3, trail_id: 18},
+    { list_id: 3, trail_id: 6},
+    { list_id: 4, trail_id: 14},
+    { list_id: 4, trail_id: 3},
+    { list_id: 4, trail_id: 11},
+    { list_id: 4, trail_id: 19}
+]
+lists_trails.each do |lists_trail|
+    ListsTrail.create(lists_trail)
+end
