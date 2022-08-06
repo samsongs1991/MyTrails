@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateUser } from "../../actions/user_actions.js";
@@ -24,6 +24,10 @@ const EditProfile = ({ users, id, updateUser }) => {
     const [photo, setPhoto] = useState();
     const [photoUrl, setPhotoUrl] = useState(user.profile_img);
     const [status, setStatus] = useState(true);
+
+    useEffect(() => {
+        errors.name || errors.place || errors.photo ? setStatus(false) : setStatus(true);
+    }, [errors]);
 
     const handleSave = e => {
         const fname = name.split(" ")[0];
@@ -73,11 +77,11 @@ const EditProfile = ({ users, id, updateUser }) => {
                 }
                 e.target.parentElement.classList.remove("error");
                 setErrors(Object.assign({}, errors, { photo: undefined }));
-                setStatus(true);
+                // setStatus(true);
             } else {
                 e.target.parentElement.classList.add("error");
                 setErrors(Object.assign({}, errors, { photo: "Invalid image" }));
-                setStatus(false);
+                // setStatus(false);
             }
         }
     };
@@ -90,11 +94,11 @@ const EditProfile = ({ users, id, updateUser }) => {
         if(validName(e.target.value)) {
             e.target.classList.remove("error");
             setErrors(Object.assign({}, errors, { name: undefined }));
-            setStatus(true);
+            // setStatus(true);
         } else {
             e.target.classList.add("error");
             setErrors(Object.assign({}, errors, { name: "Invalid name" }));
-            setStatus(false);
+            // setStatus(false);
         }
     };
 
@@ -159,11 +163,11 @@ const EditProfile = ({ users, id, updateUser }) => {
         if(validPlace(e.target.value)) {
             e.target.classList.remove("error");
             setErrors(Object.assign({}, errors, { place: undefined }));
-            setStatus(true);
+            // setStatus(true);
         } else {
             e.target.classList.add("error");
             setErrors(Object.assign({}, errors, { place: "Invalid location" }));
-            setStatus(false);
+            // setStatus(false);
         }
     };
 
