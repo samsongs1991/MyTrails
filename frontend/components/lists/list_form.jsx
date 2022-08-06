@@ -48,7 +48,7 @@ const ListForm = ({ setShowForm, createList, userId }) => {
         <section onClick={handleCloseModal} id="list-form">
             <form onClick={e => e.stopPropagation()} onSubmit={handleSubmit}>
                 <section>
-                    <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
+                    <img onClick={handleCloseModal} src={images.x_icon} alt="Close"/>
                     <h3>Create A New List</h3>
                     <div>
                         <input onChange={handleName} placeholder={nameError ? nameError : "Title for your new list"}/>

@@ -116,12 +116,12 @@ const List = ({ selectedList, setSelectedList, trails, listsTrails, updateList, 
             <form onClick={e => e.stopPropagation()} onSubmit={handleSave}>
                 <section>
                     <div>
-                        <img onClick={handleCloseModal} src="/trail_images/x_icon.png" alt="Close"/>
-                        <img onClick={handleDelete} src="/list_images/trash_can_icon.png" alt="Delete List"/>
+                        <img onClick={handleCloseModal} src={images.x_icon} alt="Close"/>
+                        <img onClick={handleDelete} src={images.trash_icon} alt="Delete List"/>
                     </div>
                     <div>
                         <label htmlFor="file-upload">
-                            <img src="/list_images/add_img_icon.png" alt="Add image"/>
+                            <img src={images.add_img_icon} alt="Add image"/>
                             <input onChange={handlePhoto} id="file-upload" type="file"/>
                         </label>
                         <input onChange={handleName} value={name} placeholder="Title required"/>
