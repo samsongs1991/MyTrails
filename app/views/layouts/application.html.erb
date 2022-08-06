@@ -11,8 +11,14 @@
     <%= javascript_include_tag 'application' %>
 
     <script type="text/javascript">
-      window.menu_bar = "<%= image_url('/header_images/menu_bar.png') %>";
-      window.logo = "<%= image_url('/header_images/logo.png') %>";
+      window.images = {};
+      images.menu_bar = "<%= image_url('/header_images/menu_bar.png') %>";
+      images.logo = "<%= image_url('/header_images/logo.png') %>";
+      images.developer = "<%= image_url('/footer_images/me.jpg') %>";
+      images.github = "<%= image_url('/footer_images/github.png') %>";
+      images.linkedin = "<%= image_url('/footer_images/linkedin.png') %>";
+      images.angellist = "<%= image_url('/footer_images/angellist.png') %>";
+      images.portfolio = "<%= image_url('/footer_images/portfolio.png') %>";
 
     </script>
 
