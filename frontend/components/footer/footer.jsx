@@ -10,10 +10,10 @@ const Footer = props => {
                 <img id="developer-img" src={images.developer} alt="Photo of the website developer"/>
             </section>
             <section>
-                <img className="social-link-img" src={images.github} alt="GitHub Icon"/>
-                <img className="social-link-img" src={images.linkedin} alt="LinkedIn Icon"/>
-                <img className="social-link-img" src={images.angellist} alt="AngelList Icon"/>
-                <img className="social-link-img" src={images.portfolio} alt="Portfolio Icon"/>
+                <img onClick={() => window.open("https://github.com/samsongs1991/MyTrails", '_blank')} className="social-link-img" src={images.github} alt="GitHub Icon"/>
+                <img onClick={() => window.open("https://www.linkedin.com/in/samsongs1991/", '_blank')} className="social-link-img" src={images.linkedin} alt="LinkedIn Icon"/>
+                <img onClick={() => window.open("https://angel.co/u/samsongs", '_blank')} className="social-link-img" src={images.angellist} alt="AngelList Icon"/>
+                <img onClick={() => window.open("", '_blank')} className="social-link-img" src={images.portfolio} alt="Portfolio Icon"/>
             </section>
         </footer>
     );
