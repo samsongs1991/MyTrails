@@ -1,7 +1,7 @@
 # README
 
-# [MyTrails](https://star-trails-9001.herokuapp.com/#/)
-[MyTrails](deployed site url) is an [AllTrails](https://www.alltrails.com/) clone project.
+# [MyTrails](https://hike-my-trails.herokuapp.com)
+[MyTrails](https://hike-my-trails.herokuapp.com) is an [AllTrails](https://www.alltrails.com) clone project.
 In MyTrails, users can create an account and search for hiking trails on an interactive map. 
 Filters can be applied to the trails and map, and users can click on a trail to view its details.
 To save a trail for later, a user can create a list and add trails to it.
