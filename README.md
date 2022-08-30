@@ -35,6 +35,7 @@ Hosting: Heroku
 - 📷 Upload Images
     - Logged in users can upload a profile photo and photos for their custom lists to be stored on AWS S3
 
-<img src="MyTrails/SignUp.png" />
 <img src="MyTrails/Explore.png" />
+<img src="MyTrails/SignUp.png" />
+<img src="MyTrails/Profile.png" />
 <img src="MyTrails/ListDetails.png" />
