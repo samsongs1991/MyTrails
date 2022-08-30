@@ -9,22 +9,31 @@ Languages: HTML, CSS, JavaScript, Ruby
 <br/>
 Backend: Ruby on Rails, PostgreSQL, jBuilder, AWS S3
 <br/>
-Frontend: React, Redux, AJAX
+Frontend: React, Redux, AJAX, GoogleMaps API, OpenWeatherMap, API
 <br/>
 Hosting: Heroku
 
 ## ⚙️ Functionalities
-- 🚦 User Authentication
+- 👨‍🦱 User Profile CRUD
     - Users can create an account and login to their profile
-- ⛳ Goals CRUD
-    - Users can create goals and subgoals
-- 😀 Daily Reaction Tracker CRUD
-    - Users can record their emotion to each one of their goals once a day
-- 🤝 User can be paired with another user to be their anonymous accountability partner
-    - Users are paired based on their goal category: habit forming or breaking
-- 💬 Live Chat CRUD
-    - Users can live chat with their partner in a private chatroom about their goal
-    - Users can also unmatch with a partner and be matched with another random user
+    - Logged in users can fill in and edit their personal information
+- ⭐ Reviews CRUD
+    - Logged in users can rate a trail from 0-5 stars and write a review
+- ❤️ Favorite Lists CRUD
+    - Logged in users can create custom lists and add or delete trails from them
+- 🔎 Search bar
+    - Users can type in the search bar to look up trails
+    - Auto suggestions based on user input
+- 🌍 Explore map
+    - Users can explore an interactive map displaying trails with markers
+    - Filters for difficulty, length, gain, time, category, and rating populate the map with markers
+- ⛺ Trails CRUD
+    - Trail page displays average rating, basic trail info, weather forecast, map location, reviews, and the most nearby trails
+    - Logged in users can add a trail and write a review directly from a trail page
+- 🌦 Weather Forecast
+    - Displays a 5 day weather forecast of any trail locale with image representation and high/low temperatures
+- 📷 Upload Images
+    - Logged in users can upload a profile photo and photos for their custom lists to be stored on AWS S3
 
 <img src="MyTrails/SignUp.png" />
 <img src="MyTrails/Explore.png" />
