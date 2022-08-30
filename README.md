@@ -37,8 +37,4 @@ Hosting: Heroku
 
 <img src="MyTrails/SignUp.png" />
 <img src="MyTrails/Explore.png" />
-<img src="MyTrails/Trail.png" />
-<img src="MyTrails/AddToList.png" />
-<img src="MyTrails/ReviewForm.png" />
-<img src="MyTrails/Lists.png" />
 <img src="MyTrails/ListDetails.png" />
